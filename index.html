@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dr MS Corpus — medical education, anaesthesiology, and pharmacology notes for learners. From a learner, for every learner.">
+  <title>Dr MS Corpus — Medical Education</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0b1524;
+      --surface: #111f35;
+      --surface2: #162540;
+      --teal: #2ec4b6;
+      --teal-dim: #1a8a80;
+      --amber: #f4a832;
+      --white: #f0f4f8;
+      --muted: #7a94ae;
+      --border: rgba(46,196,182,0.12);
+      --border2: rgba(240,244,248,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 40%, rgba(46,196,182,0.07) 0%, transparent 55%),
+        radial-gradient(circle at 90% 10%, rgba(244,168,50,0.05) 0%, transparent 45%),
+        radial-gradient(circle at 60% 80%, rgba(46,196,182,0.04) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(46,196,182,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,196,182,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(46,196,182,0.3);
+    }
+
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .logo-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-top: 3px;
+      font-weight: 300;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    nav a:hover { color: var(--teal); }
+    nav a.active { color: var(--teal); }
+
+    .nav-cta {
+      padding: 9px 20px;
+      border: 1px solid var(--teal);
+      color: var(--teal) !important;
+      border-radius: 4px;
+      transition: all 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal) !important;
+      color: var(--bg) !important;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 90vh;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-left {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      animation: fadeLeft 0.9s 0.15s ease both;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 400;
+      margin-bottom: 28px;
+    }
+
+    .tag::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .hero-left h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(46px, 5.5vw, 80px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .hero-left h1 .amb { color: var(--amber); }
+
+    .hero-tagline {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 460px;
+      margin-bottom: 44px;
+    }
+
+    .hero-desc strong {
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--teal);
+      color: var(--bg);
+      padding: 15px 32px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--amber);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover::before { transform: translateX(0); }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 15px 32px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    /* ─── HERO RIGHT ──────────────────────────────────── */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px;
+      gap: 40px;
+      animation: fadeRight 0.9s 0.2s ease both;
+      position: relative;
+    }
+
+    .logo-emblem-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-ring {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 1px solid rgba(46,196,182,0.15);
+      animation: spinSlow 20s linear infinite;
+    }
+
+    .logo-ring-2 {
+      position: absolute;
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      border: 1px dashed rgba(46,196,182,0.08);
+      animation: spinSlow 30s linear infinite reverse;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .logo-glow {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(46,196,182,0.3);
+      box-shadow:
+        0 0 40px rgba(46,196,182,0.15),
+        0 0 80px rgba(46,196,182,0.08),
+        0 0 0 8px rgba(46,196,182,0.04);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .stat {
+      flex: 1;
+      padding: 22px 20px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── INTERESTS STRIP ─────────────────────────────── */
+    .interests-strip {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 0 60px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .strip-label {
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      white-space: nowrap;
+      padding: 16px 28px 16px 0;
+      border-right: 1px solid var(--border);
+      margin-right: 32px;
+    }
+
+    .interest-items {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .interest-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      padding: 16px 0;
+    }
+
+    .interest-item span { font-size: 16px; }
+
+    /* ─── ECG DIVIDER ─────────────────────────────────── */
+    .ecg-band {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 14px 60px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ecg-line { flex: 1; height: 28px; position: relative; overflow: hidden; }
+
+    .ecg-line svg {
+      width: 200%;
+      height: 100%;
+      animation: scrollEcg 4s linear infinite;
+    }
+
+    @keyframes scrollEcg {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .ecg-text {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      white-space: nowrap;
+      font-weight: 400;
+    }
+
+    /* ─── ABOUT SECTION ───────────────────────────────── */
+    .about-section {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .about-left {
+      padding: 72px 48px 72px 60px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      background: var(--surface);
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .about-left h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+
+    .about-left h2 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .about-left p {
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .philosophy-card {
+      padding: 22px 24px;
+      border: 1px solid rgba(46,196,182,0.2);
+      border-radius: 6px;
+      background: rgba(46,196,182,0.04);
+    }
+
+    .philosophy-card .quote-mark {
+      font-family: 'Instrument Serif', serif;
+      font-size: 52px;
+      color: var(--teal);
+      line-height: 0.6;
+      margin-bottom: 14px;
+      opacity: 0.6;
+    }
+
+    .philosophy-card p {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 14.5px;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.7;
+    }
+
+    .philosophy-card cite {
+      display: block;
+      margin-top: 12px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-style: normal;
+    }
+
+    .about-right {
+      padding: 72px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .about-right p {
+      font-size: 16.5px;
+      line-height: 1.85;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .about-right p strong {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .about-right p em {
+      color: var(--teal);
+      font-style: italic;
+    }
+
+    .fav-book {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 24px;
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .book-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .book-meta { display: flex; flex-direction: column; gap: 4px; }
+
+    .book-label {
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .book-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .about-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 400;
+      transition: gap 0.2s;
+    }
+
+    .about-cta:hover { gap: 16px; }
+
+    /* ─── POSTS SECTION ───────────────────────────────── */
+    .posts-section {
+      padding: 80px 60px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+
+    .posts-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .posts-header h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .posts-header h2 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .view-all {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+      margin-bottom: 6px;
+    }
+
+    .view-all:hover { color: var(--teal); }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .post-card {
+      background: var(--surface);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-decoration: none;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .post-card:hover { background: var(--surface2); }
+    .post-card:hover::before { transform: scaleX(1); }
+
+    .post-card.featured {
+      padding: 44px 40px;
+    }
+
+    .post-category {
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 400;
+    }
+
+    .post-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--white);
+    }
+
+    .post-card.featured .post-title { font-size: 30px; }
+
+    .post-excerpt {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border2);
+    }
+
+    .post-date {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .post-arrow {
+      font-size: 16px;
+      color: var(--teal);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .post-card:hover .post-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .post-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(46,196,182,0.1);
+      border: 1px solid rgba(46,196,182,0.2);
+      border-radius: 100px;
+      font-size: 9.5px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    /* ─── CHANNELS STRIP ──────────────────────────────── */
+    .channels-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .channel-card {
+      padding: 52px 60px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      text-decoration: none;
+      transition: background 0.2s;
+      border-right: 1px solid var(--border);
+    }
+
+    .channel-card:last-child { border-right: none; }
+    .channel-card:hover { background: var(--surface); }
+
+    .channel-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .channel-card:hover .channel-icon {
+      border-color: var(--teal);
+      background: rgba(46,196,182,0.08);
+    }
+
+    .channel-info { display: flex; flex-direction: column; gap: 5px; }
+
+    .channel-platform {
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .channel-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 20px;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .channel-desc {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    /* ─── SANSKRIT FOOTER QUOTE ───────────────────────── */
+    .sanskrit-banner {
+      padding: 48px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .sanskrit-text {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(20px, 3vw, 32px);
+      color: var(--teal);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .sanskrit-meaning {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .footer-left a { color: var(--teal); text-decoration: none; }
+
+    .footer-right {
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeRight {
+      from { opacity: 0; transform: translateX(24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .posts-grid { grid-template-columns: 1fr 1fr; }
+      .posts-grid .post-card.featured { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 900px) {
+      header { padding: 18px 24px; }
+      nav { gap: 16px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 52px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-right { padding: 48px 24px; }
+      .logo-ring, .logo-ring-2 { display: none; }
+      .interests-strip { padding: 0 24px; }
+      .ecg-band { padding: 12px 24px; }
+      .about-section { grid-template-columns: 1fr; }
+      .about-left { padding: 48px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .about-right { padding: 48px 24px; }
+      .posts-section { padding: 56px 24px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      .posts-grid .post-card.featured { grid-column: 1; }
+      .channels-section { grid-template-columns: 1fr; }
+      .channel-card { padding: 36px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .channel-card:last-child { border-bottom: none; }
+      .sanskrit-banner { padding: 36px 24px; }
+      footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="./">
+      <img alt="Dr MS Corpus" class="logo-img" src="https://blogger.googleusercontent.com/img/a/AVvXsEi67W3CBCF17Osxku3rMXeudVhuc0plyq2BOnHyDhcw1Rq0pDvGYeCot0fgfXWqH8-svNInp8f_xakomKSn6qNmOp5cHNw1lMm7ZmF8j7b_m6eLJ5vped6jl1CkD8AeL2VcpKiOzMKWbxbGcM9GCE54vJtifQ8ypPnS4kE2Tv7QfqYBF3E3I5_YGx3AtgM" />
+      <div class="logo-text">
+        <span class="logo-name">Dr MS Corpus</span>
+        <span class="logo-sub">Medical Education</span>
+      </div>
+    </a>
+    <nav aria-label="Main">
+      <a class="active" href="./">Home</a>
+      <a href="#posts">Topics</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="tag">Welcome to Dr MS Corpus</div>
+      <h1>Medicine<br />as a <em>Living</em><br /><span class="amb">Journey</span></h1>
+      <p class="hero-tagline">From a learner, for every learner.</p>
+      <p class="hero-desc">
+        I'm not just teaching medicine — <strong>we're learning it together</strong> in an entirely new way. No dry lectures. No impossible jargon. Just <em>passionate, evidence-based</em> exploration that makes medicine interlinked, clinical, and genuinely understandable.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#posts"><span>Explore Articles</span><span>→</span></a>
+        <a class="btn-secondary" href="#about">About Me</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="logo-emblem-wrap">
+        <div class="logo-ring"></div>
+        <div class="logo-ring-2"></div>
+        <img alt="Dr MS Corpus" class="logo-glow" src="https://blogger.googleusercontent.com/img/a/AVvXsEgLrrPn0BrcJECYXn4M0_RvDVTclc2_B6dyEtUCwmXPaByJh9SCaEcmnby8C3krFuiOKVAPy_mk6lZIbNBjE_ZXp3wOucQ24ljv1fy3QZm6zRwAOYmKqGc43DkgCTPmITIHQdGV6Gb6SuGVjqKlSSq4sO0jhZe6vrI4880ERjlYIlc1tziGWvnrUpAz3bM" />
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Articles</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Curiosity</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">1</div>
+          <div class="stat-label">Community</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS STRIP -->
+  <div class="interests-strip">
+    <span class="strip-label">Beyond Medicine</span>
+    <div class="interest-items">
+      <div class="interest-item"><span>🎵</span> Music</div>
+      <div class="interest-item"><span>📚</span> Reading</div>
+      <div class="interest-item"><span>✈️</span> Travel</div>
+      <div class="interest-item"><span>🩺</span> Anaesthesiology</div>
+      <div class="interest-item"><span>🇮🇳</span> India</div>
+    </div>
+  </div>
+
+  <!-- ECG BAND -->
+  <div class="ecg-band">
+    <div class="ecg-line">
+      <svg fill="none" preserveAspectRatio="none" viewBox="0 0 400 28" aria-hidden="true">
+        <polyline fill="none" opacity="0.6" points="0,14 30,14 36,14 40,4 44,24 48,2 52,26 56,14 64,14 94,14 100,14 104,8 108,20 112,14 130,14 160,14 166,14 170,4 174,24 178,2 182,26 186,14 194,14 224,14 230,14 234,8 238,20 242,14 260,14 290,14 296,14 300,4 304,24 308,2 312,26 316,14 324,14 354,14 360,14 364,8 368,20 372,14 400,14" stroke="#2ec4b6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></polyline>
+        <polyline fill="none" opacity="0.6" points="400,14 430,14 436,14 440,4 444,24 448,2 452,26 456,14 464,14 494,14 500,14 504,8 508,20 512,14 530,14 560,14 566,14 570,4 574,24 578,2 582,26 586,14 594,14 624,14 630,14 634,8 638,20 642,14 660,14 690,14 696,14 700,4 704,24 708,2 712,26 716,14 724,14 754,14 760,14 764,8 768,20 772,14 800,14" stroke="#2ec4b6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></polyline>
+      </svg>
+    </div>
+    <span class="ecg-text">Recent Posts</span>
+    <div class="ecg-line" style="transform: scaleX(-1);">
+      <svg fill="none" preserveAspectRatio="none" viewBox="0 0 400 28" aria-hidden="true">
+        <polyline fill="none" opacity="0.6" points="0,14 30,14 36,14 40,4 44,24 48,2 52,26 56,14 64,14 94,14 100,14 104,8 108,20 112,14 130,14 160,14 166,14 170,4 174,24 178,2 182,26 186,14 194,14 224,14 230,14 234,8 238,20 242,14 260,14 290,14 296,14 300,4 304,24 308,2 312,26 316,14 324,14 354,14 360,14 364,8 368,20 372,14 400,14" stroke="#2ec4b6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></polyline>
+        <polyline fill="none" opacity="0.6" points="400,14 430,14 436,14 440,4 444,24 448,2 452,26 456,14 464,14 494,14 500,14 504,8 508,20 512,14 530,14 560,14 566,14 570,4 574,24 578,2 582,26 586,14 594,14 624,14 630,14 634,8 638,20 642,14 660,14 690,14 696,14 700,4 704,24 708,2 712,26 716,14 724,14 754,14 760,14 764,8 768,20 772,14 800,14" stroke="#2ec4b6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></polyline>
+      </svg>
+    </div>
+  </div>
+
+  <!-- POSTS SECTION -->
+  <section class="posts-section" id="posts">
+    <div class="posts-header">
+      <h2>From the <em>Corpus</em></h2>
+      <a class="view-all" href="https://drmsanaesthesia.blogspot.com" target="_blank" rel="noopener noreferrer">View All Posts →</a>
+    </div>
+    <div class="posts-grid">
+
+      <!-- Featured Post -->
+      <a class="post-card featured" href="https://drmsanaesthesia.blogspot.com/2026/02/Etomidate.html" target="_blank" rel="noopener noreferrer">
+        <div class="post-category">Anaesthesiology · Featured</div>
+        <div class="post-title">💉 Etomidate: The Guardian of Hemodynamic Stability</div>
+        <p class="post-excerpt">Picture this: a 68-year-old with coronary artery disease and BP of 85/50 needs emergency intubation. One drug stands as the guardian — barely whispering to the heart while putting the brain to sleep. A deep dive into the most cardiac-friendly induction agent.</p>
+        <div style="margin-top: 4px;">
+          <span class="post-tag">Induction Agent</span>
+          <span class="post-tag" style="margin-left: 6px;">Cardiac</span>
+        </div>
+        <div class="post-meta">
+          <span class="post-date">Feb 08, 2026</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a class="post-card" href="https://drmsanaesthesia.blogspot.com/2026/01/propofol.html" target="_blank" rel="noopener noreferrer">
+        <div class="post-category">Anaesthesiology</div>
+        <div class="post-title">Propofol: The Milk of Amnesia</div>
+        <p class="post-excerpt">The most widely used induction agent in the world — understanding its pharmacology, clinical uses, and what makes it the versatile everyday hero of anaesthesia.</p>
+        <div class="post-meta">
+          <span class="post-date">Jan 2026</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a class="post-card" href="https://drmsanaesthesia.blogspot.com/2026/01/Ondansetron.html" target="_blank" rel="noopener noreferrer">
+        <div class="post-category">Pharmacology</div>
+        <div class="post-title">Ondansetron: The Anti-Emetic Explained</div>
+        <p class="post-excerpt">From its mechanism as a 5-HT3 antagonist to its critical role in PONV prevention — a clinically focused breakdown of one of medicine's most prescribed drugs.</p>
+        <div class="post-meta">
+          <span class="post-date">Jan 2026</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Post 4 (on-site) -->
+      <a class="post-card" href="blog/mephentermine.html">
+        <div class="post-category">Corpus · On-site</div>
+        <div class="post-title">Mephentermine in Hypotension</div>
+        <p class="post-excerpt">Mechanism, dosing, indications, viva points and clinical pearls.</p>
+        <div class="post-meta">
+          <span class="post-date">Article</span>
+          <span class="post-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="about-left">
+      <div class="section-eyebrow">About</div>
+      <h2>The Mind<br />Behind the<br /><em>Corpus</em></h2>
+      <p>A Medical Doctor, a lifelong learner, and a believer that the best way to understand medicine is to teach it — simply, clearly, and together.</p>
+      <div class="philosophy-card">
+        <div class="quote-mark">"</div>
+        <p>Medicine isn't a destination — it's an evolving journey, and we're all students for life.</p>
+        <cite>— Dr MS Corpus</cite>
+      </div>
+    </div>
+    <div class="about-right">
+      <p>
+        Ever wondered how doctors really stay sharp? Welcome — I'm <strong>Dr. MS Corpus</strong>, and this space is where medical expertise meets lifelong learning.
+      </p>
+      <p>
+        Here's my truth: I'm not just teaching medicine — <em>we're learning it together in an entirely new way.</em> Through blogging, I've rediscovered the transformative power of reading deeply, writing clearly, and understanding concepts far beyond what textbooks offer. It's changing how I see medicine, and I hope it does the same for you.
+      </p>
+      <p>
+        Whether you're a fellow healthcare professional looking to refresh your knowledge or someone genuinely curious about health and wellness — <strong>you belong here.</strong> Every article I write sharpens our collective understanding, challenges assumptions, and opens new perspectives.
+      </p>
+      <div class="fav-book">
+        <div class="book-icon">📖</div>
+        <div class="book-meta">
+          <span class="book-label">Currently Inspiring Me</span>
+          <span class="book-title">"The Monk Who Sold His Ferrari" — Robin Sharma</span>
+        </div>
+      </div>
+      <a class="about-cta" href="contact.html">Get in Touch <span>→</span></a>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="channels-section">
+    <a class="channel-card" href="https://www.instagram.com/drmscorpus" target="_blank" rel="noopener noreferrer">
+      <div class="channel-icon">📸</div>
+      <div class="channel-info">
+        <span class="channel-platform">Instagram</span>
+        <span class="channel-name">@drmscorpus</span>
+        <span class="channel-desc">Visual notes, quick clinical concepts &amp; learning moments</span>
+      </div>
+    </a>
+    <a class="channel-card" href="https://www.youtube.com/@drmscorpus" target="_blank" rel="noopener noreferrer">
+      <div class="channel-icon">▶</div>
+      <div class="channel-info">
+        <span class="channel-platform">YouTube</span>
+        <span class="channel-name">@drmscorpus</span>
+        <span class="channel-desc">In-depth video explanations of clinical medicine &amp; pharmacology</span>
+      </div>
+    </a>
+  </section>
+
+  </main>
+
+  <!-- SANSKRIT BANNER -->
+  <div class="sanskrit-banner">
+    <div class="sanskrit-text">उद्धरेदात्मनात्मानं</div>
+    <div class="sanskrit-meaning">Uplift yourself by yourself &nbsp;·&nbsp; Bhagavad Gita</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-left">
+      © 2026 <strong>Dr MS Corpus</strong> — Medical Education &nbsp;·&nbsp;
+      <a href="mailto:drmscorpus@gmail.com">drmscorpus@gmail.com</a>
+    </p>
+    <span class="footer-right">From a learner, for learners &nbsp;✚&nbsp; India</span>
+  </footer>
+
+</div>
+</body>
+</html>
