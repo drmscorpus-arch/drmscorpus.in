@@ -1,0 +1,490 @@
+<!--
+  Blogger: In the post editor, use "HTML" / compose HTML mode and paste either:
+  (A) This full file only if your theme allows custom HTML pages; or
+  (B) Everything from <style> through the last </div> of .container (omit <!DOCTYPE>, <html>, <head>, <body> if your theme already wraps posts).
+  Raw "<" before numbers must stay as &lt; in HTML (fixed below).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiopental: Complete Guide for Medical Students | Dr MS Corpus</title>
+    <meta name="description" content="Master thiopental pharmacology: mechanism, pharmacokinetics, clinical uses, complications. Essential exam notes for medical students and anesthesia residents.">
+    <meta name="keywords" content="thiopental, thiobarbiturate, IV anesthetic, barbiturate mechanism, anesthesia pharmacology, medical education">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F8FAFC; color: #1F2937; line-height: 1.7; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .festive-banner { background: linear-gradient(135deg, #3B82F6 0%, #4FBDBA 100%); color: white; padding: 25px; border-radius: 10px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        .festive-banner h2 { font-size: 28px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        h1 { color: #3B82F6; font-size: 36px; margin-bottom: 20px; border-bottom: 4px solid #4FBDBA; padding-bottom: 15px; }
+        h2 { color: #3B82F6; font-size: 28px; margin-top: 35px; margin-bottom: 18px; padding-left: 15px; border-left: 5px solid #4FBDBA; }
+        h3 { color: #4FBDBA; font-size: 22px; margin-top: 25px; margin-bottom: 15px; }
+        h4 { color: #1F2937; font-size: 18px; margin-top: 20px; margin-bottom: 12px; font-weight: 600; }
+        .intro { background: #EEF2F7; padding: 25px; border-radius: 8px; margin-bottom: 30px; border-left: 5px solid #3B82F6; }
+        .welcome { color: #4FBDBA; font-weight: 600; font-size: 18px; margin-top: 15px; }
+        .toc { background: #DCEBFF; padding: 25px; border-radius: 10px; margin: 30px 0; border: 2px solid #3B82F6; }
+        .toc h2 { color: #3B82F6; margin-top: 0; margin-bottom: 20px; border: none; padding: 0; }
+        .toc ul { list-style: none; padding-left: 0; }
+        .toc li { margin: 12px 0; padding-left: 25px; position: relative; }
+        .toc li:before { content: "→"; position: absolute; left: 0; color: #4FBDBA; font-weight: bold; }
+        .toc a { color: #1F2937; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        .toc a:hover { color: #3B82F6; text-decoration: underline; }
+        .highlight-box { background: #BFEDE6; border-left: 5px solid #4FBDBA; padding: 20px; margin: 25px 0; border-radius: 8px; }
+        .exam-pearl { background: #DCEBFF; border: 2px solid #3B82F6; padding: 20px; margin: 25px 0; border-radius: 8px; }
+        .exam-pearl::before { content: "💡 EXAM PEARL"; display: block; font-weight: bold; color: #3B82F6; margin-bottom: 10px; font-size: 16px; }
+        .warning-box { background: #FEF3C7; border-left: 5px solid #F59E0B; padding: 20px; margin: 25px 0; border-radius: 8px; }
+        .warning-box::before { content: "⚠️ CRITICAL WARNING"; display: block; font-weight: bold; color: #D97706; margin-bottom: 10px; font-size: 16px; }
+        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+        th { background: #DCEBFF; color: #1F2937; padding: 15px; text-align: left; font-weight: 600; border-bottom: 2px solid #3B82F6; }
+        td { padding: 12px 15px; border-bottom: 1px solid #EEF2F7; }
+        tr:hover { background: #F8FAFC; }
+        ul, ol { margin: 15px 0; padding-left: 30px; }
+        li { margin: 10px 0; line-height: 1.7; }
+        strong { color: #1F2937; font-weight: 600; }
+        .mechanism-box { background: #EEF2F7; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .footer-section { background: #EEF2F7; padding: 30px; border-radius: 10px; margin-top: 50px; text-align: center; }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin: 25px 0; flex-wrap: wrap; }
+        .social-links a { color: #3B82F6; text-decoration: none; font-weight: 600; padding: 10px 20px; background: white; border-radius: 8px; transition: all 0.3s; border: 2px solid #3B82F6; }
+        .social-links a:hover { background: #3B82F6; color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
+        .gita-quote { background: linear-gradient(135deg, #BFEDE6 0%, #DCEBFF 100%); padding: 30px; border-radius: 10px; margin: 40px 0; border: 2px solid #4FBDBA; font-style: italic; text-align: center; }
+        .gita-quote p { font-size: 18px; line-height: 1.8; color: #1F2937; margin-bottom: 15px; }
+        .gita-quote cite { display: block; margin-top: 15px; color: #4B5563; font-size: 16px; font-style: normal; }
+        .prev-blog { background: #3B82F6; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center; }
+        .prev-blog a { color: white; text-decoration: none; font-weight: 600; font-size: 18px; display: inline-block; padding: 12px 30px; background: rgba(255,255,255,0.2); border-radius: 6px; transition: all 0.3s; }
+        .prev-blog a:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            .social-links { flex-direction: column; align-items: center; }
+            table { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="festive-banner">
+            <h2>🪔 Happy Bhogi & Sankranthi! 🌾</h2>
+            <p>Wishing you a harvest of knowledge and prosperity in your medical journey!</p>
+        </div>
+
+        <div class="intro">
+            <p>Ever wondered why anesthesia textbooks still dedicate entire chapters to a drug that's been replaced by propofol? Here's the truth: <strong>mastering thiopental is like unlocking the Rosetta Stone of intravenous anesthetics</strong>. Understanding this pioneering barbiturate reveals fundamental principles that apply to every modern IV anesthetic you'll encounter.</p>
+            <p class="welcome">Welcome to Dr MS Corpus – where we transform complex pharmacology into crystal-clear exam gold!</p>
+        </div>
+
+        <h1>Thiopental: The Gold Standard Prototype Every Medical Student Must Master</h1>
+
+        <div class="toc">
+            <h2>📚 Table of Contents</h2>
+            <ul>
+                <li><a href="#history">Historical Background</a></li>
+                <li><a href="#chemistry">Chemical Structure & SAR</a></li>
+                <li><a href="#mechanism">Mechanism of Action</a></li>
+                <li><a href="#pharmacokinetics">Pharmacokinetics: Redistribution</a></li>
+                <li><a href="#potency">Potency & Dosing</a></li>
+                <li><a href="#clinical">Clinical Applications</a></li>
+                <li><a href="#methohexital">Methohexital Characteristics</a></li>
+                <li><a href="#cardiovascular">Cardiovascular Effects</a></li>
+                <li><a href="#respiratory">Respiratory Effects</a></li>
+                <li><a href="#complications">Serious Complications</a></li>
+                <li><a href="#exam-points">Top 10 Exam Points</a></li>
+            </ul>
+        </div>
+
+        <section id="history">
+            <h2>Historical Background & Clinical Relevance</h2>
+            <p>Introduced in 1934, thiopental revolutionized anesthesia by enabling <strong>rapid induction in seconds</strong> versus the slow, dangerous diethyl ether inductions. Though no longer exported to the USA (manufacturers protested capital punishment use), it remains the <strong>gold standard prototype</strong> for all IV anesthetics including propofol, etomidate, and midazolam.</p>
+
+            <div class="highlight-box">
+                <h4>Why Study a "Replaced" Drug?</h4>
+                <p>Thiopental is the reference standard in research. The pharmacokinetic principles of redistribution, lipid solubility, and protein binding apply universally to ALL IV anesthetics. Master thiopental, and you've decoded the entire class. It's still used internationally and appears frequently on board exams.</p>
+            </div>
+        </section>
+
+        <section id="chemistry">
+            <h2>Chemical Structure & Structure-Activity Relationships</h2>
+            <h3>Classification: Thiobarbiturate</h3>
+            <p>Derived from barbituric acid with <strong>sulfur at position 2</strong> instead of oxygen, dramatically increasing lipid solubility and hypnotic potency.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Structural Modification</th>
+                        <th>Example</th>
+                        <th>Effect</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Oxygen at position 2</strong></td>
+                        <td>Pentobarbital, Secobarbital</td>
+                        <td>Oxybarbiturates – less lipid soluble</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sulfur at position 2</strong></td>
+                        <td>Thiopental, Thiamylal</td>
+                        <td>MORE lipid soluble, GREATER hypnotic potency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phenyl at position 5</strong></td>
+                        <td>Phenobarbital</td>
+                        <td>INCREASES anticonvulsant activity</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Methyl on nitrogen</strong></td>
+                        <td>Methohexital</td>
+                        <td>INCREASES hypnotic potency, LOWERS seizure threshold</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-pearl">
+                The sulfur story: Sulfur makes it "super" lipophilic = faster brain penetration and more potent hypnotic effects. This is why thiobarbiturates dominate as induction agents.</div>
+        </section>
+
+        <section id="mechanism">
+            <h2>Mechanism of Action: GABAA Modulation</h2>
+            <div class="mechanism-box">
+                <h4>Primary Mechanism</h4>
+                <ol>
+                    <li><strong>Allosteric Modulation:</strong> Increases GABA affinity for GABAA receptors</li>
+                    <li><strong>Prolonged Opening:</strong> Extends chloride channel opening duration</li>
+                    <li><strong>Direct Activation:</strong> At HIGH doses, directly activates GABAA receptors</li>
+                </ol>
+            </div>
+
+            <p><strong>Specific Receptors:</strong> GABAA receptors with β3 subunits mediate immobilizing and hypnotic activities.</p>
+            
+            <p><strong>Additional Actions:</strong> Also acts on glutamate, adenosine, and neuronal nicotinic receptors.</p>
+
+            <div class="exam-pearl">
+                For exams: Clinical doses = GABA potentiation via allosteric binding. High doses = direct GABAA activation. This explains dose-dependent effects and profound CNS depression in overdose.
+            </div>
+        </section>
+
+        <section id="pharmacokinetics">
+            <h2>Pharmacokinetics: The Redistribution Story</h2>
+            <p>This is the <strong>most testable concept</strong>. Understanding redistribution explains why patients wake quickly despite thiopental's long elimination half-life.</p>
+
+            <h3>Three-Phase Journey</h3>
+            <div class="highlight-box">
+                <h4>Phase 1: Rapid Brain Uptake → Unconsciousness</h4>
+                <p>Highly lipophilic thiopental rapidly crosses blood-brain barrier in <strong>seconds</strong>. Brain gets high drug concentration first, producing immediate unconsciousness.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Phase 2: Redistribution → Awakening</h4>
+                <p><strong>CRITICAL:</strong> Drug redistributes from brain to skeletal muscle then fat. This redistribution, NOT metabolism, causes awakening 5-10 minutes post-dose. Drug hasn't been eliminated—it's moved to inactive tissues.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Phase 3: Slow Metabolism</h4>
+                <p>Lengthy but clinically irrelevant for single doses since patient already awake from redistribution.</p>
+            </div>
+
+            <div class="exam-pearl">
+                <strong>EXAM GOLD #1:</strong> "Redistribution, NOT metabolism, determines single-dose duration." Pathway: Brain → Skeletal Muscle → Fat. Awakening = redistribution, not elimination.
+            </div>
+
+            <h4>Metabolism Facts</h4>
+            <ul>
+                <li>&lt;1% excreted unchanged</li>
+                <li>99% hepatic metabolism (hydroxythiopental, 5-carboxylic acid - both inactive)</li>
+                <li>Low hepatic extraction = capacity-dependent elimination</li>
+                <li>Liver has huge reserve; extreme dysfunction needed to prolong single-dose duration</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Context-Sensitive Half-Time:</strong> After prolonged infusion, drug accumulates in fat/muscle, slowly re-entering circulation. This makes thiopental <strong>unsuitable for continuous infusion</strong>—why propofol replaced it.
+            </div>
+
+            <h4>Age-Related Changes</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Population</th>
+                        <th>Changes</th>
+                        <th>Implication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pediatric</strong></td>
+                        <td>Shorter elimination, faster clearance</td>
+                        <td>More rapid recovery after large/repeated doses</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Elderly</strong></td>
+                        <td>Slower central→peripheral transfer</td>
+                        <td>DECREASED dose requirements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pregnancy</strong></td>
+                        <td>Prolonged elimination, ↑protein binding</td>
+                        <td>~18% dose reduction (7-13 weeks)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="potency">
+            <h2>Relative Potency & Dose Requirements</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Drug</th>
+                        <th>Relative Potency</th>
+                        <th>Nonionized at pH 7.4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Thiopental</td>
+                        <td>1.0 (reference)</td>
+                        <td>61%</td>
+                    </tr>
+                    <tr>
+                        <td>Thiamylal</td>
+                        <td>1.1</td>
+                        <td>Similar</td>
+                    </tr>
+                    <tr>
+                        <td>Methohexital</td>
+                        <td>2.5 (most potent)</td>
+                        <td>76%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="exam-pearl">
+                Methohexital is 2.5× more potent because 76% is nonionized vs thiopental's 61%. Greater nonionized fraction = easier BBB crossing = greater potency.
+            </div>
+
+            <h3>Dose Modification Factors</h3>
+            <h4>DECREASE Dose With:</h4>
+            <ul>
+                <li>Increasing age</li>
+                <li>Early pregnancy (↓18% at 7-13 weeks)</li>
+                <li>Hypovolemia</li>
+                <li><strong>Low cardiac output (MOST IMPORTANT)</strong></li>
+            </ul>
+
+            <h4>INCREASE Dose With:</h4>
+            <ul>
+                <li>Thermal injury (>1 year post-burn in children)</li>
+            </ul>
+
+            <h4>NO Change With:</h4>
+            <ul>
+                <li>Alcoholism (after 9-30 days abstinence)</li>
+            </ul>
+
+            <div class="exam-pearl">
+                <strong>CRITICAL:</strong> Low cardiac output is MOST IMPORTANT factor. Reduced CO = less drug to muscle/fat = more remains in circulation reaching brain. Always reduce doses in shock, heart failure, or low-output states.
+            </div>
+        </section>
+
+        <section id="clinical">
+            <h2>Clinical Applications</h2>
+            
+            <h3>1. Induction of Anesthesia</h3>
+            <p>Replaced by propofol (less nausea, faster recovery), though single-dose awakening time similar.</p>
+
+            <h3>2. Premedication</h3>
+            <p>Replaced by benzodiazepines due to residual "hangover" effects.</p>
+
+            <h3>3. Seizure Treatment</h3>
+            <p>Effective for grand mal seizures; benzodiazepines superior (more specific CNS action).</p>
+
+            <h3>4. Rectal Administration</h3>
+            <p>Methohexital 20-30 mg/kg rectally for uncooperative/young patients. Loss of consciousness when plasma >2 μg/mL.</p>
+
+            <h3>5. Increased Intracranial Pressure</h3>
+            <div class="mechanism-box">
+                <h4>ICP Reduction Mechanism:</h4>
+                <p>Reduces cerebral metabolic rate of O<sub>2</sub> → ↓cerebral blood volume (reduced vasodilatory peptides) → cerebral vasoconstriction → ↓cerebral blood volume → ↓cerebral blood flow → ↓ICP. Can titrate to EEG burst suppression. Isoelectric EEG = maximal CMRO<sub>2</sub> depression (~55%).</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Clinical Reality</h4>
+                <p>Useful for induction in ICP patients and can decrease refractory ICP, but produces <strong>SIGNIFICANT HYPOTENSION</strong>. <strong>NO demonstrated improved outcome</strong> in head trauma despite theoretical benefits.</p>
+            </div>
+
+            <h3>6. Cerebral Ischemia</h3>
+            <p><strong>Global (cardiac arrest):</strong> Efficacy UNPROVEN, not recommended.</p>
+            <p><strong>Focal/incomplete:</strong> Animal studies show benefit (CMRO₂ ↓ > CBF ↓), but NOT routinely recommended. Moderate hypothermia (33-34°C) superior.</p>
+        </section>
+
+        <section id="methohexital">
+            <h2>Methohexital: Special Characteristics</h2>
+            
+            <div class="highlight-box">
+                <h4>Unique Advantage: LOWERS Seizure Threshold</h4>
+                <p>Unlike other barbiturates (which raise threshold), methohexital lowers it. Useful for:</p>
+                <ul>
+                    <li><strong>Temporal lobe seizure focus identification</strong> during epilepsy surgery</li>
+                    <li><strong>Electroconvulsive therapy (ECT):</strong> Preferred—produces longer seizure duration</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>High Excitatory Phenomena Incidence:</strong>
+                <ul>
+                    <li>Myoclonus (involuntary muscle movements)</li>
+                    <li>Hiccoughs</li>
+                    <li>Dose-dependent; can decrease with opioid pretreatment</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="cardiovascular">
+            <h2>Cardiovascular Effects</h2>
+            <h4>Normovolemic Patients (5 mg/kg IV):</h4>
+            <ul>
+                <li>BP: Transient ↓10-20 mmHg</li>
+                <li>HR: Compensatory ↑15-20 bpm</li>
+                <li>Effects MILD and TRANSIENT</li>
+            </ul>
+
+            <div class="mechanism-box">
+                <h4>Hypotension Mechanism</h4>
+                <p><strong>PRIMARY:</strong> Peripheral vasodilation (depression of medullary vasomotor center → ↓sympathetic outflow). MINIMAL direct myocardial depression at clinical doses.</p>
+            </div>
+
+            <p><strong>Clinical Implications:</strong> Caution in hypovolemia; reduce dose in cardiovascular compromise.</p>
+        </section>
+
+        <section id="respiratory">
+            <h2>Respiratory Effects</h2>
+            <div class="warning-box">
+                <strong>Dose-Dependent Ventilatory Depression:</strong>
+                <ul>
+                    <li>Depresses medullary/pontine ventilatory centers</li>
+                    <li>Decreases CO₂ sensitivity</li>
+                    <li><strong>APNEA especially likely with other CNS depressants</strong></li>
+                </ul>
+            </div>
+
+            <h4>Post-Induction Pattern:</h4>
+            <ul>
+                <li>Slow respiratory frequency</li>
+                <li>Decreased tidal volume</li>
+                <li>Laryngeal/cough reflexes NOT depressed until large doses</li>
+            </ul>
+
+            <h4>Neurophysiological Monitoring:</h4>
+            <p>Produces dose-dependent changes in SSERs and brainstem auditory evoked responses. <strong>IMPORTANT:</strong> Some response ALWAYS obtainable. Acceptable drug when evoked potential monitoring needed.</p>
+        </section>
+
+        <section id="complications">
+            <h2>Serious Complications</h2>
+            
+            <h3>1. Intra-Arterial Injection</h3>
+            <div class="warning-box">
+                <h4>Clinical Features:</h4>
+                <ul>
+                    <li>IMMEDIATE intense vasoconstriction</li>
+                    <li>Excruciating pain along artery distribution</li>
+                    <li>Obscured distal pulses</li>
+                    <li>Blanching → cyanosis</li>
+                    <li>Risk: gangrene, permanent nerve damage</li>
+                </ul>
+
+                <h4>Emergency Treatment:</h4>
+                <ol>
+                    <li>Immediately DILUTE drug (leave needle in)</li>
+                    <li>Inject VASODILATORS (lidocaine or papaverine)</li>
+                    <li>Maintain adequate blood flow</li>
+                </ol>
+            </div>
+
+            <h3>2. Allergic Reactions</h3>
+            <p><strong>Types:</strong> True anaphylaxis (antigen-antibody) or anaphylactoid (direct histamine release).</p>
+            <p><strong>Incidence:</strong> ~1 per 30,000 patients</p>
+            <p><strong>Risk Factors:</strong> History of chronic atopy; can occur without prior exposure; many tolerated thiopental previously.</p>
+            <p><strong>Management:</strong> Stop administration, epinephrine, IV fluids, antihistamines, supportive care.</p>
+
+            <h3>3. Other Effects</h3>
+            <div class="highlight-box">
+                <h4>Enzyme Induction (2-7 days sustained administration):</h4>
+                <p>Accelerates metabolism of oral anticoagulants, phenytoin, tricyclic antidepressants, corticosteroids, bile salts, vitamin K.</p>
+                <p><strong>Special Risk:</strong> Accelerates heme production → may EXACERBATE acute intermittent porphyria.</p>
+            </div>
+
+            <p><strong>Direct Muscle Effects:</strong> NO direct effects on skeletal, cardiac, or smooth muscle.</p>
+        </section>
+
+        <section id="exam-points">
+            <h2>🎯 Top 10 High-Yield Exam Points</h2>
+            <div class="exam-pearl">
+                <ol style="padding-left: 20px;">
+                    <li><strong>Redistribution NOT metabolism</strong> determines single-dose duration</li>
+                    <li><strong>Pathway:</strong> Brain → Muscle → Fat</li>
+                    <li><strong>Most important dose factor:</strong> CARDIAC OUTPUT (low CO = higher brain concentration)</li>
+                    <li><strong>Never for infusions:</strong> Long context-sensitive half-time</li>
+                    <li><strong>ICP mechanism:</strong> Cerebral vasoconstriction → ↓cerebral blood volume → ↓ICP</li>
+                    <li><strong>Metabolism:</strong> 99% complete, but irrelevant for single dose</li>
+                    <li><strong>Hypotension:</strong> Peripheral vasodilation (NOT myocardial depression)</li>
+                    <li><strong>Respiratory:</strong> Always prepare for APNEA</li>
+                    <li><strong>Intra-arterial emergency:</strong> Dilute, vasodilate, circulate</li>
+                    <li><strong>Replaced by propofol</strong> but remains prototype for understanding IV anesthetics</li>
+                </ol>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Quick Reference Tables</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Chemical class</td><td>Thiobarbiturate (sulfur at C2)</td></tr>
+                        <tr><td>Lipid solubility</td><td>Very high</td></tr>
+                        <tr><td>Protein binding</td><td>High</td></tr>
+                        <tr><td>Metabolism</td><td>99% hepatic, &lt;1% unchanged urine</td></tr>
+                        <tr><td>Single dose duration</td><td>Short (redistribution)</td></tr>
+                        <tr><td>Infusion duration</td><td>Long (fat accumulation)</td></tr>
+                        <tr><td>Nonionized at pH 7.4</td><td>61%</td></tr>
+                    </tbody>
+                </table>
+
+                <table style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Thiopental</th>
+                            <th>Methohexital</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Relative potency</td><td>1</td><td>2.5</td></tr>
+                        <tr><td>Seizure threshold</td><td>RAISES</td><td>LOWERS</td></tr>
+                        <tr><td>Excitatory phenomena</td><td>Rare</td><td>Common</td></tr>
+                        <tr><td>Epilepsy surgery</td><td>No</td><td>Yes</td></tr>
+                        <tr><td>ECT use</td><td>Less preferred</td><td>Preferred</td></tr>
+                        <tr><td>Myoclonus</td><td>Rare</td><td>Common</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="gita-quote">
+            <p>"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>
+            You have the right to perform your duties, but you are not entitled to the fruits of your actions."</p>
+            <cite>— Bhagavad Gita 2.47</cite>
+            <p style="margin-top: 15px; font-style: normal; font-size: 16px;">Focus on mastering the knowledge itself, not obsessing over exam results. Study with dedication, understand deeply, and trust that excellence will follow naturally. Your duty is to learn well—outcomes will take care of themselves.</p>
+        </div>
+
+        <div class="footer-section">
+            <p><strong>Dr MS Corpus</strong> — pharmacology notes for medical students and anesthesia trainees.</p>
+            <p style="margin-top: 12px; font-size: 14px; color: #4B5563;">If this post helped you, bookmark it for revision before exams.</p>
+        </div>
+    </div>
+</body>
+</html>
