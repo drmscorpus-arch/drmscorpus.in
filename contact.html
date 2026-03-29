@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Dr MS Corpus — reach out for medical education queries, collaborations, or just to say hello.">
+  <title>Contact — Dr MS Corpus</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0b1524;
+      --surface: #111f35;
+      --surface2: #162540;
+      --teal: #2ec4b6;
+      --teal-dim: #1a8a80;
+      --amber: #f4a832;
+      --white: #f0f4f8;
+      --muted: #7a94ae;
+      --border: rgba(46,196,182,0.12);
+      --border2: rgba(240,244,248,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 40%, rgba(46,196,182,0.07) 0%, transparent 55%),
+        radial-gradient(circle at 90% 10%, rgba(244,168,50,0.05) 0%, transparent 45%),
+        radial-gradient(circle at 60% 80%, rgba(46,196,182,0.04) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(46,196,182,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,196,182,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeDown 0.7s ease both;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(46,196,182,0.3);
+    }
+
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+
+    .logo-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-top: 3px;
+      font-weight: 300;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    nav a:hover { color: var(--teal); }
+    nav a.active { color: var(--teal); }
+
+    .nav-cta {
+      padding: 9px 20px;
+      border: 1px solid var(--teal);
+      color: var(--teal) !important;
+      border-radius: 4px;
+      transition: all 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal) !important;
+      color: var(--bg) !important;
+    }
+
+    /* ─── PAGE HERO ───────────────────────────────────── */
+    .page-hero {
+      padding: 72px 60px 60px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeLeft 0.9s 0.15s ease both;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .breadcrumb a {
+      color: var(--teal);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .breadcrumb a:hover { opacity: 0.7; }
+    .breadcrumb span { color: var(--border); }
+
+    .page-hero h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(42px, 5vw, 72px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .page-hero p {
+      font-size: 16px;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ─── CONTACT GRID ────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    /* ─── LEFT PANEL ──────────────────────────────────── */
+    .contact-left {
+      padding: 64px 48px 64px 60px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      background: var(--surface);
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .contact-left h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+    }
+
+    .contact-left h2 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    .contact-left p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ─── CONTACT METHODS ─────────────────────────────── */
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      background: var(--bg);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .contact-method:hover {
+      border-color: rgba(46,196,182,0.3);
+      background: rgba(46,196,182,0.04);
+      transform: translateX(4px);
+    }
+
+    .method-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .contact-method:hover .method-icon {
+      border-color: var(--teal);
+      background: rgba(46,196,182,0.08);
+    }
+
+    .method-info { display: flex; flex-direction: column; gap: 3px; }
+
+    .method-label {
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .method-value {
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .method-arrow {
+      margin-left: auto;
+      color: var(--teal);
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      font-size: 16px;
+    }
+
+    .contact-method:hover .method-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    /* ─── RESPONSE NOTE ───────────────────────────────── */
+    .response-note {
+      padding: 18px 20px;
+      border: 1px solid rgba(244,168,50,0.2);
+      border-radius: 6px;
+      background: rgba(244,168,50,0.04);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .note-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+    .response-note p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .response-note strong {
+      color: var(--amber);
+      font-weight: 400;
+    }
+
+    /* ─── RIGHT PANEL (FORM) ──────────────────────────── */
+    .contact-right {
+      padding: 64px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .form-eyebrow {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--teal);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .form-eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--teal);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 4px;
+      padding: 13px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237a94ae' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(122,148,174,0.5);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: rgba(46,196,182,0.4);
+      background: var(--surface2);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.7;
+    }
+
+    .form-group select option {
+      background: var(--surface);
+      color: var(--white);
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--teal);
+      color: var(--bg);
+      padding: 15px 36px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      align-self: flex-start;
+    }
+
+    .btn-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--amber);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .btn-submit:hover::before { transform: translateX(0); }
+    .btn-submit span { position: relative; z-index: 1; }
+
+    /* ─── SUCCESS STATE ───────────────────────────────── */
+    .success-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 20px;
+      padding: 48px 0;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 1.5px solid var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      background: rgba(46,196,182,0.06);
+    }
+
+    .success-state h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .success-state p {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 340px;
+      line-height: 1.7;
+    }
+
+    .btn-back {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: gap 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-back:hover { gap: 12px; }
+
+    /* ─── SOCIAL STRIP ────────────────────────────────── */
+    .social-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.8s 0.25s ease both;
+    }
+
+    .social-card {
+      padding: 40px 60px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      text-decoration: none;
+      transition: background 0.2s;
+      border-right: 1px solid var(--border);
+    }
+
+    .social-card:last-child { border-right: none; }
+    .social-card:hover { background: var(--surface); }
+
+    .social-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+
+    .social-card:hover .social-icon {
+      border-color: var(--teal);
+      background: rgba(46,196,182,0.08);
+    }
+
+    .social-info { display: flex; flex-direction: column; gap: 4px; }
+
+    .social-platform {
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .social-handle {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 18px;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .social-desc {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ─── SANSKRIT BANNER ─────────────────────────────── */
+    .sanskrit-banner {
+      padding: 48px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .sanskrit-text {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(20px, 3vw, 32px);
+      color: var(--teal);
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .sanskrit-meaning {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 60px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .footer-left a { color: var(--teal); text-decoration: none; }
+
+    .footer-right {
+      font-size: 10.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(-24px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      header { padding: 18px 24px; }
+      nav { gap: 16px; }
+      .page-hero { padding: 48px 24px 40px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-left { padding: 48px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-right { padding: 48px 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .social-strip { grid-template-columns: 1fr; }
+      .social-card { padding: 28px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .social-card:last-child { border-bottom: none; }
+      .sanskrit-banner { padding: 36px 24px; }
+      footer { padding: 20px 24px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="./">
+      <img alt="Dr MS Corpus" class="logo-img" src="https://blogger.googleusercontent.com/img/a/AVvXsEi67W3CBCF17Osxku3rMXeudVhuc0plyq2BOnHyDhcw1Rq0pDvGYeCot0fgfXWqH8-svNInp8f_xakomKSn6qNmOp5cHNw1lMm7ZmF8j7b_m6eLJ5vped6jl1CkD8AeL2VcpKiOzMKWbxbGcM9GCE54vJtifQ8ypPnS4kE2Tv7QfqYBF3E3I5_YGx3AtgM" />
+      <div class="logo-text">
+        <span class="logo-name">Dr MS Corpus</span>
+        <span class="logo-sub">Medical Education</span>
+      </div>
+    </a>
+    <nav aria-label="Main">
+      <a href="./">Home</a>
+      <a href="./#posts">Topics</a>
+      <a href="./#about">About</a>
+      <a class="nav-cta active" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb">
+        <a href="./">Home</a>
+        <span>/</span>
+        <span>Contact</span>
+      </div>
+      <h1>Get in <em>Touch</em></h1>
+      <p>Whether you have a question, want to collaborate, or just want to say hello — I'd love to hear from you.</p>
+    </div>
+
+    <!-- CONTACT GRID -->
+    <div class="contact-grid">
+
+      <!-- LEFT -->
+      <div class="contact-left">
+        <div class="section-eyebrow">Reach Out</div>
+        <div>
+          <h2>Let's <em>Connect</em><br />& Learn Together</h2>
+        </div>
+        <p>Medicine is best understood in community. Whether you're a fellow learner, a student, or a curious mind — this space is open to all.</p>
+
+        <div class="contact-methods">
+          <a class="contact-method" href="mailto:drmscorpus@gmail.com">
+            <div class="method-icon">✉️</div>
+            <div class="method-info">
+              <span class="method-label">Email</span>
+              <span class="method-value">drmscorpus@gmail.com</span>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+          <a class="contact-method" href="https://www.instagram.com/drmscorpus" target="_blank" rel="noopener noreferrer">
+            <div class="method-icon">📸</div>
+            <div class="method-info">
+              <span class="method-label">Instagram</span>
+              <span class="method-value">@drmscorpus</span>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+          <a class="contact-method" href="https://www.youtube.com/@drmscorpus" target="_blank" rel="noopener noreferrer">
+            <div class="method-icon">▶️</div>
+            <div class="method-info">
+              <span class="method-label">YouTube</span>
+              <span class="method-value">@drmscorpus</span>
+            </div>
+            <span class="method-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="response-note">
+          <div class="note-icon">⏱</div>
+          <p><strong>Response time:</strong> I try to reply within 48 hours. For urgent queries, Instagram DMs tend to be faster.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT (FORM) -->
+      <div class="contact-right">
+        <div class="form-eyebrow">Send a Message</div>
+
+        <div class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" placeholder="Dr. / Mr. / Ms." />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="role">You are a</label>
+            <select id="role">
+              <option value="" disabled selected>Select your background</option>
+              <option value="student">Medical Student</option>
+              <option value="doctor">Doctor / Resident</option>
+              <option value="nurse">Nurse / Allied Health</option>
+              <option value="curious">Curious Learner</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="What's on your mind?" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Share your thoughts, questions, or just say hello..."></textarea>
+          </div>
+          <button class="btn-submit" onclick="handleSubmit()">
+            <span>Send Message</span>
+            <span>→</span>
+          </button>
+        </div>
+
+        <!-- SUCCESS STATE -->
+        <div class="success-state" id="successState">
+          <div class="success-icon">✓</div>
+          <h3>Message <em style="font-style:italic; color:var(--teal)">Sent!</em></h3>
+          <p>Thank you for reaching out. I'll get back to you as soon as I can. Keep learning! 🩺</p>
+          <button class="btn-back" onclick="resetForm()">← Send another message</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SOCIAL STRIP -->
+    <div class="social-strip">
+      <a class="social-card" href="https://www.instagram.com/drmscorpus" target="_blank" rel="noopener noreferrer">
+        <div class="social-icon">📸</div>
+        <div class="social-info">
+          <span class="social-platform">Instagram</span>
+          <span class="social-handle">@drmscorpus</span>
+          <span class="social-desc">Visual notes & quick concepts</span>
+        </div>
+      </a>
+      <a class="social-card" href="https://www.youtube.com/@drmscorpus" target="_blank" rel="noopener noreferrer">
+        <div class="social-icon">▶</div>
+        <div class="social-info">
+          <span class="social-platform">YouTube</span>
+          <span class="social-handle">@drmscorpus</span>
+          <span class="social-desc">In-depth video explanations</span>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- SANSKRIT BANNER -->
+  <div class="sanskrit-banner">
+    <div class="sanskrit-text">उद्धरेदात्मनात्मानं</div>
+    <div class="sanskrit-meaning">Uplift yourself by yourself &nbsp;·&nbsp; Bhagavad Gita</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-left">
+      © 2026 <strong>Dr MS Corpus</strong> — Medical Education &nbsp;·&nbsp;
+      <a href="mailto:drmscorpus@gmail.com">drmscorpus@gmail.com</a>
+    </p>
+    <span class="footer-right">From a learner, for learners &nbsp;✚&nbsp; India</span>
+  </footer>
+
+</div>
+
+<script>
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    // Build mailto link with form data
+    const subject = document.getElementById('subject').value.trim() || 'Message from Dr MS Corpus website';
+    const role = document.getElementById('role').value;
+    const body = `Name: ${name}\nEmail: ${email}\nBackground: ${role}\n\n${message}`;
+    const mailtoLink = `mailto:drmscorpus@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+
+    // Show success state
+    setTimeout(() => {
+      document.getElementById('contactForm').style.display = 'none';
+      const s = document.getElementById('successState');
+      s.style.display = 'flex';
+    }, 500);
+  }
+
+  function resetForm() {
+    document.getElementById('contactForm').style.display = 'flex';
+    document.getElementById('successState').style.display = 'none';
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('subject').value = '';
+    document.getElementById('message').value = '';
+    document.getElementById('role').value = '';
+  }
+</script>
+</body>
+</html>
