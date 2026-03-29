@@ -1,76 +1,147 @@
-<!--
-  Blogger: In the post editor, use "HTML" / compose HTML mode and paste either:
-  (A) This full file only if your theme allows custom HTML pages; or
-  (B) Everything from <style> through the last </div> of .container (omit <!DOCTYPE>, <html>, <head>, <body> if your theme already wraps posts).
-  Raw "<" before numbers must stay as &lt; in HTML (fixed below).
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiopental: Complete Guide for Medical Students | Dr MS Corpus</title>
-    <meta name="description" content="Master thiopental pharmacology: mechanism, pharmacokinetics, clinical uses, complications. Essential exam notes for medical students and anesthesia residents.">
-    <meta name="keywords" content="thiopental, thiobarbiturate, IV anesthetic, barbiturate mechanism, anesthesia pharmacology, medical education">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #F8FAFC; color: #1F2937; line-height: 1.7; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .festive-banner { background: linear-gradient(135deg, #3B82F6 0%, #4FBDBA 100%); color: white; padding: 25px; border-radius: 10px; text-align: center; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
-        .festive-banner h2 { font-size: 28px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        h1 { color: #3B82F6; font-size: 36px; margin-bottom: 20px; border-bottom: 4px solid #4FBDBA; padding-bottom: 15px; }
-        h2 { color: #3B82F6; font-size: 28px; margin-top: 35px; margin-bottom: 18px; padding-left: 15px; border-left: 5px solid #4FBDBA; }
-        h3 { color: #4FBDBA; font-size: 22px; margin-top: 25px; margin-bottom: 15px; }
-        h4 { color: #1F2937; font-size: 18px; margin-top: 20px; margin-bottom: 12px; font-weight: 600; }
-        .intro { background: #EEF2F7; padding: 25px; border-radius: 8px; margin-bottom: 30px; border-left: 5px solid #3B82F6; }
-        .welcome { color: #4FBDBA; font-weight: 600; font-size: 18px; margin-top: 15px; }
-        .toc { background: #DCEBFF; padding: 25px; border-radius: 10px; margin: 30px 0; border: 2px solid #3B82F6; }
-        .toc h2 { color: #3B82F6; margin-top: 0; margin-bottom: 20px; border: none; padding: 0; }
-        .toc ul { list-style: none; padding-left: 0; }
-        .toc li { margin: 12px 0; padding-left: 25px; position: relative; }
-        .toc li:before { content: "→"; position: absolute; left: 0; color: #4FBDBA; font-weight: bold; }
-        .toc a { color: #1F2937; text-decoration: none; font-weight: 500; transition: color 0.3s; }
-        .toc a:hover { color: #3B82F6; text-decoration: underline; }
-        .highlight-box { background: #BFEDE6; border-left: 5px solid #4FBDBA; padding: 20px; margin: 25px 0; border-radius: 8px; }
-        .exam-pearl { background: #DCEBFF; border: 2px solid #3B82F6; padding: 20px; margin: 25px 0; border-radius: 8px; }
-        .exam-pearl::before { content: "💡 EXAM PEARL"; display: block; font-weight: bold; color: #3B82F6; margin-bottom: 10px; font-size: 16px; }
-        .warning-box { background: #FEF3C7; border-left: 5px solid #F59E0B; padding: 20px; margin: 25px 0; border-radius: 8px; }
-        .warning-box::before { content: "⚠️ CRITICAL WARNING"; display: block; font-weight: bold; color: #D97706; margin-bottom: 10px; font-size: 16px; }
-        table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
-        th { background: #DCEBFF; color: #1F2937; padding: 15px; text-align: left; font-weight: 600; border-bottom: 2px solid #3B82F6; }
-        td { padding: 12px 15px; border-bottom: 1px solid #EEF2F7; }
-        tr:hover { background: #F8FAFC; }
-        ul, ol { margin: 15px 0; padding-left: 30px; }
-        li { margin: 10px 0; line-height: 1.7; }
-        strong { color: #1F2937; font-weight: 600; }
-        .mechanism-box { background: #EEF2F7; padding: 20px; border-radius: 8px; margin: 20px 0; }
-        .footer-section { background: #EEF2F7; padding: 30px; border-radius: 10px; margin-top: 50px; text-align: center; }
-        .social-links { display: flex; justify-content: center; gap: 25px; margin: 25px 0; flex-wrap: wrap; }
-        .social-links a { color: #3B82F6; text-decoration: none; font-weight: 600; padding: 10px 20px; background: white; border-radius: 8px; transition: all 0.3s; border: 2px solid #3B82F6; }
-        .social-links a:hover { background: #3B82F6; color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3); }
-        .gita-quote { background: linear-gradient(135deg, #BFEDE6 0%, #DCEBFF 100%); padding: 30px; border-radius: 10px; margin: 40px 0; border: 2px solid #4FBDBA; font-style: italic; text-align: center; }
-        .gita-quote p { font-size: 18px; line-height: 1.8; color: #1F2937; margin-bottom: 15px; }
-        .gita-quote cite { display: block; margin-top: 15px; color: #4B5563; font-size: 16px; font-style: normal; }
-        .prev-blog { background: #3B82F6; color: white; padding: 20px; border-radius: 8px; margin: 30px 0; text-align: center; }
-        .prev-blog a { color: white; text-decoration: none; font-weight: 600; font-size: 18px; display: inline-block; padding: 12px 30px; background: rgba(255,255,255,0.2); border-radius: 6px; transition: all 0.3s; }
-        .prev-blog a:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
-        @media (max-width: 768px) {
-            .container { padding: 20px; }
-            h1 { font-size: 28px; }
-            h2 { font-size: 24px; }
-            .social-links { flex-direction: column; align-items: center; }
-            table { font-size: 14px; }
-        }
-    </style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiopental: Complete Guide | Dr MS Corpus</title>
+  <meta name="description" content="Master thiopental pharmacology: mechanism, pharmacokinetics, clinical uses. Essential notes for medical students.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#0b1524;--surface:#111f35;--surface2:#162540;--teal:#2ec4b6;--amber:#f4a832;--white:#f0f4f8;--muted:#7a94ae;--border:rgba(46,196,182,0.12);--border2:rgba(240,244,248,0.07)}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);min-height:100vh;overflow-x:hidden;line-height:1.7}
+    body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle at 10% 40%,rgba(46,196,182,.07) 0%,transparent 55%),radial-gradient(circle at 90% 10%,rgba(244,168,50,.05) 0%,transparent 45%);pointer-events:none;z-index:0}
+    body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(46,196,182,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(46,196,182,.035) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+    .wrap{position:relative;z-index:1}
+    header{display:flex;align-items:center;justify-content:space-between;padding:24px 60px;border-bottom:1px solid var(--border);animation:fadeDown .7s ease both}
+    .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .logo-img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(46,196,182,.3)}
+    .logo-text{display:flex;flex-direction:column;line-height:1}
+    .logo-name{font-family:'Libre Baskerville',serif;font-size:15px;font-weight:700;color:var(--white)}
+    .logo-sub{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-top:3px;font-weight:300}
+    nav{display:flex;gap:32px;align-items:center}
+    nav a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+    nav a:hover{color:var(--teal)}
+    .nav-cta{padding:9px 20px;border:1px solid var(--teal);color:var(--teal)!important;border-radius:4px;transition:all .2s!important}
+    .nav-cta:hover{background:var(--teal)!important;color:var(--bg)!important}
+    .article-hero{padding:60px 60px 48px;border-bottom:1px solid var(--border);animation:fadeLeft .9s .1s ease both}
+    .breadcrumb{display:flex;align-items:center;gap:10px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+    .breadcrumb a{color:var(--teal);text-decoration:none}
+    .breadcrumb span{color:var(--border)}
+    .article-category{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .article-category::before{content:'';width:20px;height:1px;background:var(--teal)}
+    .article-hero h1{font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,58px);font-weight:400;line-height:1.1;letter-spacing:-1px;margin-bottom:20px}
+    .article-meta{display:flex;align-items:center;gap:24px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+    .article-layout{display:grid;grid-template-columns:260px 1fr;border-bottom:1px solid var(--border)}
+    .toc-sidebar{padding:48px 32px;border-right:1px solid var(--border);background:var(--surface);position:sticky;top:0;height:fit-content;animation:fadeLeft .9s .2s ease both;max-height:100vh;overflow-y:auto}
+    .toc-label{font-size:9.5px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+    .toc-label::before{content:'';width:16px;height:1px;background:var(--teal)}
+    .toc-sidebar ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc-sidebar a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;display:block;padding:6px 0;border-bottom:1px solid var(--border2);font-weight:300;line-height:1.4}
+    .toc-sidebar a:hover{color:var(--teal)}
+    .article-content{padding:48px 60px;animation:fadeUp .8s .2s ease both}
+    .article-content h1{font-family:'Instrument Serif',serif;font-size:38px;font-weight:400;color:var(--white);margin:48px 0 20px;letter-spacing:-.5px;line-height:1.15;border-bottom:1px solid var(--border);padding-bottom:16px}
+    .article-content h2{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;color:var(--white);margin:40px 0 16px;letter-spacing:-.3px;padding-left:16px;border-left:2px solid var(--teal)}
+    .article-content h3{font-size:16px;font-weight:500;color:var(--teal);margin:28px 0 12px;letter-spacing:.3px}
+    .article-content h4{font-size:11px;font-weight:500;color:var(--white);margin:20px 0 10px;letter-spacing:1.5px;text-transform:uppercase}
+    .article-content p{font-size:15.5px;line-height:1.85;color:var(--muted);font-weight:300;margin-bottom:18px}
+    .article-content p strong{color:var(--white);font-weight:500}
+    .article-content ul,.article-content ol{padding-left:24px;margin-bottom:18px}
+    .article-content li{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:8px;font-weight:300}
+    .article-content li strong{color:var(--white);font-weight:500}
+    .article-content sub,.article-content sup{font-size:11px}
+    .intro{background:var(--surface);border-left:2px solid var(--teal);padding:24px 28px;border-radius:0 6px 6px 0;margin-bottom:32px}
+    .intro p{margin-bottom:8px}
+    .intro p:last-child{margin-bottom:0}
+    .welcome{color:var(--teal)!important;font-weight:400!important}
+    .highlight-box{background:rgba(46,196,182,.05);border:1px solid rgba(46,196,182,.2);padding:22px 24px;margin:24px 0;border-radius:6px}
+    .highlight-box h4{color:var(--teal)!important;text-transform:none!important;font-size:13px!important;letter-spacing:0!important;margin-bottom:8px!important}
+    .exam-pearl{background:rgba(244,168,50,.06);border:1px solid rgba(244,168,50,.25);padding:22px 24px;margin:24px 0;border-radius:6px}
+    .exam-pearl::before{content:"💡 EXAM PEARL";display:block;font-size:10px;letter-spacing:2px;font-weight:500;color:var(--amber);margin-bottom:10px;text-transform:uppercase}
+    .exam-pearl p,.exam-pearl li{color:var(--muted)}
+    .exam-pearl strong{color:var(--white)!important}
+    .warning-box{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.25);padding:22px 24px;margin:24px 0;border-radius:6px}
+    .warning-box::before{content:"⚠️ CRITICAL WARNING";display:block;font-size:10px;letter-spacing:2px;font-weight:500;color:#ef4444;margin-bottom:10px;text-transform:uppercase}
+    .warning-box p,.warning-box li{color:var(--muted)}
+    .warning-box strong{color:var(--white)!important}
+    .mechanism-box{background:var(--surface2);border:1px solid var(--border2);padding:22px 24px;margin:20px 0;border-radius:6px}
+    .mechanism-box h4{color:var(--teal)!important;text-transform:none!important;font-size:13px!important;letter-spacing:0!important}
+    .article-content table{width:100%;border-collapse:collapse;margin:24px 0;border:1px solid var(--border);border-radius:6px;overflow:hidden}
+    .article-content th{background:var(--surface2);color:var(--white);padding:13px 16px;text-align:left;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;border-bottom:1px solid rgba(46,196,182,.2)}
+    .article-content td{padding:11px 16px;border-bottom:1px solid var(--border2);font-size:14px;color:var(--muted);font-weight:300}
+    .article-content td strong{color:var(--white);font-weight:500}
+    .article-content tr:last-child td{border-bottom:none}
+    .article-content tr:hover td{background:rgba(46,196,182,.03)}
+    .gita-quote{background:var(--surface);border:1px solid var(--border);padding:36px 40px;border-radius:6px;margin:48px 0 32px;text-align:center}
+    .gita-quote p{font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;color:var(--white);line-height:1.8;margin-bottom:12px}
+    .gita-quote cite{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-style:normal}
+    .toc{display:none}
+    .back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);text-decoration:none;margin-bottom:32px;transition:gap .2s}
+    .back-link:hover{gap:12px}
+    .article-footer{padding:40px 60px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:var(--surface)}
+    .footer-channels{display:flex;gap:14px}
+    .footer-channel{display:flex;align-items:center;gap:10px;padding:10px 20px;border:1px solid var(--border);border-radius:4px;text-decoration:none;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);transition:all .2s}
+    .footer-channel:hover{border-color:var(--teal);color:var(--teal)}
+    .footer-tagline{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:300}
+    .sanskrit-banner{padding:40px 60px;text-align:center;border-top:1px solid var(--border)}
+    .sanskrit-text{font-family:'Libre Baskerville',serif;font-size:clamp(18px,2.5vw,28px);color:var(--teal);letter-spacing:2px;margin-bottom:10px}
+    .sanskrit-meaning{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+    footer{display:flex;align-items:center;justify-content:space-between;padding:20px 60px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+    .footer-left{font-size:12px;color:var(--muted);font-weight:300}
+    .footer-left a{color:var(--teal);text-decoration:none}
+    .footer-right{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:300}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:900px){
+      header{padding:18px 24px}nav{gap:16px}
+      .article-hero{padding:40px 24px 32px}
+      .article-layout{grid-template-columns:1fr}
+      .toc-sidebar{display:none}
+      .article-content{padding:32px 24px}
+      .article-footer{padding:32px 24px;flex-direction:column}
+      .sanskrit-banner{padding:32px 24px}
+      footer{padding:16px 24px;flex-direction:column;text-align:center}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="festive-banner">
-            <h2>🪔 Happy Bhogi & Sankranthi! 🌾</h2>
-            <p>Wishing you a harvest of knowledge and prosperity in your medical journey!</p>
-        </div>
-
-        <div class="intro">
+<div class="wrap">
+  <header>
+    <a class="logo" href="../">
+      <img alt="Dr MS Corpus" class="logo-img" src="https://blogger.googleusercontent.com/img/a/AVvXsEi67W3CBCF17Osxku3rMXeudVhuc0plyq2BOnHyDhcw1Rq0pDvGYeCot0fgfXWqH8-svNInp8f_xakomKSn6qNmOp5cHNw1lMm7ZmF8j7b_m6eLJ5vped6jl1CkD8AeL2VcpKiOzMKWbxbGcM9GCE54vJtifQ8ypPnS4kE2Tv7QfqYBF3E3I5_YGx3AtgM" />
+      <div class="logo-text"><span class="logo-name">Dr MS Corpus</span><span class="logo-sub">Medical Education</span></div>
+    </a>
+    <nav>
+      <a href="../">Home</a><a href="../#posts">Topics</a><a href="../#about">About</a>
+      <a class="nav-cta" href="../contact.html">Contact</a>
+    </nav>
+  </header>
+  <div class="article-hero">
+    <div class="breadcrumb"><a href="../">Home</a><span>/</span><a href="../#posts">Blog</a><span>/</span><span>Thiopental</span></div>
+    <div class="article-category">Anaesthesiology · Pharmacology</div>
+    <h1>Thiopental: The Gold Standard <em>Prototype</em></h1>
+    <div class="article-meta"><span>✚ Dr MS Corpus</span><span>· 2026</span><span>· 12 min read</span></div>
+  </div>
+  <div class="article-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-label">Contents</div>
+      <ul><li><a href="#history">Historical Background</a></li>
+<li><a href="#chemistry">Chemical Structure & SAR</a></li>
+<li><a href="#mechanism">Mechanism of Action</a></li>
+<li><a href="#pharmacokinetics">Pharmacokinetics: Redistribution</a></li>
+<li><a href="#potency">Potency & Dosing</a></li>
+<li><a href="#clinical">Clinical Applications</a></li>
+<li><a href="#methohexital">Methohexital Characteristics</a></li>
+<li><a href="#cardiovascular">Cardiovascular Effects</a></li>
+<li><a href="#respiratory">Respiratory Effects</a></li>
+<li><a href="#complications">Serious Complications</a></li>
+<li><a href="#exam-points">Top 10 Exam Points</a></li>
+</ul>
+    </aside>
+    <article class="article-content">
+      <a class="back-link" href="../#posts">← Back to all posts</a>
+      <div class="intro">
             <p>Ever wondered why anesthesia textbooks still dedicate entire chapters to a drug that's been replaced by propofol? Here's the truth: <strong>mastering thiopental is like unlocking the Rosetta Stone of intravenous anesthetics</strong>. Understanding this pioneering barbiturate reveals fundamental principles that apply to every modern IV anesthetic you'll encounter.</p>
             <p class="welcome">Welcome to Dr MS Corpus – where we transform complex pharmacology into crystal-clear exam gold!</p>
         </div>
@@ -480,11 +551,23 @@
             <cite>— Bhagavad Gita 2.47</cite>
             <p style="margin-top: 15px; font-style: normal; font-size: 16px;">Focus on mastering the knowledge itself, not obsessing over exam results. Study with dedication, understand deeply, and trust that excellence will follow naturally. Your duty is to learn well—outcomes will take care of themselves.</p>
         </div>
-
-        <div class="footer-section">
-            <p><strong>Dr MS Corpus</strong> — pharmacology notes for medical students and anesthesia trainees.</p>
-            <p style="margin-top: 12px; font-size: 14px; color: #4B5563;">If this post helped you, bookmark it for revision before exams.</p>
-        </div>
+    </article>
+  </div>
+  <div class="article-footer">
+    <div class="footer-channels">
+      <a class="footer-channel" href="https://www.instagram.com/drmscorpus" target="_blank">📸 Instagram</a>
+      <a class="footer-channel" href="https://www.youtube.com/@drmscorpus" target="_blank">▶ YouTube</a>
     </div>
+    <span class="footer-tagline">From a learner, for every learner ✚</span>
+  </div>
+  <div class="sanskrit-banner">
+    <div class="sanskrit-text">उद्धरेदात्मनात्मानं</div>
+    <div class="sanskrit-meaning">Uplift yourself by yourself · Bhagavad Gita</div>
+  </div>
+  <footer>
+    <p class="footer-left">© 2026 <strong>Dr MS Corpus</strong> — Medical Education · <a href="mailto:drmscorpus@gmail.com">drmscorpus@gmail.com</a></p>
+    <span class="footer-right">From a learner, for learners ✚ India</span>
+  </footer>
+</div>
 </body>
 </html>
