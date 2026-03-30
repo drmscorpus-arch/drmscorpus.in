@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PONV — Why the Patient Still Vomits</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #111820;
+    --bg3: #161e28;
+    --card: #1a2332;
+    --border: #2a3a50;
+    --accent: #e8a045;
+    --accent2: #5ba8d4;
+    --accent3: #7ecba1;
+    --text: #d4dde8;
+    --text-muted: #7a8fa8;
+    --text-dim: #4a6070;
+    --red: #e05c5c;
+    --gold: #f0c060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 30% 40%, #1a2e4a 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, #2a1a0a 0%, transparent 50%),
+                var(--bg);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(232,160,69,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 20%, rgba(91,168,212,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(232,160,69,0.15) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(232,160,69,0.3);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-opening {
+    max-width: 720px;
+    background: rgba(232,160,69,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 32px 40px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.9;
+    color: var(--text);
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .hero-opening .hook {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .hero-opening .pullback {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* ── Content ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0 48px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  .divider-icon {
+    color: var(--accent);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Section headings ── */
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  h2.section-title em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  h3.sub-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 24px;
+    margin-top: -4px;
+  }
+
+  /* ── Body text ── */
+  p {
+    margin-bottom: 24px;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  p strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  p em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ── Pull quote ── */
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #fff;
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: rgba(232,160,69,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* ── Five questions ── */
+  .five-questions {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(126,203,161,0.05));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 48px 0;
+    text-align: center;
+  }
+
+  .five-questions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .questions-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .question-pill {
+    background: rgba(91,168,212,0.15);
+    border: 1px solid rgba(91,168,212,0.3);
+    color: var(--accent2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+  }
+
+  /* ── Patient card ── */
+  .patient-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 48px 0;
+  }
+
+  .patient-header {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .patient-badge {
+    background: var(--red);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .patient-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .patient-body {
+    padding: 32px;
+  }
+
+  .patient-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .patient-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    min-width: 130px;
+    padding-top: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .patient-value {
+    color: var(--text);
+    flex: 1;
+  }
+
+  .patient-value strong {
+    color: var(--gold);
+  }
+
+  /* ── Stats grid ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 40px 0;
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── Goals list ── */
+  .goals-list {
+    list-style: none;
+    margin: 24px 0 32px;
+  }
+
+  .goals-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .goal-number {
+    background: var(--accent);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .goal-text {
+    color: var(--text);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* ── Apfel Card ── */
+  .apfel-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 40px 0;
+  }
+
+  .apfel-header {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+    padding: 20px 32px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .apfel-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .apfel-header p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    margin-bottom: 0;
+  }
+
+  .apfel-body {
+    padding: 32px;
+  }
+
+  .apfel-factors {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .apfel-factors li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.6);
+    font-size: 17px;
+    color: var(--text);
+  }
+
+  .apfel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── Risk table ── */
+  .risk-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 16px;
+  }
+
+  .risk-table thead tr {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+  }
+
+  .risk-table thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .risk-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .risk-table tbody tr:hover {
+    background: rgba(232,160,69,0.04);
+  }
+
+  .risk-table td {
+    padding: 16px 20px;
+    vertical-align: middle;
+    line-height: 1.5;
+  }
+
+  .risk-table td:first-child {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 15px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .risk-table td:nth-child(2) {
+    color: var(--accent);
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .risk-table td:last-child {
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  .risk-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .risk-low { background: rgba(126,203,161,0.15); color: var(--accent3); border: 1px solid rgba(126,203,161,0.3); }
+  .risk-mod { background: rgba(232,160,69,0.15); color: var(--accent); border: 1px solid rgba(232,160,69,0.3); }
+  .risk-high { background: rgba(224,92,92,0.15); color: var(--red); border: 1px solid rgba(224,92,92,0.3); }
+
+  /* ── Drug ranking ── */
+  .drug-ranking {
+    margin: 40px 0;
+  }
+
+  .drug-rank-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.5);
+  }
+
+  .rank-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    min-width: 24px;
+    text-align: right;
+  }
+
+  .rank-bar-wrap {
+    flex: 1;
+    position: relative;
+  }
+
+  .rank-bar {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--accent3);
+    margin-bottom: 4px;
+    transition: width 0.6s ease;
+  }
+
+  .rank-bar.top { background: linear-gradient(to right, var(--accent), var(--gold)); }
+
+  .rank-drug-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    letter-spacing: 0.5px;
+  }
+
+  .rank-reduction {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent3);
+    min-width: 70px;
+    text-align: right;
+  }
+
+  .rank-reduction.top-rank { color: var(--accent); }
+
+  /* ── Drug combo ── */
+  .drug-box {
+    background: linear-gradient(135deg, rgba(126,203,161,0.08), rgba(91,168,212,0.05));
+    border: 1px solid rgba(126,203,161,0.25);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 40px 0;
+  }
+
+  .drug-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--accent3);
+    margin-bottom: 20px;
+  }
+
+  .drug-combo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 24px 0;
+  }
+
+  .drug-item {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(126,203,161,0.2);
+    border-radius: 8px;
+    padding: 16px 24px;
+    text-align: center;
+  }
+
+  .drug-item .drug-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent3);
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .drug-item .drug-detail {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .drug-plus {
+    font-size: 28px;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  /* ── Strategy pillars ── */
+  .pillar {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin: 32px 0;
+  }
+
+  .pillar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+  }
+
+  .pillar h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .pillar-steps {
+    list-style: none;
+  }
+
+  .pillar-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    font-size: 16px;
+    color: var(--text);
+  }
+
+  .pillar-steps li:last-child { border-bottom: none; }
+
+  .flow-arrow {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── Last warning ── */
+  .last-warning {
+    background: rgba(224,92,92,0.08);
+    border: 1px solid rgba(224,92,92,0.25);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .warning-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+  .warning-text { font-size: 16px; color: var(--text); line-height: 1.7; }
+  .warning-text strong { color: var(--red); }
+
+  /* ── Fire analogy / Big statement ── */
+  .fire-analogy {
+    text-align: center;
+    padding: 48px 32px;
+    margin: 48px 0;
+    background: radial-gradient(ellipse at center, rgba(232,160,69,0.08), transparent 70%);
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .fire-analogy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(232,160,69,0.15);
+  }
+
+  .fire-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  /* ── Concept box ── */
+  .concept-box {
+    background: var(--bg3);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin: 40px 0;
+    border: 1px solid var(--border);
+  }
+
+  .concept-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  .concept-flow { display: flex; flex-direction: column; gap: 8px; }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 16px;
+    color: var(--text);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+  }
+
+  /* ── Discussion box ── */
+  .discussion-box {
+    background: rgba(91,168,212,0.06);
+    border: 1px dashed rgba(91,168,212,0.3);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .discussion-box p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .discussion-box p strong { color: var(--accent2); }
+
+  /* ── Pearls list ── */
+  .pearls-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .pearls-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+  }
+
+  .pearl-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    min-width: 28px;
+    padding-top: 4px;
+  }
+
+  .pearl-text { font-size: 16px; color: var(--text); line-height: 1.7; }
+  .pearl-text strong { color: var(--gold); }
+
+  /* ── Alive line ── */
+  .alive-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* ── Closing question ── */
+  .closing-question {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(91,168,212,0.03));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 16px;
+    padding: 48px 48px;
+    margin: 64px 0 0;
+    text-align: center;
+  }
+
+  .closing-question h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .closing-question h2 em { color: var(--accent2); font-style: italic; }
+
+  .closing-question p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 0;
+  }
+
+  .closing-question .cta {
+    display: inline-block;
+    margin-top: 32px;
+    background: var(--accent2);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ── References ── */
+  .refs-section {
+    margin: 64px 0 0;
+  }
+
+  .refs-list {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .refs-list li {
+    display: flex;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .ref-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    min-width: 24px;
+    padding-top: 2px;
+  }
+
+  .ref-text { color: var(--text-muted); }
+  .ref-text strong { color: var(--text); font-weight: 500; }
+  .ref-text em { color: var(--text-muted); font-style: italic; }
+
+  /* ── Footer brand ── */
+  .brand-footer {
+    text-align: center;
+    padding: 48px 40px 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 80px;
+  }
+
+  .brand-footer .sanskrit {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: var(--accent2);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+
+  .brand-footer .sanskrit-meaning {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .content { padding: 60px 24px 80px; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .drug-combo { flex-direction: column; }
+    .closing-question { padding: 36px 28px; }
+    .hero-opening { padding: 24px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ────────────── HERO ────────────── -->
+<section class="hero">
+  <div class="hero-tag">Anaesthesiology · Pharmacology · Evidence-Based Practice</div>
+  <h1>PONV —<br><em>Why the Patient<br>Still Vomits</em></h1>
+  <p class="hero-sub">A clinical deep-dive. The evidence, the mechanism, the strategy — and what the latest research tells us.</p>
+
+  <div class="hero-opening">
+    <p class="hook">"The surgery was done. The patient was extubated. Everything had gone well. And then — she turned her head and vomited."</p>
+    <p class="hook" style="color:var(--accent);font-size:20px;margin-bottom:16px;">We had given prophylaxis. We had done everything right. And she still vomited.</p>
+    <p class="pullback">Let me take you through why — and what we now know about stopping it.</p>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ────────────── CONTENT ────────────── -->
+<main class="content">
+
+  <p>Postoperative nausea and vomiting. <strong>PONV.</strong> Four letters that every anaesthesiologist knows — and every surgical patient fears. It is not a dramatic complication. There are no alarms. No crash trolleys. And yet — patients rank it as the thing they most dread about surgery. More than the pain. More than the scar.</p>
+
+  <p>In 2025, after the largest network meta-analysis ever conducted on antiemetic prophylaxis — a Cochrane review of <strong>585 trials</strong> and over <strong>97,500 patients</strong> — we now have more clarity than ever before. And what the data shows is both humbling and exciting.</p>
+
+  <p>Let us go through this together. Systematically. The way we should approach everything in our practice.</p>
+
+  <div class="five-questions">
+    <h3>Before we discuss anything — we ask five questions.</h3>
+    <p style="color:var(--text-muted);font-size:16px;margin-bottom:0;">For every concept, every drug, every clinical decision:</p>
+    <div class="questions-row">
+      <span class="question-pill">What is it?</span>
+      <span class="question-pill">Why does it happen?</span>
+      <span class="question-pill">Who is at risk?</span>
+      <span class="question-pill">What do we give?</span>
+      <span class="question-pill">How do we rescue?</span>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Section 1: Why it matters -->
+  <h2 class="section-title">Why PONV Still <em>Matters</em></h2>
+  <h3 class="sub-title">The scale of the problem · Why we cannot ignore it</h3>
+
+  <p>Without prophylaxis, nausea and vomiting affects roughly <strong>30% of all surgical patients.</strong> In high-risk patients — women undergoing laparoscopic procedures, patients with a prior history, those needing postoperative opioids — this number climbs to <strong>80%.</strong></p>
+
+  <p>That is not a side effect. That is a crisis happening in the recovery room every single day.</p>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">30%</div>
+      <div class="stat-label">Overall incidence<br>without prophylaxis</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">80%</div>
+      <div class="stat-label">High-risk patients<br>without prophylaxis</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">10–20%</div>
+      <div class="stat-label">Achievable with<br>optimal prophylaxis</div>
+    </div>
+  </div>
+
+  <p>The consequences extend beyond discomfort. Delayed PACU discharge. Unplanned admissions from day-surgery. Dehydration, electrolyte imbalance, wound dehiscence. And at the extreme end — aspiration and oesophageal rupture. But even without the complications, there is a quieter harm: the patient who feared surgery to begin with, and now fears it more.</p>
+
+  <div class="pull-quote">
+    "Patients are willing to pay out-of-pocket to prevent PONV. They rank it above postoperative pain. That should tell us everything we need to know about how seriously we must take it."
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Section 2: Risk Scoring -->
+  <h2 class="section-title">The <em>Apfel Score</em></h2>
+  <h3 class="sub-title">Four questions · One number · Everything changes</h3>
+
+  <p>Before we talk about prophylaxis, we must talk about risk. Because the evidence is clear — we should not give every patient the same prophylaxis. We risk-stratify. And for that, we have the <strong>Apfel Score.</strong></p>
+
+  <p>Simple. Four factors. Each one adds one point. Each point adds approximately 20% to a baseline risk of 10%.</p>
+
+  <div class="apfel-card">
+    <div class="apfel-header">
+      <h3>The Four Apfel Risk Factors</h3>
+      <p>Each factor adds 1 point · Each point adds ~20% to baseline risk of 10%</p>
+    </div>
+    <div class="apfel-body">
+      <ol class="apfel-factors">
+        <li><span class="apfel-dot"></span><div><strong style="color:var(--gold);">Female gender</strong> — the strongest single predictor. Odds Ratio of 3.</div></li>
+        <li><span class="apfel-dot"></span><div><strong style="color:var(--gold);">Non-smoking status</strong> — smokers, paradoxically, have lower PONV rates. OR of 2.</div></li>
+        <li><span class="apfel-dot"></span><div><strong style="color:var(--gold);">History of PONV or motion sickness</strong> — the patient who vomited last time will likely vomit again. OR of 2.</div></li>
+        <li><span class="apfel-dot"></span><div><strong style="color:var(--gold);">Postoperative opioid use</strong> — the price of pain control, when it is opioid-based. OR of 2.</div></li>
+      </ol>
+
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>Apfel Score</th>
+            <th>PONV Risk</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0 factors</td>
+            <td>10%</td>
+            <td><span class="risk-badge risk-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>1 factor</td>
+            <td>20%</td>
+            <td><span class="risk-badge risk-low">Low</span></td>
+          </tr>
+          <tr>
+            <td>2 factors</td>
+            <td>40%</td>
+            <td><span class="risk-badge risk-mod">Moderate</span></td>
+          </tr>
+          <tr>
+            <td>3 factors</td>
+            <td>60%</td>
+            <td><span class="risk-badge risk-high">High</span></td>
+          </tr>
+          <tr>
+            <td>4 factors</td>
+            <td>80%</td>
+            <td><span class="risk-badge risk-high">Very High</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <p>And here is something worth pausing on — <em>why does smoking protect against PONV?</em> The most common theory: polycyclic aromatic hydrocarbons in cigarette smoke induce cytochrome P450 enzymes, increasing metabolism of emetogenic volatile anaesthetics. The evidence supporting this is limited. But the association is real and reproducible.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">Factors that do NOT increase PONV risk — the disproved list</div>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">✗</span>Body mass index (BMI)</div>
+      <div class="flow-step"><span class="flow-arrow">✗</span>Menstrual cycle phase</div>
+      <div class="flow-step"><span class="flow-arrow">✗</span>Remifentanil vs fentanyl — short-acting opioids offer no advantage</div>
+      <div class="flow-step"><span class="flow-arrow">✗</span>Supplemental oxygen at FiO₂ 80% — does not help</div>
+      <div class="flow-step"><span class="flow-arrow">✗</span>Nasogastric tube use</div>
+    </div>
+  </div>
+
+  <div class="discussion-box">
+    <p>💬 <strong>Worth thinking about:</strong> Why does volatile anaesthesia increase PONV risk in a dose-dependent manner? What receptor systems are involved? Write to me in the comments and let us discuss this together.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Section 3: Drug Arsenal -->
+  <h2 class="section-title">The <em>Drug Arsenal</em></h2>
+  <h3 class="sub-title">What the Cochrane review showed · Ranked by efficacy</h3>
+
+  <p>The 2020 Cochrane Network Meta-Analysis is the most important piece of evidence we have on PONV prophylaxis. 585 randomised controlled trials. 97,500 patients. 44 single agents. 51 drug combinations. It is the most comprehensive analysis ever conducted — and it changed how we think about antiemetics forever.</p>
+
+  <p>Here is what it showed for prevention of vomiting in the first 24 hours after surgery:</p>
+
+  <div class="drug-ranking">
+    <div class="drug-rank-row">
+      <span class="rank-num">01</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar top" style="width:94%"></div>
+        <div class="rank-drug-name">Fosaprepitant (NK1 antagonist, IV)</div>
+      </div>
+      <span class="rank-reduction top-rank">94% ↓</span>
+    </div>
+    <div class="drug-rank-row">
+      <span class="rank-num">02</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar top" style="width:74%"></div>
+        <div class="rank-drug-name">Aprepitant (NK1 antagonist, oral)</div>
+      </div>
+      <span class="rank-reduction top-rank">74% ↓</span>
+    </div>
+    <div class="drug-rank-row">
+      <span class="rank-num">03</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar" style="width:56%"></div>
+        <div class="rank-drug-name">Ramosetron (5-HT₃ antagonist)</div>
+      </div>
+      <span class="rank-reduction">56% ↓</span>
+    </div>
+    <div class="drug-rank-row">
+      <span class="rank-num">04</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar" style="width:55%"></div>
+        <div class="rank-drug-name">Granisetron (5-HT₃ antagonist)</div>
+      </div>
+      <span class="rank-reduction">55% ↓</span>
+    </div>
+    <div class="drug-rank-row">
+      <span class="rank-num">05</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar" style="width:49%"></div>
+        <div class="rank-drug-name">Dexamethasone (corticosteroid)</div>
+      </div>
+      <span class="rank-reduction">49% ↓</span>
+    </div>
+    <div class="drug-rank-row">
+      <span class="rank-num">06</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar" style="width:45%"></div>
+        <div class="rank-drug-name">Ondansetron (5-HT₃ antagonist)</div>
+      </div>
+      <span class="rank-reduction">45% ↓</span>
+    </div>
+    <div class="drug-rank-row">
+      <span class="rank-num">07</span>
+      <div class="rank-bar-wrap">
+        <div class="rank-bar" style="width:39%;background:rgba(224,92,92,0.6)"></div>
+        <div class="rank-drug-name">Droperidol (dopamine antagonist)</div>
+      </div>
+      <span class="rank-reduction" style="color:var(--text-muted);">39% ↓</span>
+    </div>
+  </div>
+
+  <div class="alive-line">
+    The Cochrane review changed everything. It showed us that NK1 antagonists are not just better — they are in a different league entirely.
+  </div>
+
+  <p>And the most remarkable finding of all — the finding that changes clinical practice — is this:</p>
+
+  <div class="fire-analogy">
+    <div class="fire-line">Every other antiemetic works better in combination than alone.</div>
+    <div class="fire-line" style="font-size:26px;color:var(--accent);">NK1 antagonists work as well alone as most combinations of other drugs.</div>
+    <div class="fire-line" style="font-size:18px;color:var(--text-muted);margin-top:8px;">That is unique. That has never been shown for any other class of antiemetic.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Section 4: NK1 in depth -->
+  <h2 class="section-title">The <em>NK1 Antagonists</em></h2>
+  <h3 class="sub-title">Aprepitant · Fosaprepitant · Why they are different</h3>
+
+  <p>NK1 receptor antagonists target substance P receptors in the nucleus tractus solitarius — the vomiting centre. This is a completely different mechanism from the 5-HT₃ antagonists and dopamine antagonists that we have relied on for decades. Originally developed for chemotherapy-induced nausea, they have transformed our approach to the perioperative setting.</p>
+
+  <div class="drug-box">
+    <h3>The Two NK1 Antagonists</h3>
+    <div class="drug-combo">
+      <div class="drug-item">
+        <div class="drug-name">Aprepitant (Emend®)</div>
+        <div class="drug-detail">80mg oral<br>1–3 hours pre-op<br>Duration: 48–72 hours</div>
+      </div>
+      <div class="drug-plus">→</div>
+      <div class="drug-item">
+        <div class="drug-name">Fosaprepitant</div>
+        <div class="drug-detail">150mg IV<br>Pre-op or intraop<br>Prodrug → Aprepitant</div>
+      </div>
+    </div>
+    <p style="margin-bottom:0;font-size:16px;color:var(--text-muted);">Both offer <strong style="color:var(--accent3);">48–72 hour protection</strong>. No sedation. No QT prolongation. No extrapyramidal effects. No delay in recovery.</p>
+  </div>
+
+  <p>The 2025 systematic review confirmed what the Cochrane analysis had suggested — the <strong>80mg dose of aprepitant is clearly superior to the 40mg dose.</strong> Not just for vomiting, but for nausea, rescue antiemetic use, and complete response. The 40mg dose was effective only for vomiting. For every other outcome, 80mg was needed.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">Who benefits most from NK1 antagonists?</div>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">→</span>Women — vomiting Risk Ratio 0.41, statistically significant benefit</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Laparoscopic and gynaecological surgery — highest efficacy shown</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Patients receiving inhalational anaesthesia — maintains efficacy despite volatile agents</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Apfel score 3–4 — maximum benefit in the highest-risk population</div>
+    </div>
+  </div>
+
+  <div class="last-warning">
+    <div class="warning-icon">⚠️</div>
+    <div class="warning-text">NK1 antagonists are metabolised by <strong>CYP3A4.</strong> Theoretical interactions exist with CYP3A4 inhibitors, inducers, and oral contraceptives — but clinical significance is minimal for single-dose perioperative use. No dose adjustment is needed in most cases.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Section 5: Clinical Strategy -->
+  <h2 class="section-title">The <em>Clinical Strategy</em></h2>
+  <h3 class="sub-title">Three pillars · Risk-stratified · Evidence-based</h3>
+
+  <p>Now we put it all together. The strategy for PONV prevention is built on three pillars — and the first pillar has nothing to do with antiemetics at all.</p>
+
+  <div class="pillar">
+    <div class="pillar-label">Pillar 01</div>
+    <h3>Baseline Risk Reduction — Before Any Drug</h3>
+    <ul class="pillar-steps">
+      <li><span class="flow-arrow">→</span>Regional anaesthesia where feasible — reduces PONV by 25%</li>
+      <li><span class="flow-arrow">→</span>TIVA with propofol instead of volatile agents — reduces PONV by 25%</li>
+      <li><span class="flow-arrow">→</span>Avoid nitrous oxide — 10–15% further reduction</li>
+      <li><span class="flow-arrow">→</span>Multimodal analgesia to minimise opioid use</li>
+      <li><span class="flow-arrow">→</span>Adequate hydration — 20–30 ml/kg crystalloid</li>
+      <li><span class="flow-arrow">→</span>Sugammadex over neostigmine for reversal</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-label">Pillar 02</div>
+    <h3>Pharmacological Prophylaxis — Risk-Stratified</h3>
+    <ul class="pillar-steps">
+      <li><span class="flow-arrow" style="color:var(--accent3);">Low</span>Apfel 0–1: No routine prophylaxis. Focus on baseline reduction. Have rescue available.</li>
+      <li><span class="flow-arrow" style="color:var(--accent);">Mod</span>Apfel 2: Dexamethasone 8mg at induction + Ondansetron 4mg at end of surgery — OR — Aprepitant 80mg pre-operatively.</li>
+      <li><span class="flow-arrow" style="color:var(--red);">High</span>Apfel 3: Triple therapy — Dexamethasone + Ondansetron + Droperidol. Or NK1-based — Aprepitant + Dexamethasone + Ondansetron.</li>
+      <li><span class="flow-arrow" style="color:var(--red);">VHigh</span>Apfel 4: TIVA. Aprepitant 80mg or Fosaprepitant 150mg + Dexamethasone + Ondansetron + Droperidol if appropriate. Consider transdermal scopolamine.</li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-label">Pillar 03</div>
+    <h3>Rescue Treatment — When Prophylaxis Fails</h3>
+    <ul class="pillar-steps">
+      <li><span class="flow-arrow">→</span>First — rule out other causes. Hypotension. Hypoxia. Pain. Surgical complications.</li>
+      <li><span class="flow-arrow">→</span>Always use a <strong>different drug class</strong> from prophylaxis.</li>
+      <li><span class="flow-arrow">→</span>If ondansetron given prophylactically → Metoclopramide 10mg IV or Promethazine 12.5mg IV</li>
+      <li><span class="flow-arrow">→</span>Small-dose propofol 20mg IV — effective in the recovery room</li>
+      <li><span class="flow-arrow">→</span>Wait 6 hours before re-dosing the same agent</li>
+    </ul>
+  </div>
+
+  <div class="concept-box" style="margin-top:40px;">
+    <div class="concept-title">The rescue principle — and why it matters</div>
+    <p style="margin-bottom:0;font-size:17px;color:var(--text);">If a patient received <strong>ondansetron prophylactically</strong> and develops PONV in the recovery room — giving more ondansetron is <strong style="color:var(--red);">no more effective than placebo.</strong> The receptor is already saturated. Switch class. Always.</p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Section 6: Pearls -->
+  <h2 class="section-title">Clinical <em>Pearls</em></h2>
+  <h3 class="sub-title">High-yield · Exam-ready · Practice-changing</h3>
+
+  <ol class="pearls-list">
+    <li>
+      <span class="pearl-num">01</span>
+      <div class="pearl-text"><strong>The Apfel Score is fundamental.</strong> Memorise it. Female, Non-smoker, History of PONV or motion sickness, Postoperative opioids. Four factors. Each adds ~20% to a baseline of 10%. This is the most consistently examined PONV concept.</div>
+    </li>
+    <li>
+      <span class="pearl-num">02</span>
+      <div class="pearl-text"><strong>NK1 antagonists are in a different league.</strong> The only antiemetics that work as well alone as most combinations of other drugs. Fosaprepitant — 94% reduction in vomiting (RR 0.06). Aprepitant — 74% reduction (RR 0.26). Nothing else comes close.</div>
+    </li>
+    <li>
+      <span class="pearl-num">03</span>
+      <div class="pearl-text"><strong>Timing matters for conventional agents.</strong> Dexamethasone at induction — it has a slow onset and long duration, covering the entire postoperative period. Ondansetron and droperidol at end of surgery — for early recovery. This timing optimisation is high-yield.</div>
+    </li>
+    <li>
+      <span class="pearl-num">04</span>
+      <div class="pearl-text"><strong>Ondansetron 4mg = Ondansetron 8mg for PONV.</strong> Higher doses only increase the risk of QT prolongation. This is a common exam trap and an important clinical point. Do not reflexively double the dose.</div>
+    </li>
+    <li>
+      <span class="pearl-num">05</span>
+      <div class="pearl-text"><strong>TIVA is a natural antiemetic.</strong> Propofol-based total intravenous anaesthesia reduces PONV by 25% — the same magnitude as adding a prophylactic antiemetic. Volatile anaesthetics are the most important emetogenic factor in the first two hours postoperatively.</div>
+    </li>
+    <li>
+      <span class="pearl-num">06</span>
+      <div class="pearl-text"><strong>Aprepitant 80mg > 40mg.</strong> The 80mg dose reduces nausea, vomiting, AND rescue antiemetic use. The 40mg dose only reduces vomiting. For complete PONV prophylaxis — 80mg is the dose. This is the 2025 evidence.</div>
+    </li>
+    <li>
+      <span class="pearl-num">07</span>
+      <div class="pearl-text"><strong>For rescue — switch class, always.</strong> Ondansetron given prophylactically is ineffective as rescue. Use a dopamine antagonist — metoclopramide or promethazine — or small-dose propofol. The mechanism must be different.</div>
+    </li>
+  </ol>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Closing story -->
+  <div class="concept-box" style="padding:48px 48px;position:relative;overflow:hidden;">
+    <div class="moment-label" style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:12px;">back to that patient<div style="flex:1;height:1px;background:rgba(232,160,69,0.2)"></div></div>
+
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#fff;margin-bottom:24px;">She had all four Apfel risk factors.</p>
+
+    <p>Female. Non-smoker. History of PONV from a previous procedure. And she would need opioids for postoperative pain. We had given ondansetron. We had given dexamethasone. And she still vomited — because in very high-risk patients, two agents may simply not be enough.</p>
+
+    <p>What the 2025 evidence tells us is that in this patient — a patient with four risk factors — the correct approach would have been to either add a third agent, use TIVA, or consider an NK1 antagonist that alone would have been as effective as our two-drug combination.</p>
+
+    <p>We did not fail because we gave the wrong drug. We failed because we underestimated the risk.</p>
+
+    <div class="fire-analogy" style="margin:40px 0 8px;">
+      <div class="fire-line">Risk stratification is not paperwork.</div>
+      <div class="fire-line">It is the difference between a patient who recovers comfortably</div>
+      <div class="fire-line" style="color:var(--accent);font-size:26px;">and one who spends her recovery room time vomiting.</div>
+    </div>
+  </div>
+
+  <!-- Closing question -->
+  <div class="closing-question">
+    <h2>If a patient has received <em>ondansetron prophylaxis</em> and vomits in PACU — what exactly do you give, and why?</h2>
+    <p>Think through the mechanism before you answer.</p>
+    <p style="margin-top:16px;">Write to me in the comments. Let us discuss this together.</p>
+    <a href="#comments" class="cta">Join the discussion ↓</a>
+  </div>
+
+  <!-- References -->
+  <div class="refs-section">
+    <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+    <h2 class="section-title">Key <em>References</em></h2>
+    <h3 class="sub-title">The evidence this discussion is built on</h3>
+    <ol class="refs-list">
+      <li>
+        <span class="ref-num">01</span>
+        <div class="ref-text"><strong>Grigio TR, Timmerman H, dos Santos NP, et al.</strong> Aprepitant and fosaprepitant as a prophylactic antiemetic for preventing postoperative nausea and vomiting after general anaesthesia: a systematic review and meta-analysis. <em>Clinics.</em> 2025;80:100783.</div>
+      </li>
+      <li>
+        <span class="ref-num">02</span>
+        <div class="ref-text"><strong>Weibel S, Rücker G, Eberhart LH, et al.</strong> Drugs for preventing postoperative nausea and vomiting in adults after general anaesthesia: a network meta-analysis. <em>Cochrane Database Syst Rev.</em> 2020;10(10):CD012859.</div>
+      </li>
+      <li>
+        <span class="ref-num">03</span>
+        <div class="ref-text"><strong>Collier H, Darwen C, Smith AF.</strong> Anti-emetic drugs for preventing postoperative nausea and vomiting: new evidence from a Cochrane network meta-analysis. <em>Anaesthesia.</em> 2021;76:883–887.</div>
+      </li>
+      <li>
+        <span class="ref-num">04</span>
+        <div class="ref-text"><strong>Pierre S, Whelan R.</strong> Nausea and vomiting after surgery. <em>Contin Educ Anaesth Crit Care Pain.</em> 2013;13(1):28–32.</div>
+      </li>
+      <li>
+        <span class="ref-num">05</span>
+        <div class="ref-text"><strong>Apfel CC, Läärä E, Koivuranta M, et al.</strong> A simplified risk score for predicting postoperative nausea and vomiting. <em>Anesthesiology.</em> 1999;91(3):693–700.</div>
+      </li>
+      <li>
+        <span class="ref-num">06</span>
+        <div class="ref-text"><strong>Gan TJ, Belani KG, Bergese S, et al.</strong> Fourth consensus guidelines for the management of postoperative nausea and vomiting. <em>Anesth Analg.</em> 2020;131:411–448.</div>
+      </li>
+    </ol>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<div class="brand-footer">
+  <div class="sanskrit">उद्धरेदात्मनात्मानं</div>
+  <div class="sanskrit-meaning">Uplift yourself by yourself · Bhagavad Gita</div>
+  <p style="margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-dim);letter-spacing:2px;">© 2025 Dr MS Corpus — Medical Education · From a learner, for every learner ✚</p>
+</div>
+
+</body>
+</html>
