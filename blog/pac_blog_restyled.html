@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAC — The Anaesthesiologist's OPD | Dr MS Corpus</title>
+<meta name="description" content="A desk. A chair. A patient who doesn't yet know what anaesthesia means. And a conversation that will decide everything that happens inside that OT.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #111820;
+    --bg3: #161e28;
+    --card: #1a2332;
+    --border: #2a3a50;
+    --accent: #e8a045;
+    --accent2: #5ba8d4;
+    --accent3: #7ecba1;
+    --text: #d4dde8;
+    --text-muted: #7a8fa8;
+    --text-dim: #4a6070;
+    --red: #e05c5c;
+    --gold: #f0c060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(13,17,23,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(42,58,80,0.6);
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 30% 40%, #1a2e4a 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, #2a1a0a 0%, transparent 50%),
+                var(--bg);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(232,160,69,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 20%, rgba(91,168,212,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(232,160,69,0.15) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(232,160,69,0.3);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease both;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .hero-tag span { color: var(--text-dim); }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-opening {
+    max-width: 720px;
+    background: rgba(232,160,69,0.06);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 32px 40px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.9;
+    color: var(--text);
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .hero-opening .hook {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .hero-opening .pullback {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 48px;
+    animation: fadeUp 0.8s 0.55s ease both;
+  }
+
+  .meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .meta-dot { color: rgba(42,58,80,0.8); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* ── OPENING QUOTE BLOCK ── */
+  .opening-block {
+    background: linear-gradient(135deg, #111820, #0d1117);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 72px 40px;
+    text-align: center;
+  }
+
+  .opening-block blockquote {
+    max-width: 660px;
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #fff;
+    opacity: 0.92;
+  }
+
+  .opening-block .quote-attr {
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0 48px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  .divider-icon {
+    color: var(--accent);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+  }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  h2.section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  h3.sub-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 24px;
+    margin-top: -4px;
+  }
+
+  /* ── BODY TEXT ── */
+  p {
+    margin-bottom: 24px;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  p strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  p em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #fff;
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: rgba(232,160,69,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* ── FIVE QUESTIONS GRID ── */
+  .five-q {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0 48px;
+  }
+
+  .q-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 22px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .q-box:hover {
+    border-color: rgba(232,160,69,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .q-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .q-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+
+  .q-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── CLINICAL CARD ── */
+  .clinical-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 48px 0;
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card-header-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+
+  .card-header-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 1px;
+  }
+
+  .card-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    border-bottom: 1px solid rgba(42,58,80,0.5);
+  }
+
+  .card-row:last-child { border-bottom: none; }
+
+  .row-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    padding: 18px 22px;
+    min-width: 56px;
+    border-right: 1px solid rgba(42,58,80,0.5);
+    text-align: right;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .row-body {
+    padding: 16px 24px;
+    flex: 1;
+  }
+
+  .row-main {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .row-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── AIRWAY GRID ── */
+  .airway-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 20px 24px 24px;
+  }
+
+  .airway-item {
+    background: var(--bg3);
+    border: 1px solid rgba(42,58,80,0.6);
+    border-radius: 8px;
+    padding: 16px 18px;
+    transition: border-color 0.2s;
+  }
+
+  .airway-item:hover {
+    border-color: rgba(91,168,212,0.3);
+  }
+
+  .airway-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .airway-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* ── CALLOUT / WARNING ── */
+  .callout {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(232,160,69,0.06);
+    border: 1px solid rgba(232,160,69,0.25);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent);
+  }
+
+  .callout-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  .callout-text strong {
+    color: var(--gold);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── PATIENT SUMMARY BOX ── */
+  .patient-box {
+    background: linear-gradient(135deg, #1e2e42, #1a2332);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin: 40px 0;
+  }
+
+  .pb-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 16px;
+  }
+
+  .pb-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+
+  .patient-attrs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .attr-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(232,160,69,0.3);
+    color: var(--gold);
+    background: rgba(232,160,69,0.07);
+    letter-spacing: 0.5px;
+  }
+
+  .attr-pill.clear {
+    border-color: rgba(91,168,212,0.25);
+    color: var(--accent2);
+    background: rgba(91,168,212,0.06);
+  }
+
+  /* ── DISCUSSION BOX ── */
+  .discussion-box {
+    background: rgba(91,168,212,0.06);
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 10px;
+    padding: 24px 32px;
+    margin: 40px 0;
+    font-size: 17px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ── CONCEPT / OUTCOME BOXES ── */
+  .concept-box {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(126,203,161,0.05));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 12px;
+    padding: 28px 36px;
+    margin: 40px 0;
+  }
+
+  .concept-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 16px;
+  }
+
+  /* ── ALIVE LINE ── */
+  .alive-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    text-align: center;
+    padding: 40px 20px;
+    line-height: 1.6;
+  }
+
+  /* ── CLOSING QUESTION ── */
+  .closing-question {
+    background: linear-gradient(135deg, rgba(232,160,69,0.1), rgba(232,160,69,0.04));
+    border: 1px solid rgba(232,160,69,0.25);
+    border-radius: 16px;
+    padding: 56px 56px;
+    margin: 80px 0 0;
+    text-align: center;
+  }
+
+  .closing-question h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 400;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .closing-question p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 12px 32px;
+    border-radius: 2px;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .cta:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  /* ── CLOSING BLOCK ── */
+  .closing-block {
+    background: linear-gradient(135deg, #111820, #0d1117);
+    border-top: 1px solid var(--border);
+    padding: 72px 40px;
+    text-align: center;
+  }
+
+  .closing-block p {
+    max-width: 560px;
+    margin: 0 auto 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-style: italic;
+    color: #fff;
+    line-height: 1.65;
+    opacity: 0.9;
+  }
+
+  .closing-block p:last-of-type {
+    font-size: clamp(12px, 2vw, 14px);
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.35;
+    margin-top: 20px;
+  }
+
+  /* ── DISCUSSION SECTION ── */
+  .discussion-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 40px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  .discussion-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .discussion-q {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-style: italic;
+    color: #fff;
+    line-height: 1.45;
+    margin-bottom: 20px;
+  }
+
+  .discussion-body {
+    font-family: 'Source Serif 4', serif;
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--bg);
+    padding: 32px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(42,58,80,0.6);
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+  }
+
+  .footer-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .site-nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 80px 24px 60px; }
+    .hero h1 { font-size: 48px; }
+    .hero-opening { padding: 24px 24px; }
+    .content { padding: 48px 20px 80px; }
+    .five-q { grid-template-columns: 1fr; }
+    .airway-grid { grid-template-columns: 1fr; }
+    .closing-question { padding: 40px 24px; }
+    .closing-block { padding: 48px 24px; }
+    .discussion-section { padding: 40px 20px 56px; }
+    .site-footer { flex-direction: column; gap: 20px; text-align: center; padding: 28px 20px; }
+    .card-row { flex-direction: column; }
+    .row-num { border-right: none; border-bottom: 1px solid rgba(42,58,80,0.5); text-align: left; }
+    .opening-block { padding: 48px 24px; }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="https://drmscorpus.in" class="nav-brand">Dr MS Corpus</a>
+  <ul class="nav-links">
+    <li><a href="https://drmscorpus.in">Home</a></li>
+    <li><a href="https://drmscorpus.in/#posts">Topics</a></li>
+    <li><a href="https://drmscorpus.in/#about">About</a></li>
+    <li><a href="https://drmscorpus.in/contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag">
+    <span>Anaesthesiology</span>
+    <span>·</span>
+    <span>Clinical Life</span>
+    <span>·</span>
+    <span>Preoperative Assessment</span>
+  </div>
+
+  <h1>PAC — <em>The Anaesthesiologist's OPD</em></h1>
+
+  <p class="hero-sub">A desk. A chair. A patient who doesn't yet know what anaesthesia means. And a conversation that will decide everything that happens inside that OT.</p>
+
+  <div class="hero-opening">
+    <div class="hook">Every student dreams of the OPD. The patient across the table. The complaint. The examination. The moment of clarity when diagnosis meets decision.</div>
+    <div class="pullback">As an anaesthesiologist — PAC is where that dream lives.</div>
+  </div>
+
+  <div class="hero-meta">
+    <span class="meta-item">Dr MS Corpus</span>
+    <span class="meta-dot">·</span>
+    <span class="meta-item">2026</span>
+    <span class="meta-dot">·</span>
+    <span class="meta-item">Clinical Story</span>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+  <p>The first time I sat down in the PAC clinic, I didn't know what to expect.</p>
+
+  <p>A small room. One desk. Two chairs. No monitors beeping, no laryngoscope within reach, no trolley stocked with emergency drugs. Just a man sitting across from me — not in distress, not in urgency — simply waiting. Watching. Wondering, perhaps, what the anaesthesiologist wanted with him before his surgery.</p>
+
+  <p>He was 45. Male. Healthy-looking. Posted for laparoscopic cholecystectomy.</p>
+
+  <p>And in that quiet moment, before either of us had spoken, I understood something: this conversation — unhurried, unmonitored, without the soundtrack of an emergency — carried more weight than I had anticipated. What we discussed here would determine everything that happened to him once those OT doors closed behind us.</p>
+
+  <div class="pull-quote">That moment felt heavier than monitoring haemodynamics that kept you on edge. And yet there were no alarms. No urgency. Just two people in a room, and everything that depended on one listening to the other.</div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Five Questions -->
+  <div class="section-label">Before we begin</div>
+  <h2 class="section-title">Five questions we always ask <em>ourselves</em></h2>
+  <h3 class="sub-title">For every procedure · Every drug · Every decision</h3>
+
+  <p>For every procedure, every drug, every clinical decision we make as anaesthesiologists — we anchor ourselves to the same five questions. The PAC is no different.</p>
+
+  <div class="five-q">
+    <div class="q-box">
+      <div class="q-label">01 — What</div>
+      <div class="q-text">What is a PAC?</div>
+      <div class="q-sub">And what is its purpose in the surgical pathway?</div>
+    </div>
+    <div class="q-box">
+      <div class="q-label">02 — Why</div>
+      <div class="q-text">Why does it matter?</div>
+      <div class="q-sub">Why does the anaesthesiologist need a dedicated pre-operative clinic?</div>
+    </div>
+    <div class="q-box">
+      <div class="q-label">03 — When</div>
+      <div class="q-text">When do we conduct it?</div>
+      <div class="q-sub">How much does timing in the surgical journey matter?</div>
+    </div>
+    <div class="q-box">
+      <div class="q-label">04 — Where</div>
+      <div class="q-text">Where does it sit?</div>
+      <div class="q-sub">Where in the pathway — and in our own practice — does it belong?</div>
+    </div>
+    <div class="q-box" style="grid-column: 1 / -1;">
+      <div class="q-label">05 — How</div>
+      <div class="q-text">How — exactly — does a PAC unfold?</div>
+      <div class="q-sub">This is the question we are here to answer. With a patient, a desk, and a conversation that will not leave you the same way it found you.</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- What and Why -->
+  <div class="section-label">What and Why</div>
+  <h2 class="section-title">The <em>purpose</em> of the PAC</h2>
+  <h3 class="sub-title">Not paperwork · Not formality · Our domain</h3>
+
+  <p>The PAC — Pre-Anaesthetic Check-up — is the formal consultation that takes place before any surgical procedure. It is where the anaesthesiologist meets the patient, reviews their clinical status, and begins building the anaesthetic plan.</p>
+
+  <p>But that is the textbook answer. The lived answer is something different. The PAC is where the anaesthesiologist becomes a <strong>physician first</strong> — before she is a technician, before she is a proceduralist, before she is the person in charge of airway and haemodynamics inside an OT. It is the only moment in the surgical journey where the patient and anaesthesiologist exist outside the urgency of the operation.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">Why it matters — in three lines</div>
+    <p style="margin-bottom:0;font-size:17px;color:var(--text);">Because anaesthetic risk is determined <em>before</em> the knife touches skin. Because the patient who is informed is the patient who cooperates. And because the complication that could have been anticipated <strong style="color:var(--red);">is the complication that should never have surprised you.</strong></p>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- When and Where -->
+  <div class="section-label">When and Where</div>
+  <h2 class="section-title">Timing — and why it <em>matters</em></h2>
+  <h3 class="sub-title">Before the list · Outside the rush</h3>
+
+  <p>The ideal PAC takes place at least <strong>24–48 hours before surgery</strong>. Not minutes before wheeling the patient in. Not the morning of, while theatre is being prepared. Before. Because the PAC exists to give you time — time to investigate, time to optimise, time to change the plan if the plan needs changing.</p>
+
+  <p>At NIMS, the PAC clinic sits in the surgical OPD complex. One room. One consultant or resident. One patient at a time. And from that room, decisions flow outward — to the surgical team, to the investigation desk, to the ward — determining who goes in on that list, and in what condition.</p>
+
+  <div class="alive-line">
+    "The anaesthesiologist's OPD" — and I understood, sitting there, that this was not a borrowed term. It was ours.
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- The History -->
+  <div class="section-label">The history</div>
+  <h2 class="section-title">Listening <em>before</em> we look</h2>
+
+  <p>I introduced myself first. I told him I would review him before his surgery — that we would take it step by step, that he had nothing to worry about yet. I watched something shift in his posture. Not relief. The beginning of it.</p>
+
+  <p>Then I asked: <strong>What brings you here today?</strong></p>
+
+  <p>He told me about a pain on the right side of his abdomen — two months of it, visits to multiple OPDs, medications tried and discontinued. He wasn't in acute distress right now, but the discomfort had settled into his daily life. On further questioning: altered bowel habits, early satiety. Pain was his primary complaint.</p>
+
+  <p>The clinical mind was already working. But I let him finish. Because in the PAC, the history is not merely about the presenting complaint — it is about everything that might touch the anaesthetic.</p>
+
+  <div class="clinical-card">
+    <div class="card-header">
+      <span class="card-header-title">History — what we need to know</span>
+      <span class="card-header-sub">All six · Every patient</span>
+    </div>
+    <div class="card-row">
+      <div class="row-num">01</div>
+      <div class="row-body">
+        <div class="row-main">Present and past medical history</div>
+        <div class="row-sub">Current diagnoses, prior admissions, systemic illness</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="row-num">02</div>
+      <div class="row-body">
+        <div class="row-main">Current medications</div>
+        <div class="row-sub">Prescription, OTC, herbal — all of it changes the anaesthetic plan</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="row-num">03</div>
+      <div class="row-body">
+        <div class="row-main">Previous surgeries and hospitalisations</div>
+        <div class="row-sub">Prior anaesthesia, complications, difficult airway history</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="row-num">04</div>
+      <div class="row-body">
+        <div class="row-main">Drug allergies</div>
+        <div class="row-sub">The question that can prevent a catastrophe</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="row-num">05</div>
+      <div class="row-body">
+        <div class="row-main">Previous blood transfusions and reactions</div>
+        <div class="row-sub">Blood group, reactions, religious or cultural considerations</div>
+      </div>
+    </div>
+    <div class="card-row">
+      <div class="row-num">06</div>
+      <div class="row-body">
+        <div class="row-main">Personal history</div>
+        <div class="row-sub">Tobacco, alcohol, substance use — each alters pharmacokinetics and risk</div>
+      </div>
+    </div>
+  </div>
+
+  <p>His answers: no comorbidities, no regular medications, no prior surgeries, no known allergies. A clean slate — the kind that makes you quietly grateful, and quietly careful not to miss something beneath it.</p>
+
+  <p>Then I asked him to show me the surgeon's notes. And there it was: <strong>chronic cholelithiasis, posted for laparoscopic cholecystectomy.</strong> The complaints had mapped exactly where the clinical mind had expected them to. I felt the quiet satisfaction of a story that makes sense — and reminded myself that this satisfaction is also where complacency begins.</p>
+
+  <div class="patient-box">
+    <div class="pb-label">Clinical Summary · Pre-PAC</div>
+    <p class="pb-title">A 45-year-old male, no comorbidities, diagnosed with chronic cholelithiasis — posted for laparoscopic cholecystectomy.</p>
+    <div class="patient-attrs">
+      <span class="attr-pill">45yr · Male</span>
+      <span class="attr-pill">Laparoscopic Cholecystectomy</span>
+      <span class="attr-pill clear">No comorbidities</span>
+      <span class="attr-pill clear">No prior surgeries</span>
+      <span class="attr-pill clear">No known allergies</span>
+      <span class="attr-pill clear">No regular medications</span>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- The Examination -->
+  <div class="section-label">The examination</div>
+  <h2 class="section-title">What the body tells us that the <em>patient cannot</em></h2>
+
+  <p>With his consent, we moved to the examination. General appearance, vitals, systemic examination from head to toe — each system yielding its findings in the language of physiology rather than complaint.</p>
+
+  <p>And two measurements that are quietly essential and quietly forgotten: <strong>height and weight.</strong> Not incidental. Not afterthought. From these numbers flow drug dosing, airway prediction, and risk stratification. Ignore them and you are working in the dark — confident and wrong.</p>
+
+  <p>Then came the part that belongs entirely to us.</p>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Anaesthesia-Specific Examination -->
+  <div class="section-label">The anaesthesia-specific examination</div>
+  <h2 class="section-title">Our examination — and <em>no one else's</em></h2>
+
+  <p>I told him I needed to examine his airway — and I explained it in words he could understand, not in anatomy. He nodded. He leaned forward slightly, cooperative now in a way he hadn't been at the start of the consultation.</p>
+
+  <p>The airway examination is where the anaesthesiologist is most entirely herself. No other specialty performs this. No other specialty needs to. This is our domain — and we must own it with the precision it demands.</p>
+
+  <div class="clinical-card">
+    <div class="card-header">
+      <span class="card-header-title">Airway assessment — what we look for</span>
+      <span class="card-header-sub">Six points · Sequence matters</span>
+    </div>
+    <div class="airway-grid">
+      <div class="airway-item">
+        <div class="airway-num">01</div>
+        <div class="airway-text">External face and neck — visible abnormalities, scars, masses, burns</div>
+      </div>
+      <div class="airway-item">
+        <div class="airway-num">02</div>
+        <div class="airway-text">Mouth opening — adequate for laryngoscopy and intubation?</div>
+      </div>
+      <div class="airway-item">
+        <div class="airway-num">03</div>
+        <div class="airway-text">Mallampati grading — airway class on phonation, tongue, soft palate</div>
+      </div>
+      <div class="airway-item">
+        <div class="airway-num">04</div>
+        <div class="airway-text">Thyromental, sternomental, hyomental distances — fingerbreadths, always</div>
+      </div>
+      <div class="airway-item">
+        <div class="airway-num">05</div>
+        <div class="airway-text">Neck movements and temporomandibular joint — full range of motion</div>
+      </div>
+      <div class="airway-item">
+        <div class="airway-num">06</div>
+        <div class="airway-text">Dentition — loose teeth, dentures, caps, absent teeth. Document everything.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-text">
+      <strong>On dentition — a medicolegal note.</strong>
+      A loose tooth undocumented pre-operatively becomes a complication attributed to you intra-operatively. Ask. Examine. Write it down. Every single time. This is not a formality — it is protection, yours and your patient's both.
+    </div>
+  </div>
+
+  <p>Then the spine. I asked him to lift his shirt, and I looked — not cursorily, but with intention. Any visible deformity or scoliosis. Prior surgical scars. Skin changes or infection over the lumbar region. Each finding reshapes the regional anaesthesia plan before the drug has even been drawn up.</p>
+
+  <p>I palpated the interspinous spaces — and explained the position we would need him to assume if a spinal block was planned. He listened. He asked a question. And in the act of answering it, I realised something that no textbook had told me explicitly: this explanation was not just education. It was preparation. A patient who knows what to expect cooperates better, positions better, tolerates the procedure better. <em>The pre-operative conversation is already a clinical intervention.</em></p>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- Investigations -->
+  <div class="section-label">The investigations</div>
+  <h2 class="section-title">Evidence to <em>support</em> the decision</h2>
+
+  <p>The fifth pillar of the PAC: laboratory investigations. Not ordered reflexively, not as a defensive shield — but chosen deliberately, in response to the history and examination, to confirm or challenge what the clinical picture suggests.</p>
+
+  <p>His findings were unremarkable — as we had expected. But the act of reviewing them carefully, correlating them with what we had found clinically, completed the picture. Nothing was assumed. Everything was confirmed.</p>
+
+  <div class="pull-quote">A 45-year-old male. No comorbidities. No prior anaesthetic exposure. Airway assessed and documented. Spine examined and noted. Investigations reviewed and correlated. <strong>Ready for surgery.</strong></div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <p>He left the clinic less worried than he had entered it. I don't know if he noticed the shift in himself. I noticed it in him — the way his shoulders had settled, the way the last question he asked was curious rather than afraid.</p>
+
+  <p>That is what the PAC does. And what no one tells you until you sit across from a patient in a quiet room, with no monitors and no emergency, and only a conversation between you and the decisions that will follow.</p>
+
+  <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#fff;line-height:1.7;">The OPD was always what we dreamed of. In anaesthesiology — this is ours.</p>
+
+  <!-- Closing Question -->
+  <div class="closing-question">
+    <h2>What does a "fit for surgery" clearance actually mean — and what does it <em>not</em> mean?</h2>
+    <p>Where does the anaesthesiologist's responsibility begin — and where does it end?</p>
+    <p>Tell me in the comments. Let us discuss this together.</p>
+    <a href="#comments" class="cta">Join the discussion ↓</a>
+  </div>
+
+</main>
+
+<!-- CLOSING -->
+<div class="closing-block">
+  <p>The PAC is not paperwork before surgery. It is the moment the anaesthesiologist becomes a physician — not just to the operating list, but to the person on it.</p>
+  <p>Dr MS Corpus · drmscorpus.in · 2026</p>
+</div>
+
+<!-- DISCUSSION SECTION -->
+<section class="discussion-section">
+  <div class="discussion-label">Think about this before you scroll.</div>
+  <p class="discussion-q">What does a "fit for surgery" clearance actually mean — and what does it not mean? Where does the anaesthesiologist's responsibility begin, and where does it end?</p>
+  <p class="discussion-body">Tell me in the comments. Let us discuss this together.</p>
+  <a href="#comments" class="cta">Join the discussion ↓</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span class="footer-brand">Dr MS Corpus — Medical Education</span>
+  <div class="footer-links">
+    <a href="https://drmscorpus.in">Home</a>
+    <a href="https://www.instagram.com/drmscorpus" target="_blank">Instagram</a>
+    <a href="https://www.youtube.com/@drmscorpus" target="_blank">YouTube</a>
+    <a href="https://drmscorpus.in/contact.html">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
