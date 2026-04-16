@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Etomidate — the cardiac-stable induction agent. A clinical storytelling guide for medical students covering mechanism, pharmacokinetics, clinical uses, and adrenal suppression. By Dr MS Corpus.">
+<meta name="keywords" content="etomidate, anesthesia, induction agent, medical students, pharmacology, GABAA receptor, adrenal suppression, myoclonus, cardiac stability">
+<title>Etomidate — The Guardian | Dr MS Corpus</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #111820;
+    --bg3: #161e28;
+    --card: #1a2332;
+    --border: #2a3a50;
+    --accent: #e8a045;
+    --accent2: #5ba8d4;
+    --accent3: #7ecba1;
+    --text: #d4dde8;
+    --text-muted: #7a8fa8;
+    --text-dim: #4a6070;
+    --red: #e05c5c;
+    --gold: #f0c060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 25% 35%, #1a2e4a 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 70%, #2a1a08 0%, transparent 50%),
+      var(--bg);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 18% 28%, rgba(232,160,69,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 82% 18%, rgba(91,168,212,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 82%, rgba(232,160,69,0.18) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 60%, rgba(126,203,161,0.15) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(232,160,69,0.3);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-opening {
+    max-width: 720px;
+    background: rgba(232,160,69,0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 32px 40px;
+    text-align: left;
+    font-size: 20px;
+    line-height: 1.9;
+    color: var(--text);
+    animation: fadeUp 0.8s 0.45s ease both;
+  }
+
+  .hero-opening .hook {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .hero-opening .pullback {
+    font-style: italic;
+    color: var(--accent);
+    font-size: 18px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0 48px;
+  }
+
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  .divider-icon {
+    color: var(--accent);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ─── SECTION HEADINGS ─── */
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  h2.section-title em { color: var(--accent); }
+
+  h3.sub-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 24px;
+    margin-top: -4px;
+  }
+
+  /* ─── BODY TEXT ─── */
+  p {
+    margin-bottom: 24px;
+    color: var(--text);
+    font-weight: 300;
+  }
+
+  p strong { color: var(--gold); font-weight: 600; }
+  p em { color: var(--accent); font-style: italic; }
+
+  ul, ol { margin: 0 0 24px 0; padding-left: 0; list-style: none; }
+
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    font-size: 16px;
+    color: var(--text);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-weight: 300;
+  }
+
+  li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  li strong { color: var(--gold); font-weight: 600; }
+
+  /* ─── PAC CARD ─── */
+  .pac-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 48px 0;
+  }
+
+  .pac-header {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pac-badge {
+    background: var(--red);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .pac-badge.blue { background: var(--accent2); color: #000; }
+  .pac-badge.green { background: var(--accent3); color: #000; }
+  .pac-badge.amber { background: var(--accent); color: #000; }
+
+  .pac-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+  }
+
+  .pac-body { padding: 32px; }
+
+  .pac-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .pac-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    min-width: 140px;
+    padding-top: 2px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .pac-value { color: var(--text); flex: 1; font-weight: 300; }
+  .pac-value strong { color: var(--gold); font-weight: 600; }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.5;
+    color: #fff;
+    border-left: 4px solid var(--accent);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: rgba(232,160,69,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* ─── FIVE QUESTIONS ─── */
+  .five-questions {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(126,203,161,0.05));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 48px 0;
+    text-align: center;
+  }
+
+  .five-questions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .questions-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .question-pill {
+    background: rgba(91,168,212,0.15);
+    border: 1px solid rgba(91,168,212,0.3);
+    color: var(--accent2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+  }
+
+  /* ─── MED CARDS ─── */
+  .med-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .med-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+  .med-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .med-card .med-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .med-card .med-name.blue { color: var(--accent2); }
+  .med-card .med-name.green { color: var(--accent3); }
+  .med-card .med-name.red { color: var(--red); }
+
+  .med-card .med-purpose {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* ─── CONCEPT BOX ─── */
+  .concept-box {
+    background: var(--bg3);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin: 40px 0;
+    border: 1px solid var(--border);
+  }
+
+  .concept-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+  }
+
+  .concept-flow { display: flex; flex-direction: column; gap: 8px; }
+
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 16px;
+    color: var(--text);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    font-weight: 300;
+  }
+
+  .flow-arrow {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ─── LANDMARK TABLE ─── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 16px;
+  }
+
+  .data-table thead tr {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+  }
+
+  .data-table thead th {
+    padding: 16px 20px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .data-table tbody tr:hover { background: rgba(232,160,69,0.04); }
+
+  .data-table td {
+    padding: 18px 20px;
+    vertical-align: top;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .data-table td:first-child { color: var(--gold); font-weight: 600; font-size: 15px; }
+  .data-table td { color: var(--text-muted); font-size: 15px; }
+
+  /* ─── WARNING BOX ─── */
+  .last-warning {
+    background: rgba(224,92,92,0.08);
+    border: 1px solid rgba(224,92,92,0.25);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .warning-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+  .warning-text { font-size: 16px; color: var(--text); line-height: 1.7; font-weight: 300; }
+  .warning-text strong { color: var(--red); }
+
+  /* ─── INSIGHT BOX (green/blue positive) ─── */
+  .insight-box {
+    background: rgba(126,203,161,0.06);
+    border: 1px solid rgba(126,203,161,0.2);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .insight-text { font-size: 16px; color: var(--text); line-height: 1.7; font-weight: 300; }
+  .insight-text strong { color: var(--accent3); }
+
+  /* ─── FIRE ANALOGY ─── */
+  .fire-analogy {
+    text-align: center;
+    padding: 48px 32px;
+    margin: 48px 0;
+    background: radial-gradient(ellipse at center, rgba(232,160,69,0.08), transparent 70%);
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .fire-analogy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(232,160,69,0.15);
+  }
+
+  .fire-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  /* ─── ALIVE LINE ─── */
+  .alive-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    text-align: center;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* ─── MONITOR ─── */
+  .monitor {
+    background: #0a1218;
+    border: 1px solid #1e3a2a;
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin: 36px 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .monitor-header {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--accent3);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e3a2a;
+  }
+
+  .monitor-readings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .monitor-readings-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .monitor-reading { text-align: center; }
+
+  .monitor-reading .label {
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .monitor-reading .value {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--accent3);
+    line-height: 1.2;
+  }
+
+  .monitor-reading .value.warn { color: var(--red); }
+  .monitor-reading .value.amber { color: var(--accent); }
+  .monitor-reading .unit { font-size: 11px; color: var(--text-dim); }
+  .monitor-reading .status { font-size: 11px; color: var(--accent3); margin-top: 4px; }
+  .monitor-reading .status.warn { color: var(--red); }
+  .monitor-reading .status.amber { color: var(--accent); }
+
+  /* ─── OUTCOME LINES ─── */
+  .outcome-lines { margin: 32px 0; }
+
+  .outcome-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .outcome-line::before { content: '✓'; color: var(--accent3); font-family: sans-serif; font-size: 16px; }
+  .outcome-line.bad::before { content: '✗'; color: var(--red); }
+
+  /* ─── MOMENT SECTION ─── */
+  .moment-section {
+    position: relative;
+    background: linear-gradient(135deg, rgba(26,35,50,0.8), rgba(20,28,40,0.9));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 48px;
+    margin: 48px 0;
+    overflow: hidden;
+  }
+
+  .moment-section::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    color: rgba(232,160,69,0.06);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .moment-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .moment-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(232,160,69,0.2);
+  }
+
+  /* ─── DISCUSSION BOX ─── */
+  .discussion-box {
+    background: rgba(91,168,212,0.06);
+    border: 1px dashed rgba(91,168,212,0.3);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 32px 0;
+  }
+
+  .discussion-box p {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .discussion-box p strong { color: var(--accent2); }
+
+  /* ─── CLOSING QUESTION ─── */
+  .closing-question {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(91,168,212,0.03));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 16px;
+    padding: 48px 48px;
+    margin: 64px 0 0;
+    text-align: center;
+  }
+
+  .closing-question h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 24px;
+  }
+
+  .closing-question h2 em { color: var(--accent2); font-style: italic; }
+  .closing-question p { font-size: 18px; color: var(--text-muted); margin-bottom: 0; }
+
+  .cta {
+    display: inline-block;
+    margin-top: 32px;
+    background: var(--accent2);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* ─── DRUG BOX ─── */
+  .drug-box {
+    background: linear-gradient(135deg, rgba(126,203,161,0.08), rgba(91,168,212,0.05));
+    border: 1px solid rgba(126,203,161,0.25);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 40px 0;
+  }
+
+  .drug-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--accent3);
+    margin-bottom: 20px;
+  }
+
+  /* ─── GOALS LIST ─── */
+  .goals-list { list-style: none; margin: 24px 0 32px; padding: 0; }
+
+  .goals-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .goals-list li::before { display: none; }
+
+  .goal-number {
+    background: var(--accent);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .goal-text { color: var(--text); font-size: 17px; line-height: 1.7; font-weight: 300; }
+
+  /* ─── ACRONYM BOX ─── */
+  .acronym-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 40px 0;
+  }
+
+  .acronym-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+  }
+
+  .acronym-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent);
+    width: 32px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+
+  .acronym-text {
+    font-size: 16px;
+    color: var(--text);
+    padding-top: 4px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .acronym-text strong { color: var(--gold); font-weight: 600; }
+
+  /* ─── SOCIAL SECTION ─── */
+  .social-section {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 40px;
+    margin: 64px 0 40px;
+    text-align: center;
+  }
+
+  .social-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .social-section p { font-size: 16px; color: var(--text-muted); margin-bottom: 28px; }
+
+  .social-links { display: flex; flex-direction: column; gap: 12px; max-width: 480px; margin: 0 auto; }
+
+  .social-link {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 24px;
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    display: block;
+  }
+
+  .social-link:hover {
+    background: rgba(232,160,69,0.06);
+    border-color: rgba(232,160,69,0.3);
+    color: var(--accent);
+  }
+
+  /* ─── QUOTE SECTION ─── */
+  .quote-section {
+    background: linear-gradient(135deg, rgba(26,35,50,0.6), rgba(20,28,40,0.8));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 48px;
+    margin: 48px 0;
+    text-align: center;
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #fff;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .quote-source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .quote-translation {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .quote-application {
+    background: rgba(232,160,69,0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+    text-align: left;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .quote-application strong { color: var(--gold); }
+
+  /* ─── PREV BLOG ─── */
+  .prev-blog {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 32px;
+    margin: 40px 0;
+    text-align: center;
+  }
+
+  .prev-blog p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .prev-blog a {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--accent2);
+    text-decoration: none;
+    font-style: italic;
+  }
+
+  .prev-blog a:hover { color: var(--accent); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 680px) {
+    .content { padding: 60px 24px 80px; }
+    .med-grid { grid-template-columns: 1fr; }
+    .med-grid-2 { grid-template-columns: 1fr; }
+    .monitor-readings { grid-template-columns: repeat(2, 1fr); }
+    .monitor-readings-3 { grid-template-columns: 1fr; }
+    .moment-section { padding: 32px 28px; }
+    .hero-opening { padding: 24px 28px; }
+    .closing-question { padding: 36px 28px; }
+    .quote-section { padding: 36px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-tag">Anaesthesia · Pharmacology · Induction Agents</div>
+  <h1>Etomidate —<br><em>The Guardian</em></h1>
+  <p class="hero-sub">When the heart is fragile and there is no room for error.</p>
+
+  <div class="hero-opening">
+    <p class="hook">"It was 2 AM. A 68-year-old man with severe coronary artery disease, BP 85/50, needed emergency intubation. My senior looked at the drugs drawn up and said — every agent here could collapse this heart.</p>
+    <p class="hook" style="color:var(--accent);font-size:26px;margin-bottom:16px;">Every one except etomidate.</p>
+    <p class="pullback">Let me tell you what I learned that night.</p>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════ CONTENT ═══════════════════════════════════ -->
+<main class="content">
+
+  <p>In the world of anaesthesia, we have our workhorse drugs and our specialists. If propofol is the versatile everyday hero, etomidate is the specialist you call when the stakes are at their highest — when the heart cannot afford a single stumble.</p>
+
+  <p>But like all great characters, etomidate has complexity. It barely whispers to the cardiovascular system, yet it shuts down the adrenal gland for hours. It causes involuntary movements in up to <strong>80% of patients</strong>, yet remains our go-to choice for the most fragile cardiac cases.</p>
+
+  <p>This is the story of etomidate — and by the end of it, you will understand not just what it does, but <em>why</em> we choose it, when we fear it, and what it feels like when it saves a patient you were not sure could survive induction.</p>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── CHEMICAL IDENTITY ── -->
+  <h2 class="section-title">The <em>Molecule</em></h2>
+  <h3 class="sub-title">What it is · What makes it structurally unique</h3>
+
+  <p>Etomidate is built on a <strong>carboxylated imidazole nucleus</strong> — a structure that sets it apart from every other intravenous anaesthetic. And this isn't just chemical trivia. The imidazole ring is what gives etomidate its remarkable pH-dependent solubility. It behaves like a molecular chameleon.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">The pH Transformation</div>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">→</span>At <strong>acidic pH</strong> in the vial — water-soluble, easy to formulate</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>At <strong>physiological pH 7.4</strong> — becomes lipid-soluble, crosses the blood-brain barrier instantly</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Weak base, pKa 4.2 — <strong>99% unionised</strong> at physiological pH</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>This transformation is what gives etomidate its <strong>one arm-to-brain circulation</strong> onset</div>
+    </div>
+  </div>
+
+  <p>The original formulation used <strong>35% propylene glycol</strong> as its solvent — which caused burning, pain, and venous irritation in a significant number of patients. The modern <strong>fat emulsion formulation</strong> eliminated all of that. Yet here is what I want you to notice: the myoclonus remained <em>completely unchanged</em>.</p>
+
+  <div class="alive-line">
+    Changing the vehicle didn't change the molecule. The myoclonus is intrinsic to how etomidate speaks to the brain — not to what carries it.
+  </div>
+
+  <p>And then there is the detail that makes etomidate genuinely unique in our entire pharmacopoeia of injectable and inhaled anaesthetics. It is the <strong>only one administered as a single isomer</strong> — specifically the R(+) enantiomer. The R(+) isomer is approximately <strong>5 times more potent</strong> than its S(−) mirror image.</p>
+
+  <div class="insight-box">
+    <div class="warning-icon">💡</div>
+    <div class="insight-text"><strong>Exam anchor:</strong> "What makes etomidate chemically unique?" — Single R(+) isomer. The only IV or inhaled anaesthetic with this distinction. Write it once, remember it forever.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── MECHANISM ── -->
+  <h2 class="section-title">The <em>GABA<sub>A</sub> Whisper</em></h2>
+  <h3 class="sub-title">How it works · What it does to the brain</h3>
+
+  <p>Imagine GABA receptors as gates. When opened, they flood neurons with chloride ions, making them less likely to fire. Barbiturates force these gates open like a battering ram. Etomidate does something more elegant — it acts like a <em>skilled locksmith</em>, binding to a specific site on the GABA<sub>A</sub> receptor and making that receptor exquisitely more sensitive to GABA's natural inhibitory signal.</p>
+
+  <div class="pac-card">
+    <div class="pac-header">
+      <span class="pac-badge blue">MECHANISM</span>
+      <span class="pac-title">GABA<sub>A</sub> RECEPTOR MODULATION</span>
+    </div>
+    <div class="pac-body">
+      <div class="pac-row">
+        <span class="pac-label">Target</span>
+        <span class="pac-value">GABA<sub>A</sub> receptors — <strong>relatively selective</strong>, unlike barbiturates</span>
+      </div>
+      <div class="pac-row">
+        <span class="pac-label">Action</span>
+        <span class="pac-value">Binds directly to a <strong>specific site on the receptor protein</strong></span>
+      </div>
+      <div class="pac-row">
+        <span class="pac-label">Effect</span>
+        <span class="pac-value">Enhances receptor affinity for GABA — the brain's main inhibitory neurotransmitter</span>
+      </div>
+      <div class="pac-row">
+        <span class="pac-label">Result</span>
+        <span class="pac-value">Depression of the reticular activating system → <strong>loss of consciousness</strong></span>
+      </div>
+      <div class="pac-row">
+        <span class="pac-label">Selectivity</span>
+        <span class="pac-value">Does <strong>not</strong> modulate other ligand-gated ion channels at clinical concentrations</span>
+      </div>
+    </div>
+  </div>
+
+  <p>But here is a question worth sitting with. If etomidate enhances <em>inhibition</em> throughout the brain — why do patients develop involuntary movements? Why does an inhibitory drug cause excitatory phenomena?</p>
+
+  <p>The answer lies in the <strong>timing of unconsciousness</strong>. Different brain regions fall asleep at different rates. As etomidate suppresses the subcortical structures that normally keep extrapyramidal motor activity in check, the extrapyramidal system may briefly become disinhibited before cortical control catches up.</p>
+
+  <div class="fire-analogy">
+    <div class="fire-line">Turn off the master circuit breaker before the floor controls —</div>
+    <div class="fire-line" style="font-size:26px;color:var(--accent);">and you get surges before everything settles.</div>
+    <div class="fire-line" style="font-size:16px;color:var(--text-muted);margin-top:12px;">That is etomidate myoclonus. Not a seizure. A timing mismatch.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── PHARMACOKINETICS ── -->
+  <h2 class="section-title">The Body's <em>Journey</em></h2>
+  <h3 class="sub-title">Distribution · Metabolism · Elimination</h3>
+
+  <p>Etomidate is a master of rapid distribution. With a volume of distribution of <strong>2.5–4.5 L/kg</strong>, it distributes widely into tissues. But what matters clinically is that it crosses into the brain within a single arm-to-brain circulation — peak brain concentration within <strong>one minute</strong>, loss of consciousness within <strong>15–45 seconds</strong>.</p>
+
+  <div class="monitor">
+    <div class="monitor-header">⬤ PHARMACOKINETIC PROFILE</div>
+    <div class="monitor-readings">
+      <div class="monitor-reading">
+        <div class="label">Onset</div>
+        <div class="value">15–45</div>
+        <div class="unit">seconds</div>
+        <div class="status">✓ RAPID</div>
+      </div>
+      <div class="monitor-reading">
+        <div class="label">Peak Brain</div>
+        <div class="value">&lt; 1</div>
+        <div class="unit">minute</div>
+        <div class="status">✓ FAST</div>
+      </div>
+      <div class="monitor-reading">
+        <div class="label">Protein Binding</div>
+        <div class="value">76%</div>
+        <div class="unit">albumin</div>
+        <div class="status amber">↑ in hypoalbumin</div>
+      </div>
+      <div class="monitor-reading">
+        <div class="label">Half-life</div>
+        <div class="value">3–5</div>
+        <div class="unit">hours</div>
+        <div class="status">✓ SHORTER than propofol</div>
+      </div>
+    </div>
+  </div>
+
+  <p>About <strong>76% binds to albumin</strong>, and this binding is concentration-independent. Which means — in patients with low albumin (malnutrition, liver disease, nephrotic syndrome), the free fraction of etomidate rises substantially. More free drug. Greater effect from the same total dose. This is worth remembering before you draw up your standard induction dose.</p>
+
+  <p>Metabolism is elegantly simple. The <strong>ethyl ester side chain undergoes rapid hydrolysis</strong> — by both hepatic microsomal enzymes and plasma esterases — to form a water-soluble, pharmacologically inactive carboxylic acid metabolite. Less than 3% of the drug is excreted unchanged. 85% leaves through the urine as this inactive metabolite; about 10–13% via bile.</p>
+
+  <p>And here is the pharmacokinetic paradox that trips students in exams. Etomidate has <em>slower clearance</em> than propofol — yet a <em>shorter elimination half-life</em>. How?</p>
+
+  <div class="concept-box">
+    <div class="concept-title">The Volume-Driven Paradox</div>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">→</span>Half-life = 0.693 × Volume of Distribution ÷ Clearance</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Etomidate's <strong>smaller volume of distribution</strong> dominates the equation</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Despite slower clearance, the drug has <strong>less tissue to redistribute from</strong></div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Result: <strong>Shorter half-life than propofol</strong>, despite lower clearance</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── CARDIOVASCULAR ── -->
+  <h2 class="section-title">The Guardian's <em>Promise</em></h2>
+  <h3 class="sub-title">Cardiovascular stability · Why it matters · What the numbers say</h3>
+
+  <p>This is etomidate's superpower. While propofol causes vasodilation and drops blood pressure 25–40%, while barbiturates depress myocardial contractility, etomidate passes through the cardiovascular system like a ghost — barely noticed, minimally disturbing.</p>
+
+  <div class="monitor">
+    <div class="monitor-header">⬤ HAEMODYNAMIC COMPARISON — STANDARD INDUCTION DOSE</div>
+    <div class="monitor-readings">
+      <div class="monitor-reading">
+        <div class="label">Heart Rate</div>
+        <div class="value">≈ 0%</div>
+        <div class="unit">change</div>
+        <div class="status">✓ PRESERVED</div>
+      </div>
+      <div class="monitor-reading">
+        <div class="label">Cardiac Output</div>
+        <div class="value">≈ 0%</div>
+        <div class="unit">change</div>
+        <div class="status">✓ PRESERVED</div>
+      </div>
+      <div class="monitor-reading">
+        <div class="label">MAP drop</div>
+        <div class="value amber">≤15%</div>
+        <div class="unit">etomidate</div>
+        <div class="status amber">vs 25–40% propofol</div>
+      </div>
+      <div class="monitor-reading">
+        <div class="label">Contractility</div>
+        <div class="value">Intact</div>
+        <div class="unit">at clinical doses</div>
+        <div class="status">✓ PRESERVED</div>
+      </div>
+    </div>
+  </div>
+
+  <p>In vitro studies on isolated cardiac muscle do show dose-dependent decreases in developed tension — but at concentrations that <em>exceed</em> clinical anaesthetic levels. And any depression observed is reversible with β-adrenergic stimulation. At the doses we actually use, etomidate produces minimal depression of myocardial contractility. That is a contrast to nearly every other intravenous anaesthetic we have.</p>
+
+  <p>The mechanisms behind this stability are elegant in their simplicity:</p>
+
+  <ul>
+    <li><strong>No sympathetic blockade</strong> — etomidate alone does not affect sympathetic tone</li>
+    <li><strong>No histamine release</strong> — avoids histamine-mediated vasodilation entirely</li>
+    <li><strong>Preserved baroreceptor reflexes</strong> — the body's own compensatory mechanisms stay intact</li>
+    <li><strong>Minimal direct vascular effects</strong> — only a mild reduction in systemic vascular resistance</li>
+  </ul>
+
+  <div class="last-warning">
+    <div class="warning-icon">⚠️</div>
+    <div class="warning-text"><strong>The Intubation Challenge:</strong> Etomidate produces relatively light anaesthesia. If you give it alone without an opioid and proceed to laryngoscopy — expect severe hypertension and tachycardia despite the haemodynamic stability at induction. The stability is baseline. Laryngoscopy is a storm. <strong>Always combine with an opioid.</strong></div>
+  </div>
+
+  <div class="fire-analogy">
+    <div class="fire-line">Etomidate guards the heart at induction.</div>
+    <div class="fire-line" style="font-size:26px;color:var(--accent);">But etomidate has no memory of pain.</div>
+    <div class="fire-line" style="font-size:16px;color:var(--text-muted);margin-top:12px;">Add fentanyl. Always.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── CNS EFFECTS ── -->
+  <h2 class="section-title">The Brain's <em>Response</em></h2>
+  <h3 class="sub-title">ICP · CMRO₂ · CBF · SSEPs · The seizure paradox</h3>
+
+  <div class="med-grid">
+    <div class="med-card">
+      <div class="med-name">CMRO₂</div>
+      <div class="med-purpose">Decreases <strong style="color:var(--gold);">35–45%</strong>. Reduces the brain's oxygen demand. Potentially protective during ischaemia.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name blue">CBF</div>
+      <div class="med-purpose">Decreases. Potent direct cerebral vasoconstrictor. Coupled with ↓ CMRO₂ — supply-demand balance maintained.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name green">ICP</div>
+      <div class="med-purpose">Decreases — similar to propofol. With minimal MAP drop, <strong style="color:var(--gold);">CPP is well preserved</strong>.</div>
+    </div>
+  </div>
+
+  <p>For the emergency intubation of a head trauma patient with elevated ICP, etomidate gives you a rare dual gift — it decreases ICP <em>and</em> maintains cerebral perfusion pressure through its cardiovascular stability. That combination is difficult to replicate with any other agent.</p>
+
+  <p>The EEG story, however, is more nuanced. Etomidate produces <strong>more frequent excitatory spikes</strong> than propofol, thiopental, or methohexital. And it has a paradoxical relationship with seizures — it can both terminate status epilepticus and activate seizure foci depending on the clinical context.</p>
+
+  <div class="med-grid med-grid-2" style="margin-top:24px;">
+    <div class="med-card">
+      <div class="med-name green">Anticonvulsant ✓</div>
+      <div class="med-purpose">Can terminate status epilepticus. Useful when haemodynamic stability is needed during seizure management.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name red">Pro-convulsant ⚠</div>
+      <div class="med-purpose">May activate seizure foci. In epilepsy surgery, this is actually <strong style="color:var(--gold);">useful</strong> — facilitating cortical localisation during resection.</div>
+    </div>
+  </div>
+
+  <p>There is also this: etomidate <strong>augments SSEP amplitude</strong>. In spine surgery and procedures requiring somatosensory evoked potential monitoring, this improved signal quality is a genuine clinical advantage.</p>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── MYOCLONUS ── -->
+  <h2 class="section-title">The Involuntary <em>Dance</em></h2>
+  <h3 class="sub-title">Myoclonus · Why it happens · How we prevent it</h3>
+
+  <div class="moment-section">
+    <div class="moment-label">The scene</div>
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:#fff;margin-bottom:24px;">You have just injected etomidate. The eyes close. Consciousness fades.</p>
+    <p>And then the arm twitches. Then the shoulder. Brief, shock-like jerks across the body. The patient is asleep — but their muscles are doing something nobody asked them to do.</p>
+    <p>This is etomidate myoclonus. And it happens in <strong>50–80% of patients</strong> who receive the drug without premedication. In one landmark study — 87% showed excitatory effects, 69% had frank myoclonus, and 22% demonstrated EEG spike activity. No other induction agent comes close to these numbers.</p>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Drug</th>
+        <th>Excitatory Effects</th>
+        <th>Myoclonus</th>
+        <th>EEG Spikes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Etomidate</td>
+        <td style="color:var(--red);">87%</td>
+        <td style="color:var(--red);">69%</td>
+        <td style="color:var(--red);">22%</td>
+      </tr>
+      <tr>
+        <td>Thiopental</td>
+        <td>17%</td>
+        <td>Minimal</td>
+        <td>Rare</td>
+      </tr>
+      <tr>
+        <td>Methohexital</td>
+        <td>13%</td>
+        <td>Minimal</td>
+        <td>Present</td>
+      </tr>
+      <tr>
+        <td>Propofol</td>
+        <td>6%</td>
+        <td>Rare</td>
+        <td>Very rare</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>Etomidate stands alone. It is the only induction agent that consistently produces myoclonus combined with EEG spike activity. And while generally benign, these movements can disrupt delicate procedures, alarm observers, and occasionally confuse even experienced clinicians who haven't seen them before.</p>
+
+  <h3 class="sub-title" style="margin-top:48px;">Prevention — What actually works</h3>
+
+  <div class="drug-box">
+    <h3>Strategy #1 — Opioid Pretreatment (Most Effective)</h3>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">→</span><strong>Agent:</strong> Fentanyl 1–2 μg/kg IV</div>
+      <div class="flow-step"><span class="flow-arrow">→</span><strong>Timing:</strong> 2–3 minutes before etomidate</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Reduces myoclonus incidence by <strong>50–70%</strong></div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Also blunts haemodynamic response to laryngoscopy</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Provides analgesia — the one thing etomidate cannot</div>
+    </div>
+  </div>
+
+  <div class="concept-box">
+    <div class="concept-title">Other Strategies</div>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">→</span><strong>Benzodiazepine premedication</strong> — midazolam 0.03–0.05 mg/kg, GABA enhancement, also provides amnesia</div>
+      <div class="flow-step"><span class="flow-arrow">→</span><strong>Etomidate priming dose</strong> — 0.03–0.075 mg/kg, 1–2 minutes before the full induction dose</div>
+      <div class="flow-step"><span class="flow-arrow">→</span><strong>Atropine premedication</strong> — may suppress EEG spike activity, less commonly used</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── ADRENAL SUPPRESSION ── -->
+  <h2 class="section-title">The <em>Dark Side</em></h2>
+  <h3 class="sub-title">Adrenocortical suppression · The Achilles' heel · The clinical controversy</h3>
+
+  <p>If myoclonus is etomidate's most visible side effect, adrenocortical suppression is its most clinically significant — and most controversial. This is the limitation that defines etomidate's role in intensive care, that makes us pause in sepsis, and that we must weigh against every haemodynamic benefit we have just discussed.</p>
+
+  <div class="last-warning">
+    <div class="warning-icon">⚠️</div>
+    <div class="warning-text"><strong>Critical Concept:</strong> Etomidate is <strong>far more potent at inhibiting steroid production</strong> than at producing anaesthesia. The therapeutic dose for induction inevitably causes adrenal suppression. This is not a dose-dependent side effect we can engineer around — it is intrinsic to the drug at any clinical anaesthetic dose.</div>
+  </div>
+
+  <p>The primary enzyme inhibited is <strong>11-β-hydroxylase (CYP11B1)</strong> — the enzyme that converts 11-deoxycorticosterone to cortisol. Block it, and you see 11-deoxycorticosterone accumulating in the blood. Etomidate also inhibits CYP11B2 (the aldosterone synthesis pathway), though the cortisol pathway block is the clinically dominant effect.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">The Steroidogenesis Blockade</div>
+    <div class="concept-flow">
+      <div class="flow-step"><span class="flow-arrow">→</span>Normal: Cholesterol → 11-deoxycorticosterone → <strong>Cortisol</strong></div>
+      <div class="flow-step" style="color:var(--red)"><span class="flow-arrow" style="color:var(--red);">✗</span>With etomidate: Cholesterol → 11-deoxycorticosterone → <strong style="color:var(--red);">BLOCKED at 11-β-hydroxylase</strong></div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Evidence of block: <strong>accumulation of 11-deoxycorticosterone</strong> in the blood</div>
+      <div class="flow-step"><span class="flow-arrow">→</span>Secondary: CYP11B2 also inhibited — <strong>aldosterone synthesis pathway</strong> also suppressed</div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>Duration of Suppression</th>
+        <th>Clinical Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single Induction Dose</td>
+        <td>4–8 hours</td>
+        <td style="color:var(--accent3);">Transient, recovers spontaneously</td>
+      </tr>
+      <tr>
+        <td>Continuous Infusion</td>
+        <td>Throughout + hours after</td>
+        <td style="color:var(--accent);">Consistent sustained suppression</td>
+      </tr>
+      <tr>
+        <td>ICU Sedation in Critically Ill</td>
+        <td>Prolonged</td>
+        <td style="color:var(--red);font-weight:600;">Increased mortality — especially in sepsis</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The single-dose question, however, is genuinely controversial. Large trauma studies with over 1,700 patients found no impact on mortality, no increase in ICU stay, and no prolonged mechanical ventilation. Cardiac surgery data from over 3,000 patients showed no increase in severe hypotension, ventilation time, hospital stay, or mortality. Yet a large non-cardiac surgery study found etomidate associated with increased 30-day mortality and cardiovascular morbidity compared to propofol.</p>
+
+  <p>There is no universal right answer. The decision requires you to weigh two things for each individual patient:</p>
+
+  <div class="med-grid med-grid-2">
+    <div class="med-card">
+      <div class="med-name green">Immediate Benefit</div>
+      <div class="med-purpose">Minimal cardiac suppression at induction. For the patient whose heart genuinely cannot tolerate propofol — this benefit is real, immediate, and life-saving.</div>
+    </div>
+    <div class="med-card">
+      <div class="med-name red">Hours-Long Cost</div>
+      <div class="med-purpose">Blunted cortisol response during the critical post-induction period. In septic patients, trauma patients, anyone who needs that stress response — the cost is real too.</div>
+    </div>
+  </div>
+
+  <div class="last-warning">
+    <div class="warning-icon">🚫</div>
+    <div class="warning-text"><strong>Absolute Contraindication:</strong> Etomidate for <strong>continuous infusion sedation in the ICU</strong>. Multiple studies have demonstrated increased mortality in critically ill patients receiving etomidate for prolonged sedation. This is not a relative contraindication. It is absolute.</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── CLINICAL USE ── -->
+  <h2 class="section-title">When to <em>Call the Guardian</em></h2>
+  <h3 class="sub-title">Indications · Adjuncts · Timing · Dosing</h3>
+
+  <p>Every specialist has their moment. For etomidate, it is when cardiovascular stability is non-negotiable — when every other drug threatens to topple an already fragile haemodynamic state.</p>
+
+  <div class="pac-card">
+    <div class="pac-header">
+      <span class="pac-badge amber">PRIMARY INDICATION</span>
+      <span class="pac-title">INDUCTION IN UNSTABLE CARDIOVASCULAR SYSTEMS</span>
+    </div>
+    <div class="pac-body">
+      <p style="color:var(--text-muted);font-size:15px;margin-bottom:20px;font-weight:300;">This is etomidate's raison d'être. When you have a patient with:</p>
+      <div class="pac-row"><span class="pac-label">Cardiac Disease</span><span class="pac-value">Severe CAD, cardiomyopathy with reduced EF, significant valvular disease</span></div>
+      <div class="pac-row"><span class="pac-label">Shock States</span><span class="pac-value">Hypovolaemic (with caution), septic (controversial), cardiogenic</span></div>
+      <div class="pac-row"><span class="pac-label">Neurotrauma</span><span class="pac-value">Elevated ICP — etomidate reduces ICP while preserving CPP</span></div>
+      <div class="pac-row"><span class="pac-label">Other Uses</span><span class="pac-value">Electroconvulsive therapy, cardioversion, status epilepticus</span></div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Indication</th>
+        <th>Dose Range</th>
+        <th>Why Etomidate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Standard Induction</td>
+        <td>0.2–0.4 mg/kg IV</td>
+        <td>Cardiovascular stability, reliable onset</td>
+      </tr>
+      <tr>
+        <td>ECT</td>
+        <td>0.15–0.3 mg/kg IV</td>
+        <td>Minimal effect on seizure duration</td>
+      </tr>
+      <tr>
+        <td>Cardioversion</td>
+        <td>0.1–0.3 mg/kg IV</td>
+        <td>Haemodynamic stability during arrhythmia</td>
+      </tr>
+      <tr>
+        <td>Myoclonus Prevention</td>
+        <td>0.03–0.075 mg/kg IV</td>
+        <td>Priming dose before main induction</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-title" style="margin-top:48px;">The Clinical Timeline</h3>
+
+  <div class="outcome-lines">
+    <div class="outcome-line" style="font-size:17px;">0 sec — IV injection begins</div>
+    <div class="outcome-line" style="font-size:17px;">15–45 sec — Loss of consciousness (one arm-to-brain circulation)</div>
+    <div class="outcome-line" style="font-size:17px;">1 min — Peak brain concentration</div>
+    <div class="outcome-line" style="font-size:17px;">5–15 min — Awakening (similar to propofol, faster than barbiturates)</div>
+    <div class="outcome-line" style="font-size:17px;">20–30 min — Full psychomotor recovery (slower than propofol)</div>
+    <div class="outcome-line bad" style="font-size:17px;">4–8 hours — Adrenocortical suppression persists</div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── CLINICAL PEARLS ── -->
+  <h2 class="section-title">Clinical Pearls &amp; <em>Exam Wisdom</em></h2>
+  <h3 class="sub-title">What to choose · What to avoid · What to remember</h3>
+
+  <div class="five-questions">
+    <h3>High-Yield Anchors — Commit these to memory</h3>
+    <div class="questions-row" style="margin-top:20px;flex-direction:column;align-items:flex-start;text-align:left;gap:8px;">
+      <span class="question-pill">Only IV/inhaled anaesthetic as single R(+) isomer</span>
+      <span class="question-pill">Adrenocortical suppression: 4–8 hours after single dose</span>
+      <span class="question-pill">Enzyme inhibited: 11-β-hydroxylase (CYP11B1)</span>
+      <span class="question-pill">Myoclonus: 50–80% incidence — GABA disinhibition</span>
+      <span class="question-pill">Zero analgesia — always add opioid before stimulation</span>
+      <span class="question-pill">Absolutely contraindicated for ICU continuous infusion</span>
+    </div>
+  </div>
+
+  <h3 class="sub-title" style="margin-top:48px;">When to Choose · When to Avoid</h3>
+
+  <div class="med-grid med-grid-2">
+    <div class="med-card">
+      <div class="med-name green">Choose Etomidate ✓</div>
+      <div class="med-purpose" style="text-align:left;line-height:2;">
+        Haemodynamically unstable patients<br>
+        Limited cardiac reserve<br>
+        Severe CAD, cardiomyopathy<br>
+        Elevated ICP with haemodynamic instability<br>
+        ECT, cardioversion<br>
+        RSI when BP cannot drop
+      </div>
+    </div>
+    <div class="med-card">
+      <div class="med-name red">Avoid Etomidate ✗</div>
+      <div class="med-purpose" style="text-align:left;line-height:2;">
+        ICU sedation — <strong style="color:var(--red);">absolute contraindication</strong><br>
+        Septic patients (consider ketamine)<br>
+        Baseline adrenal insufficiency<br>
+        Major haemorrhagic shock<br>
+        Focal epilepsy (may activate foci)<br>
+        Any situation requiring intact stress response
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-title" style="margin-top:48px;">ETOMIDATE — Memory Acronym</h3>
+
+  <div class="acronym-box">
+    <div class="acronym-row">
+      <div class="acronym-letter">E</div>
+      <div class="acronym-text"><strong>Enzyme 11-β-hydroxylase inhibited</strong> — the Achilles' heel of this drug</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">T</div>
+      <div class="acronym-text"><strong>Transient adrenal suppression</strong> — 4–8 hours, even after a single dose</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">O</div>
+      <div class="acronym-text"><strong>Only single-isomer IV anaesthetic</strong> — the R(+) enantiomer, 5× more potent than S(−)</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">M</div>
+      <div class="acronym-text"><strong>Myoclonus</strong> — 50–80% incidence, prevent with fentanyl pretreatment</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">I</div>
+      <div class="acronym-text"><strong>Imidazole structure</strong> — pH-dependent solubility, the molecular chameleon</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">D</div>
+      <div class="acronym-text"><strong>Decreases ICP &amp; CMRO₂</strong> — dual cerebral protection</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">A</div>
+      <div class="acronym-text"><strong>Awesome cardiovascular stability</strong> — its superpower, its reason for existence</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">T</div>
+      <div class="acronym-text"><strong>Three to five hour</strong> elimination half-life — shorter than propofol, volume-driven</div>
+    </div>
+    <div class="acronym-row">
+      <div class="acronym-letter">E</div>
+      <div class="acronym-text"><strong>Ester hydrolysis</strong> — elegant, rapid, nearly complete metabolism</div>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── CLOSING NARRATIVE ── -->
+  <div class="moment-section">
+    <div class="moment-label">Taking it home</div>
+
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:24px;color:#fff;margin-bottom:28px;">Back to 2 AM. Back to that 68-year-old. Back to the BP of 85/50.</p>
+
+    <p>We gave the fentanyl first. Waited two minutes. Then etomidate — 0.3 mg/kg, slowly. The patient lost consciousness in 30 seconds. His arm twitched, briefly. And then the monitor showed us what we needed to see.</p>
+
+    <div class="monitor" style="margin:32px 0;">
+      <div class="monitor-header">⬤ POST-INDUCTION VITALS</div>
+      <div class="monitor-readings-3 monitor-readings">
+        <div class="monitor-reading">
+          <div class="label">Blood Pressure</div>
+          <div class="value">82/48</div>
+          <div class="unit">mmHg</div>
+          <div class="status">✓ HELD</div>
+        </div>
+        <div class="monitor-reading">
+          <div class="label">Heart Rate</div>
+          <div class="value">78</div>
+          <div class="unit">bpm</div>
+          <div class="status">✓ STABLE</div>
+        </div>
+        <div class="monitor-reading">
+          <div class="label">SpO₂</div>
+          <div class="value">99%</div>
+          <div class="unit">on ventilator</div>
+          <div class="status">✓ PERFECT</div>
+        </div>
+      </div>
+    </div>
+
+    <p>No crash. No vasopressors. No crisis. The heart with severe coronary artery disease had just been put to sleep — and it barely flinched.</p>
+
+    <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:28px;color:var(--accent);text-align:center;margin:32px 0;">That was etomidate working.</p>
+
+    <p>Not in a textbook. Not in a pharmacology lecture. In a real patient whose heart had no room for a single moment of haemodynamic compromise — and etomidate gave us exactly that margin.</p>
+
+    <p>And in that moment, I understood everything we had discussed about GABA<sub>A</sub> receptors and cardiovascular stability and imidazole chemistry and adrenal suppression — <em>not as theory, but as truth.</em></p>
+
+    <div class="fire-analogy" style="margin:40px 0 0;">
+      <div class="fire-line">Propofol would have dropped that blood pressure.</div>
+      <div class="fire-line">Thiopental would have depressed that myocardium.</div>
+      <div class="fire-line" style="color:var(--accent);font-size:26px;">Etomidate whispered. And the heart kept beating.</div>
+    </div>
+  </div>
+
+  <!-- ── DISCUSSION ── -->
+  <div class="closing-question">
+    <h2>When would you choose <em>ketamine</em> over etomidate in haemodynamic instability?</h2>
+    <p>Think about this before you move on. The answer involves sepsis, catecholamine depletion, and the last reserve theory.</p>
+    <p style="margin-top:16px;">Tell me in the comments. Let us think through this together.</p>
+    <a href="#comments" class="cta">Join the discussion ↓</a>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+  <!-- ── GITA QUOTE ── -->
+  <div class="quote-section">
+    <div class="quote-text">"उद्धरेदात्मनाऽत्मानं नात्मानमवसादयेत् ।<br>आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ॥"</div>
+    <div class="quote-source">— Bhagavad Gita 6.5</div>
+    <div class="quote-translation">"Let a person lift oneself by one's own self; let one not degrade oneself. For the self alone is the friend of the self, and the self alone is the enemy of the self."</div>
+    <div class="quote-application">
+      <strong>Daily Life Application:</strong> Your biggest obstacle and your greatest ally are the same thing — your own mind. Just as choosing etomidate requires disciplined clinical judgment — weighing cardiovascular stability against adrenal suppression — your medical journey requires you to be your own best advocate. Failed a subject? Your mind can spiral into self-doubt, or it can become your strategist. "Where did I go wrong? What do I fix? How do I return?" That is the clinical mind. <strong>Train it to work for you.</strong> Every great clinician has failed before they succeeded. The difference is what they did next.
+    </div>
+  </div>
+
+  <!-- ── PREV BLOG ── -->
+  <div class="prev-blog">
+    <p>Continue Your Learning Journey</p>
+    <a href="https://drmsanaesthesia.blogspot.com/2026/01/propofol.html" target="_blank">← Read Previous: Propofol</a>
+  </div>
+
+  <!-- ── SOCIAL ── -->
+  <div class="social-section">
+    <h3>Stay Connected with Dr MS Corpus</h3>
+    <p>Join our growing community of medical learners — where every story teaches something real.</p>
+    <div class="social-links">
+      <a class="social-link" href="https://www.youtube.com/@DrMSCorpus" target="_blank">🎥 YouTube — @DrMSCorpus</a>
+      <a class="social-link" href="https://www.instagram.com/drmscorpus/" target="_blank">📸 Instagram — @drmscorpus</a>
+      <a class="social-link" href="https://drmsanaesthesia.blogspot.com" target="_blank">📝 More Blogs — drmsanaesthesia.blogspot.com</a>
+    </div>
+    <p style="margin-top:28px;font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:var(--accent);">Your journey to medical excellence continues.</p>
+  </div>
+
+</main>
+</body>
+</html>
