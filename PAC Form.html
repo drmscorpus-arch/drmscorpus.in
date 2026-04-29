@@ -1,0 +1,3676 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ── NO DOWNLOAD META HINTS ── -->
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>Pre-Anaesthetic Assessment · Complete PAC Record · drmscorpus.in</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  /* ══════════════════════════════════════════
+     DARK THEME (default)
+  ══════════════════════════════════════════ */
+  :root,
+  [data-theme="dark"] {
+    --bg: #0d1117;
+    --bg2: #111820;
+    --bg3: #161e28;
+    --card: #1a2332;
+    --border: #2a3a50;
+    --accent: #e8a045;
+    --accent2: #5ba8d4;
+    --accent3: #7ecba1;
+    --text: #d4dde8;
+    --text-muted: #7a8fa8;
+    --text-dim: #4a6070;
+    --red: #e05c5c;
+    --gold: #f0c060;
+    --warn: rgba(224,92,92,0.12);
+    --warn-border: #e05c5c;
+    --radius: 5px;
+    --nav-bg: rgba(13,17,23,0.97);
+    --field-bg: rgba(255,255,255,0.02);
+    --field-hover: rgba(232,160,69,0.03);
+    --field-border-hover: rgba(232,160,69,0.45);
+    --wm-color: rgba(232,160,69,0.04);
+    --header-grad1: #1a2e4a;
+    --header-grad2: #2a1a0a;
+  }
+
+  /* ══════════════════════════════════════════
+     LIGHT THEME
+  ══════════════════════════════════════════ */
+  [data-theme="light"] {
+    --bg: #f5f5f0;
+    --bg2: #eeede8;
+    --bg3: #e8e7e0;
+    --card: #ffffff;
+    --border: #d0cec6;
+    --accent: #b8641a;
+    --accent2: #2a6a8a;
+    --accent3: #2a7a4a;
+    --text: #1a1a1a;
+    --text-muted: #4a5568;
+    --text-dim: #888880;
+    --red: #c0392b;
+    --gold: #9a6a00;
+    --warn: rgba(192,57,43,0.08);
+    --warn-border: #c0392b;
+    --radius: 5px;
+    --nav-bg: rgba(245,245,240,0.97);
+    --field-bg: rgba(0,0,0,0.02);
+    --field-hover: rgba(184,100,26,0.04);
+    --field-border-hover: rgba(184,100,26,0.5);
+    --wm-color: rgba(184,100,26,0.045);
+    --header-grad1: #d4e4f4;
+    --header-grad2: #f4e0cc;
+  }
+
+  [data-theme="light"] body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  [data-theme="light"] .form-header {
+    background: radial-gradient(ellipse at 20% 50%, var(--header-grad1) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 50%, var(--header-grad2) 0%, transparent 50%),
+                var(--bg2);
+  }
+
+  [data-theme="light"] .form-header h1 { color: #1a1a1a; }
+  [data-theme="light"] .header-field .field-input { color: var(--accent); }
+  [data-theme="light"] .vital-input { color: var(--accent3); }
+  [data-theme="light"] .mp-class, [data-theme="light"] .cl-grade,
+  [data-theme="light"] .ulbt-class, [data-theme="light"] .asa-class { color: var(--accent); }
+  [data-theme="light"] .airway-score-title { color: #1a1a1a; }
+  [data-theme="light"] .risk-card-title { color: #1a1a1a; }
+  [data-theme="light"] .score-summary-name { color: #1a1a1a; }
+  [data-theme="light"] .section-title { color: #1a1a1a; }
+  [data-theme="light"] .fitness-label { color: #1a1a1a; }
+  [data-theme="light"] .dest-item .dest-name { color: #1a1a1a; }
+  [data-theme="light"] .allergy-block { background: rgba(192,57,43,0.06); }
+  [data-theme="light"] .viral-markers-section { background: rgba(192,57,43,0.03); }
+  [data-theme="light"] .ibw-display-box { background: rgba(42,122,74,0.06); border-color: rgba(42,122,74,0.3); }
+  [data-theme="light"] .ibw-display-box label { color: rgba(42,122,74,0.8); }
+  [data-theme="light"] .score-panel { background: rgba(0,0,0,0.01); }
+  [data-theme="light"] .airway-score-block { background: #fff; }
+  [data-theme="light"] .risk-card { background: #fff; }
+  [data-theme="light"] .score-summary-card { background: #fff; }
+  [data-theme="light"] .imaging-block { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .site-nav { border-bottom-color: rgba(180,170,160,0.5); }
+  [data-theme="light"] .form-footer { background: var(--bg2); }
+  [data-theme="light"] select option { background: #fff; color: #1a1a1a; }
+  [data-theme="light"] .field-group input,
+  [data-theme="light"] .field-group textarea,
+  [data-theme="light"] .field-group select { color: var(--text); }
+  [data-theme="light"] .summary-table input { color: var(--text); }
+  [data-theme="light"] .inv-table input { color: var(--text); }
+  [data-theme="light"] .vital-input { color: var(--accent3); }
+  [data-theme="light"] .form-header::before { color: rgba(184,100,26,0.06); }
+  [data-theme="light"] .risk-interp { background: rgba(184,100,26,0.05); }
+  [data-theme="light"] .airway-interp { background: rgba(42,106,138,0.06); }
+  [data-theme="light"] .airway-total-row { background: rgba(184,100,26,0.06); }
+  [data-theme="light"] .info-banner { background: rgba(42,106,138,0.06); }
+  [data-theme="light"] .header-field { background: rgba(0,0,0,0.03); }
+  [data-theme="light"] .comorbidity-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .med-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .lemon-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .technique-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .monitor-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .dest-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .urgency-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .mp-box { border-color: var(--border); }
+  [data-theme="light"] .cl-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .ulbt-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .sig-block { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .vital-box { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .mets-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .airway-diff-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .option-pill { background: rgba(0,0,0,0.03); }
+  [data-theme="light"] .fitness-option { border-color: var(--border); }
+  [data-theme="light"] .viral-item { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .score-summary-header:hover { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .airway-score-item select { background: rgba(0,0,0,0.03); }
+  [data-theme="light"] #surgrisk-examples { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .tooltip-box { background: #fff; }
+
+  /* ══════════════════════════════════════════
+     THEME TOGGLE BUTTON STYLES
+  ══════════════════════════════════════════ */
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--field-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 12px 5px 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    user-select: none;
+  }
+
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .theme-toggle-track {
+    width: 32px;
+    height: 17px;
+    background: var(--border);
+    border-radius: 10px;
+    position: relative;
+    transition: background 0.25s;
+    flex-shrink: 0;
+  }
+
+  [data-theme="light"] .theme-toggle-track { background: var(--accent); }
+
+  .theme-toggle-thumb {
+    width: 13px;
+    height: 13px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.25s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+
+  [data-theme="light"] .theme-toggle-thumb { transform: translateX(15px); }
+
+  .theme-icon { font-size: 13px; line-height: 1; }
+
+  /* ══════════════════════════════════════════
+     WATERMARK — SCREEN (subtle diagonal)
+  ══════════════════════════════════════════ */
+  .watermark-layer {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .watermark-layer::before {
+    content: 'drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in · drmscorpus.in';
+    position: absolute;
+    top: 0; left: -40%;
+    width: 200%;
+    white-space: pre;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--wm-color);
+    transform: rotate(-32deg) translateY(60px);
+    line-height: 4.5em;
+    word-spacing: 48px;
+    text-transform: uppercase;
+  }
+
+  /* ══════════════════════════════════════════
+     WATERMARK — PRINT (strong, every page)
+  ══════════════════════════════════════════ */
+  @media print {
+    /* Force light theme for print */
+    html { background: #fff !important; }
+
+    :root, [data-theme="dark"], [data-theme="light"] {
+      --bg: #fff !important;
+      --bg2: #f9f9f7 !important;
+      --bg3: #f2f2ef !important;
+      --card: #f8f8f6 !important;
+      --border: #d0cfc8 !important;
+      --accent: #b8641a !important;
+      --accent2: #2a6a8a !important;
+      --accent3: #2a7a4a !important;
+      --text: #111 !important;
+      --text-muted: #444 !important;
+      --text-dim: #888 !important;
+      --red: #c0392b !important;
+      --gold: #9a6a00 !important;
+      --warn: rgba(192,57,43,0.07) !important;
+      --warn-border: #c0392b !important;
+      --field-bg: rgba(0,0,0,0.02) !important;
+    }
+
+    body {
+      background: #fff !important;
+      color: #111 !important;
+      font-size: 11px;
+    }
+
+    .page-break { page-break-before: always; }
+    .no-print { display: none !important; }
+    .watermark-layer { display: none !important; }
+    .form-section { break-inside: avoid; }
+    .score-panel { display: none !important; }
+    .expand-btn { display: none !important; }
+    .theme-toggle { display: none !important; }
+
+    /* ── PRINT WATERMARK — fixed on every page ── */
+    @page {
+      margin: 18mm 14mm 22mm 14mm;
+    }
+
+    /* Running watermark using ::after on body */
+    body::after {
+      content: 'drmscorpus.in';
+      position: fixed;
+      bottom: 6mm;
+      right: 10mm;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      letter-spacing: 2px;
+      color: #b0a898;
+      text-transform: uppercase;
+      z-index: 9999;
+    }
+
+    /* Central diagonal watermark on each page */
+    body::before {
+      content: 'drmscorpus.in';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-35deg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 38pt;
+      font-weight: bold;
+      letter-spacing: 6px;
+      color: rgba(180,160,120,0.10);
+      text-transform: uppercase;
+      pointer-events: none;
+      z-index: 9999;
+      white-space: nowrap;
+    }
+
+    /* Print header on each page */
+    .print-page-header {
+      display: block !important;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 4mm 14mm 3mm;
+      border-bottom: 0.5pt solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: #888;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      z-index: 9998;
+    }
+
+    /* Print footer on each page */
+    .print-page-footer {
+      display: block !important;
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 3mm 14mm 3mm;
+      border-top: 0.5pt solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.5pt;
+      color: #888;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .print-page-footer .wm-url {
+      color: #b8641a;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    /* Section headers in print */
+    .section-num { background: none !important; border: 1pt solid #b8641a !important; }
+    .section-title { color: #111 !important; }
+    .section-title em { color: #b8641a !important; }
+    .header-tag { border-color: rgba(184,100,26,0.4) !important; color: #b8641a !important; }
+    .form-header h1 { color: #111 !important; }
+    .form-header h1 em { color: #b8641a !important; }
+    .mp-class, .cl-grade, .ulbt-class, .asa-class { color: #b8641a !important; }
+    .vital-input { color: #2a7a4a !important; font-size: 14px !important; }
+    .ibw-value { color: #2a7a4a !important; }
+    .score-summary-name { color: #111 !important; }
+    .risk-card-title { color: #111 !important; }
+    .airway-score-title { color: #111 !important; }
+    .fitness-label { color: #111 !important; }
+    .allergy-block { background: rgba(192,57,43,0.05) !important; }
+    .viral-markers-section { background: rgba(192,57,43,0.04) !important; }
+    .form-header { background: #f5f4f0 !important; }
+    .airway-score-block, .risk-card, .score-summary-card { background: #f9f9f7 !important; }
+    .imaging-block { background: #f5f5f3 !important; }
+  }
+
+  /* Elements hidden on screen, shown only when printing */
+  .print-page-header,
+  .print-page-footer { display: none; }
+
+  /* ── GLOBAL BASE ── */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .form-body { padding: 0 16px 60px; }
+    .form-header { padding: 32px 20px 28px; }
+    .field-row.cols-3, .field-row.cols-4, .field-row.cols-5, .field-row.cols-6 { grid-template-columns: 1fr 1fr; }
+    .comorbidity-grid { grid-template-columns: repeat(2, 1fr); }
+    .risk-grid { grid-template-columns: 1fr; }
+    .vitals-row { grid-template-columns: repeat(3, 1fr); }
+    .technique-grid, .monitor-grid { grid-template-columns: repeat(2, 1fr); }
+    .destination-grid { grid-template-columns: repeat(2, 1fr); }
+    .fitness-grid { grid-template-columns: 1fr; }
+    .site-nav { padding: 12px 20px; }
+    .header-meta-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── NAVIGATION ── */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .nav-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .btn-print {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--accent);
+    border: none;
+    padding: 8px 18px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-print:hover { opacity: 0.85; }
+
+  /* ── HEADER ── */
+  .form-header {
+    background: radial-gradient(ellipse at 20% 50%, #1a2e4a 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 50%, #2a1a0a 0%, transparent 50%),
+                var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 52px 60px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-header::before {
+    content: 'PAC';
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 150px;
+    font-weight: 900;
+    color: rgba(232,160,69,0.05);
+    pointer-events: none;
+    line-height: 1;
+    letter-spacing: -4px;
+  }
+
+  .header-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(232,160,69,0.3);
+    padding: 5px 14px;
+    border-radius: 2px;
+    display: inline-flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .header-tag span { color: var(--text-dim); }
+
+  .form-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 50px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .form-header h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .form-header-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+  }
+
+  .header-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 680px;
+  }
+
+  .header-field {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+  }
+
+  .header-field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .header-field .field-input {
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 3px;
+  }
+
+  /* ── MAIN BODY ── */
+  .form-body {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 52px 80px;
+  }
+
+  /* ── SECTION WRAPPERS ── */
+  .form-section { margin-top: 52px; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(232,160,69,0.1);
+    border: 1px solid rgba(232,160,69,0.25);
+    padding: 3px 10px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .subsection { margin-top: 26px; }
+
+  .subsection-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .subsection-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── FIELD GRIDS ── */
+  .field-row {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .field-row.cols-1 { grid-template-columns: 1fr; }
+  .field-row.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .field-row.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .field-row.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .field-row.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .field-row.cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+  /* ── FIELD GROUP ── */
+  .field-group {
+    background: var(--field-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 11px 15px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .field-group:focus-within {
+    border-color: var(--field-border-hover);
+    background: var(--field-hover);
+  }
+
+  .field-group label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .field-group input,
+  .field-group textarea,
+  .field-group select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(42,58,80,0.7);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    padding-bottom: 4px;
+    resize: none;
+  }
+
+  .field-group textarea { min-height: 56px; border-bottom: none; padding: 0; }
+  .field-group select option { background: var(--bg2); color: var(--text); }
+
+  /* ── COMORBIDITIES ── */
+  .comorbidity-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .comorbidity-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 9px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .comorbidity-item:hover { border-color: rgba(91,168,212,0.4); background: rgba(91,168,212,0.05); color: var(--text); }
+
+  .comorbidity-item input[type="checkbox"] {
+    width: 14px; height: 14px;
+    accent-color: var(--accent2);
+    cursor: pointer; flex-shrink: 0;
+  }
+
+  .comorbidity-item.checked { border-color: rgba(91,168,212,0.5); background: rgba(91,168,212,0.08); }
+  .comorbidity-item.checked span { color: var(--accent2); }
+
+  /* ── MEDICATION LIST ── */
+  .medication-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+
+  .med-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 9px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .med-item:hover { border-color: rgba(232,160,69,0.3); color: var(--text); }
+
+  .med-item input[type="checkbox"] {
+    width: 14px; height: 14px;
+    accent-color: var(--accent);
+    cursor: pointer; flex-shrink: 0; margin-top: 2px;
+  }
+
+  /* ── OPTION PILLS ── */
+  .option-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+  .option-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .option-pill:hover { border-color: var(--accent2); color: var(--text); }
+
+  .option-pill input[type="radio"],
+  .option-pill input[type="checkbox"] {
+    width: 13px; height: 13px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+
+  /* ── ALLERGY BLOCK ── */
+  .allergy-block {
+    background: var(--warn);
+    border: 1px solid var(--warn-border);
+    border-radius: 6px;
+    padding: 18px 22px;
+  }
+
+  .allergy-block .allergy-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  /* ── VITALS ── */
+  .vitals-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+
+  .vital-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 14px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .vital-box:focus-within { border-color: rgba(126,203,161,0.5); }
+
+  .vital-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+  }
+
+  .vital-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    margin-top: 5px;
+  }
+
+  .vital-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--accent3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    outline: none;
+    padding-bottom: 3px;
+  }
+
+  /* ── IBW DISPLAY BOX ── */
+  .ibw-display-box {
+    background: rgba(126,203,161,0.06);
+    border: 1px solid rgba(126,203,161,0.3);
+    border-radius: var(--radius);
+    padding: 11px 15px;
+  }
+
+  .ibw-display-box label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(126,203,161,0.7);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .ibw-value {
+    color: var(--accent3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(42,58,80,0.7);
+    padding-bottom: 4px;
+    min-height: 28px;
+  }
+
+  .ibw-formula-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── MALLAMPATI ── */
+  .mallampati-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  .mp-box {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .mp-box:has(input:checked) { border-color: var(--accent); background: rgba(232,160,69,0.08); }
+  .mp-box input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+
+  .mp-class {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .mp-desc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ── LEMON CHECKLIST ── */
+  .lemon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .lemon-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 9px 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+
+  .lemon-item:hover { border-color: rgba(232,160,69,0.3); color: var(--text); }
+  .lemon-item.checked { border-color: rgba(224,92,92,0.5); background: rgba(224,92,92,0.06); color: var(--red); }
+
+  .lemon-item input[type="checkbox"] {
+    width: 14px; height: 14px;
+    accent-color: var(--red);
+    cursor: pointer; flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* ── CL GRADE ── */
+  .cl-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  .cl-item {
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .cl-item:has(input:checked) { border-color: var(--accent); background: rgba(232,160,69,0.08); }
+
+  .cl-item input[type="radio"] {
+    display: block; margin: 0 auto 6px;
+    width: 14px; height: 14px;
+    accent-color: var(--accent); cursor: pointer;
+  }
+
+  .cl-grade { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--accent); }
+
+  /* ── ULBT ── */
+  .ulbt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .ulbt-item {
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .ulbt-item:has(input:checked) { border-color: var(--accent2); background: rgba(91,168,212,0.07); }
+
+  .ulbt-item input[type="radio"] {
+    display: block; margin: 0 auto 6px;
+    width: 14px; height: 14px;
+    accent-color: var(--accent2); cursor: pointer;
+  }
+
+  .ulbt-class { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--accent2); }
+  .ulbt-desc { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+
+  /* ── AIRWAY DIFFICULTY ── */
+  .airway-diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .airway-diff-item {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 12px; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .airway-diff-item:has(input:checked) { border-color: var(--red); background: rgba(224,92,92,0.07); color: var(--red); }
+  .airway-diff-item input[type="radio"] { width: 13px; height: 13px; accent-color: var(--red); cursor: pointer; }
+
+  /* ── AIRWAY SCORE DROPDOWNS (El-Ganzouri / Wilson) ── */
+  .airway-score-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 14px;
+  }
+
+  .airway-score-header {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .airway-score-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .airway-score-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+  }
+
+  .airway-score-body { padding: 16px 18px; }
+
+  .airway-score-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+  }
+
+  .airway-score-item:last-child { border-bottom: none; }
+
+  .airway-score-item label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .airway-score-item select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    outline: none;
+    min-width: 220px;
+    cursor: pointer;
+  }
+
+  .airway-score-item select option { background: var(--bg2); }
+
+  .airway-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(232,160,69,0.07);
+    border: 1px solid rgba(232,160,69,0.2);
+    border-radius: var(--radius);
+  }
+
+  .airway-total-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .airway-total-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .airway-interp {
+    margin-top: 10px;
+    background: rgba(91,168,212,0.07);
+    border-left: 2px solid var(--accent2);
+    border-radius: 0 4px 4px 0;
+    padding: 8px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ── SURGICAL RISK DROPDOWN ── */
+  .surgrisk-select-wrap {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 11px 15px;
+    transition: border-color 0.2s;
+  }
+
+  .surgrisk-select-wrap:focus-within { border-color: rgba(232,160,69,0.45); }
+
+  .surgrisk-select-wrap label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  .surgrisk-select-wrap select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(42,58,80,0.7);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    padding-bottom: 4px;
+    cursor: pointer;
+  }
+
+  .surgrisk-select-wrap select option { background: var(--bg2); }
+
+  /* Risk color states */
+  .risk-low { color: var(--accent3); }
+  .risk-inter { color: var(--gold); }
+  .risk-high { color: var(--red); }
+
+  .surgrisk-ref-placeholder {
+    margin-top: 12px;
+    border: 1px dashed rgba(42,58,80,0.7);
+    border-radius: var(--radius);
+    padding: 14px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    /* ── PLACEHOLDER: Replace inner content with <img> tag when risk table image is available ── */
+  }
+
+  /* ── RISK CARDS ── */
+  .risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+
+  .risk-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .risk-card-header {
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .risk-card-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: #fff; }
+  .risk-card-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .risk-card-body { padding: 16px 20px; }
+
+  .risk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .risk-item:last-child { border-bottom: none; }
+
+  .risk-item input[type="checkbox"] {
+    width: 14px; height: 14px;
+    accent-color: var(--accent2);
+    cursor: pointer; flex-shrink: 0; margin-top: 2px;
+  }
+
+  .risk-pts {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .risk-interp {
+    margin-top: 12px;
+    background: rgba(232,160,69,0.06);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    padding: 8px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .risk-score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .risk-score-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  .risk-score-input {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    width: 60px;
+    padding: 4px 8px;
+    outline: none;
+  }
+
+  /* ── EXPANDABLE RISK SCORE SECTION ── */
+  .score-summary-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .score-summary-header {
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .score-summary-header:hover { background: rgba(255,255,255,0.02); }
+
+  .score-summary-left { display: flex; flex-direction: column; gap: 4px; }
+
+  .score-summary-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .score-summary-indication {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .score-summary-right { display: flex; align-items: center; gap: 14px; }
+
+  .score-summary-input {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    width: 58px;
+    padding: 4px 8px;
+    outline: none;
+  }
+
+  .expand-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(232,160,69,0.1);
+    border: 1px solid rgba(232,160,69,0.25);
+    border-radius: 3px;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .expand-btn:hover { background: rgba(232,160,69,0.18); }
+  .expand-btn.open { color: var(--text-muted); background: rgba(255,255,255,0.04); border-color: var(--border); }
+
+  .score-panel {
+    display: none;
+    border-top: 1px solid var(--border);
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.01);
+    animation: fadeIn 0.2s ease;
+  }
+
+  .score-panel.open { display: block; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── METS GRID ── */
+  .mets-grid { display: grid; grid-template-columns: 1fr; gap: 6px; }
+
+  .mets-item {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 14px;
+    font-size: 12.5px; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .mets-item:has(input:checked) { border-color: var(--accent2); background: rgba(91,168,212,0.07); color: var(--text); }
+  .mets-item input[type="radio"] { width: 13px; height: 13px; accent-color: var(--accent2); cursor: pointer; flex-shrink: 0; }
+  .mets-pts { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--accent); margin-left: auto; }
+
+  /* ── ASA PHYSICAL STATUS ── */
+  .asa-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+
+  .asa-item {
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  .asa-item:has(input:checked) { border-color: var(--accent); background: rgba(232,160,69,0.08); }
+  .asa-item input[type="radio"] { position: absolute; opacity: 0; }
+  .asa-class { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--accent); }
+  .asa-desc { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--text-dim); margin-top: 4px; line-height: 1.3; }
+
+  /* ── INVESTIGATIONS TABLE ── */
+  .inv-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+
+  .inv-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    padding: 9px 12px;
+    text-align: left;
+  }
+
+  .inv-table td { border: 1px solid var(--border); padding: 7px 12px; vertical-align: middle; }
+
+  .inv-table .test-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    white-space: nowrap;
+  }
+
+  .inv-table .test-name.viral { color: var(--red); }
+
+  .inv-table input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(42,58,80,0.5);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    width: 100%;
+    outline: none;
+    padding-bottom: 2px;
+  }
+
+  /* ── VIRAL MARKERS ── */
+  .viral-markers-section {
+    margin-top: 14px;
+    background: rgba(224,92,92,0.04);
+    border: 1px solid rgba(224,92,92,0.2);
+    border-radius: 6px;
+    padding: 16px 18px;
+  }
+
+  .viral-markers-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .viral-markers-title::after { content: ''; flex: 1; height: 1px; background: rgba(224,92,92,0.2); }
+
+  .viral-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+  .viral-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+  }
+
+  .viral-item label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .viral-item-row { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+
+  .viral-result-select {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(42,58,80,0.7);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    width: 100%;
+    outline: none;
+    padding-bottom: 3px;
+    cursor: pointer;
+  }
+
+  .viral-result-select option { background: var(--bg2); }
+
+  /* ── IMAGING BLOCKS ── */
+  .imaging-block {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 20px;
+  }
+
+  .imaging-block-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .imaging-block-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* ── SUMMARY TABLE ── */
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+  .summary-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  .summary-table td { border: 1px solid var(--border); padding: 10px 14px; vertical-align: middle; }
+
+  .summary-table .score-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  .summary-table input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    padding-bottom: 2px;
+  }
+
+  /* ── URGENCY / SURGICAL RISK GRIDS ── */
+  .urgency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .urgency-item {
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .urgency-item:has(input:checked) { border-color: var(--accent); background: rgba(232,160,69,0.08); }
+  .urgency-item.urgent:has(input:checked) { border-color: var(--gold); background: rgba(240,192,96,0.08); }
+  .urgency-item.emergency:has(input:checked) { border-color: var(--red); background: rgba(224,92,92,0.08); }
+  .urgency-item input[type="radio"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; }
+  .urgency-item .urg-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+
+  /* ── TECHNIQUE GRID ── */
+  .technique-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  .technique-item {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 12.5px; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .technique-item:has(input:checked) { border-color: var(--accent2); background: rgba(91,168,212,0.08); color: var(--accent2); }
+
+  .technique-item input { width: 14px; height: 14px; accent-color: var(--accent2); cursor: pointer; flex-shrink: 0; }
+
+  /* ── MONITORING ── */
+  .monitor-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  .monitor-item {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 9px 12px;
+    font-size: 12px; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .monitor-item:has(input:checked) { border-color: var(--accent3); background: rgba(126,203,161,0.07); color: var(--accent3); }
+  .monitor-item input[type="checkbox"] { width: 13px; height: 13px; accent-color: var(--accent3); cursor: pointer; }
+
+  /* ── POST-OP DESTINATION ── */
+  .destination-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  .dest-item {
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .dest-item:has(input:checked) { border-color: var(--accent); background: rgba(232,160,69,0.08); }
+  .dest-item input[type="radio"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; margin-bottom: 8px; }
+  .dest-item .dest-name { display: block; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .dest-item .dest-sub { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); }
+
+  /* ── FITNESS ASSESSMENT ── */
+  .fitness-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 22px; }
+
+  .fitness-option {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .fitness-option:has(input:checked) { border-color: var(--accent3); background: rgba(126,203,161,0.06); }
+  .fitness-option.not-fit:has(input:checked) { border-color: var(--red); background: rgba(224,92,92,0.06); }
+
+  .fitness-option input[type="radio"] { width: 16px; height: 16px; accent-color: var(--accent3); cursor: pointer; flex-shrink: 0; margin-top: 2px; }
+  .fitness-option.not-fit input[type="radio"] { accent-color: var(--red); }
+
+  .fitness-label { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .fitness-desc { font-size: 12px; color: var(--text-muted); font-style: italic; }
+
+  /* ── SIGNATURE BLOCKS ── */
+  .signature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+
+  .sig-block {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 24px;
+  }
+
+  .sig-block label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .sig-block input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    width: 100%;
+    outline: none;
+    margin-bottom: 14px;
+    padding-bottom: 4px;
+  }
+
+  .sig-line {
+    height: 1px;
+    background: var(--border);
+    margin-top: 36px;
+    position: relative;
+  }
+
+  .sig-line::after {
+    content: 'Signature';
+    position: absolute;
+    right: 0;
+    top: -8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+
+  /* ── AIRWAY PLAN GRID ── */
+  .airway-plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+  .airway-plan-item {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 12px; color: var(--text-muted);
+    cursor: pointer; transition: all 0.15s;
+  }
+
+  .airway-plan-item:has(input:checked) { border-color: var(--accent2); background: rgba(91,168,212,0.07); color: var(--accent2); }
+  .airway-plan-item input { width: 13px; height: 13px; accent-color: var(--accent2); cursor: pointer; }
+
+  /* ── INFO BANNER ── */
+  .info-banner {
+    background: rgba(91,168,212,0.07);
+    border: 1px solid rgba(91,168,212,0.25);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-top: 10px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { display: flex; align-items: center; gap: 16px; margin: 34px 0; opacity: 0.5; }
+  .divider-line { flex: 1; height: 1px; background: var(--border); }
+  .divider-icon { color: var(--accent); font-size: 12px; }
+
+  /* ── FOOTER ── */
+  .form-footer {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 26px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .disclaimer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--text-dim);
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  /* ── TOOLTIP ── */
+  .tooltip-wrap { position: relative; display: inline-block; }
+
+  .tooltip-icon {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    background: rgba(91,168,212,0.15);
+    border: 1px solid rgba(91,168,212,0.3);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+    flex-shrink: 0;
+    margin-left: 4px;
+  }
+
+  .tooltip-box {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    min-width: 280px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    white-space: normal;
+  }
+
+  .tooltip-wrap:hover .tooltip-box { display: block; }
+</style>
+</head>
+<body>
+
+<!-- ── SCREEN WATERMARK LAYER ── -->
+<div class="watermark-layer" aria-hidden="true"></div>
+
+<!-- ── PRINT PAGE HEADER (shows on every printed page) ── -->
+<div class="print-page-header">
+  <span>Pre-Anaesthetic Assessment · Complete PAC Record</span>
+  <span>drmscorpus.in</span>
+</div>
+
+<!-- ── PRINT PAGE FOOTER (shows on every printed page) ── -->
+<div class="print-page-footer">
+  <span>PAC Form v3.0 · For clinical use only · Not a substitute for clinical judgement</span>
+  <span class="wm-url">drmscorpus.in</span>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav class="site-nav no-print">
+  <a class="nav-brand" href="https://drmscorpus.in" target="_blank">drmscorpus.in</a>
+  <div class="nav-right">
+    <span class="nav-tag">Pre-Anaesthetic Assessment</span>
+
+    <!-- ── DARK / LIGHT THEME TOGGLE ── -->
+    <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Toggle dark/light mode">
+      <span class="theme-icon" id="theme-icon">🌙</span>
+      <div class="theme-toggle-track">
+        <div class="theme-toggle-thumb"></div>
+      </div>
+      <span id="theme-label">Dark</span>
+    </button>
+
+    <!-- ── PRINT TO PDF (no download option) ── -->
+    <button class="btn-print" onclick="printToPDF()" title="Save as PDF / Print">⎙ Save as PDF</button>
+  </div>
+</nav>
+
+<!-- ── HEADER ── -->
+<header class="form-header">
+  <div class="header-tag">Complete PAC Clinic Record <span>·</span> v3.0</div>
+  <h1>Pre-Anaesthetic <em>Assessment</em></h1>
+  <p class="form-header-sub">History · Examination · Risk Stratification · Anaesthesia Plan</p>
+  <div class="header-meta-row">
+    <div class="header-field">
+      <label>PAC No.</label>
+      <input class="field-input" type="text" placeholder="_______________">
+    </div>
+    <div class="header-field">
+      <label>Date</label>
+      <input class="field-input" type="date">
+    </div>
+    <div class="header-field">
+      <label>Time</label>
+      <input class="field-input" type="time">
+    </div>
+  </div>
+</header>
+
+<!-- ── FORM BODY ── -->
+<main class="form-body">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §1 — PATIENT IDENTIFICATION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section">
+    <div class="section-header">
+      <span class="section-num">§ 1</span>
+      <h2 class="section-title">Patient <em>Identification</em></h2>
+    </div>
+
+    <div class="field-row cols-3">
+      <div class="field-group" style="grid-column: span 2;">
+        <label>Full Name</label>
+        <input type="text" id="pt-name" placeholder="">
+      </div>
+      <div class="field-group">
+        <label>Age / Sex</label>
+        <!-- Sex is used for IBW calculation -->
+        <div style="display:flex;gap:8px;align-items:center;border-bottom:1px solid rgba(42,58,80,0.7);padding-bottom:4px;">
+          <input type="number" id="pt-age" placeholder="Age" style="border:none;background:transparent;color:var(--text);font-family:'Source Serif 4',serif;font-size:13px;width:70px;outline:none;">
+          <span style="color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:11px;">/</span>
+          <select id="pt-sex" onchange="calcIBW()" style="border:none;background:transparent;color:var(--text);font-family:'Source Serif 4',serif;font-size:13px;outline:none;cursor:pointer;flex:1;">
+            <option value="">Sex</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="field-row cols-4">
+      <div class="field-group">
+        <label>IP / OP / MRD No.</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field-group">
+        <label>Ward / Bed No.</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field-group">
+        <label>Surgeon</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field-group">
+        <label>Surgery Date / Time</label>
+        <input type="text" placeholder="">
+      </div>
+    </div>
+
+    <div class="field-row cols-3">
+      <div class="field-group" style="grid-column: span 2;">
+        <label>Planned Surgery</label>
+        <input type="text" placeholder="">
+      </div>
+      <div class="field-group">
+        <label>Blood Group</label>
+        <input type="text" placeholder="">
+      </div>
+    </div>
+
+    <!-- Weight / Height / BMI / IBW Row -->
+    <div class="field-row cols-5">
+      <div class="field-group">
+        <label>Weight (kg)</label>
+        <input type="number" id="pt-weight" placeholder="" oninput="calcBMI_IBW()">
+      </div>
+      <div class="field-group">
+        <label>Height (cm)</label>
+        <input type="number" id="pt-height" placeholder="" oninput="calcBMI_IBW()">
+      </div>
+      <div class="field-group">
+        <label>BMI (kg/m²)</label>
+        <input type="text" id="bmi-display" placeholder="Auto" readonly style="color:var(--accent);font-family:'JetBrains Mono',monospace;">
+      </div>
+      <!-- IBW Display — dynamic, based on Devine formula -->
+      <div class="ibw-display-box" style="grid-column:span 2;">
+        <label>Ideal Body Weight — IBW (kg) &nbsp;
+          <span class="tooltip-wrap">
+            <span class="tooltip-icon">?</span>
+            <span class="tooltip-box">
+              <strong style="color:var(--accent);">Devine Formula (1974)</strong><br>
+              Male: IBW = 50 + 2.3 × (height in cm / 2.54 − 60)<br>
+              Female: IBW = 45.5 + 2.3 × (height in cm / 2.54 − 60)<br><br>
+              Valid for heights &gt; 152 cm (5 ft).<br>
+              For heights ≤ 152 cm: IBW ≈ actual body weight.<br><br>
+              Used for: tidal volume targets (6–8 mL/kg IBW), drug dosing (suxamethonium, rocuronium), ventilator settings.
+            </span>
+          </span>
+        </label>
+        <div class="ibw-value" id="ibw-display">—</div>
+        <div class="ibw-formula-note" id="ibw-formula-note">Enter height & sex to calculate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §2 — DIAGNOSIS & SURGICAL DETAILS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section">
+    <div class="section-header">
+      <span class="section-num">§ 2</span>
+      <h2 class="section-title">Diagnosis &amp; <em>Surgical Details</em></h2>
+    </div>
+
+    <div class="field-row cols-2">
+      <div class="field-group">
+        <label>Presenting Complaint / Diagnosis</label>
+        <textarea placeholder=""></textarea>
+      </div>
+      <div class="field-group">
+        <label>Planned Procedure (Surgical Details)</label>
+        <textarea placeholder=""></textarea>
+      </div>
+    </div>
+
+    <div class="field-row cols-3" style="margin-top:12px;">
+      <!-- Surgical Urgency -->
+      <div>
+        <div class="subsection-label" style="margin-bottom:8px;">Surgical Urgency</div>
+        <div class="urgency-grid">
+          <label class="urgency-item">
+            <input type="radio" name="urgency" value="elective"> <span class="urg-label">Elective</span>
+          </label>
+          <label class="urgency-item urgent">
+            <input type="radio" name="urgency" value="urgent"> <span class="urg-label">Urgent</span>
+          </label>
+          <label class="urgency-item emergency">
+            <input type="radio" name="urgency" value="emergency"> <span class="urg-label">Emergency</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Surgical Risk — DROPDOWN with image placeholder -->
+      <div>
+        <div class="subsection-label" style="margin-bottom:8px;">Surgical Risk Category</div>
+        <div class="surgrisk-select-wrap">
+          <label>Select Risk Level</label>
+          <select id="surgrisk-select" onchange="updateSurgRisk(this)">
+            <option value="">— Select Risk —</option>
+            <option value="low">🟢 Low Risk (&lt;1% MACE)</option>
+            <option value="intermediate">🟡 Intermediate Risk (1–5% MACE)</option>
+            <option value="high">🔴 High Risk (&gt;5% MACE)</option>
+          </select>
+        </div>
+        <!-- ── IMAGE PLACEHOLDER: Replace with <img src="your-risk-table.png" style="width:100%;border-radius:4px;margin-top:10px;"> when available ── -->
+        <div class="surgrisk-ref-placeholder" id="surgrisk-ref-placeholder">
+          ↑ Risk Reference Image<br>
+          <span style="font-size:8px;letter-spacing:0;text-transform:none;color:var(--text-dim);">Replace this div with &lt;img&gt; tag</span>
+        </div>
+        <div id="surgrisk-examples" style="display:none; margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-dim); line-height:1.7; padding:10px 12px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:var(--radius);"></div>
+      </div>
+
+      <div class="field-group">
+        <label>Expected Duration of Surgery</label>
+        <input type="text" placeholder="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §3 — HISTORY
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section">
+    <div class="section-header">
+      <span class="section-num">§ 3</span>
+      <h2 class="section-title"><em>History</em></h2>
+    </div>
+
+    <!-- 3A -->
+    <div class="subsection">
+      <div class="subsection-label">3A · Chief Complaints</div>
+      <div class="field-row cols-1">
+        <div class="field-group">
+          <label>Chief Complaints</label>
+          <textarea style="min-height:64px;" placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3B -->
+    <div class="subsection">
+      <div class="subsection-label">3B · History of Present Illness</div>
+      <div class="field-row cols-1">
+        <div class="field-group">
+          <label>History of Present Illness</label>
+          <textarea style="min-height:80px;" placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3C — Comorbidities -->
+    <div class="subsection">
+      <div class="subsection-label">3C · Past Medical &amp; Surgical History</div>
+      <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;">Comorbidities — Tick all that apply</p>
+      <div class="comorbidity-grid">
+        <label class="comorbidity-item"><input type="checkbox"><span>Hypertension</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Diabetes Mellitus (Type 1 / 2)</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Coronary Artery Disease / IHD</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Congestive Heart Failure</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Valvular Heart Disease</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Arrhythmia / AF</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Prior PTCA / CABG</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Pacemaker / ICD</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Cerebrovascular Disease / Stroke / TIA</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Chronic Kidney Disease</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Liver Disease / Cirrhosis</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>COPD / Asthma / ILD</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Obstructive Sleep Apnoea</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Epilepsy / Seizure Disorder</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Thyroid Disorder</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Malignancy (active / prior)</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Haematological Disorder</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Coagulation Disorder / DVT / PE</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Rheumatoid / Connective Tissue</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>GERD / Hiatus Hernia</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Obesity (BMI &gt;30)</span></label>
+        <label class="comorbidity-item"><input type="checkbox"><span>Psychiatric Disorder</span></label>
+        <label class="comorbidity-item" style="grid-column:span 2;"><input type="checkbox"><span>Other:</span> <input type="text" style="flex:1;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;margin-left:4px;" placeholder="specify"></label>
+      </div>
+
+      <div class="field-row cols-2" style="margin-top:14px;">
+        <div class="field-group">
+          <label>Prior Surgeries (Procedure / Year / Anaesthesia Type)</label>
+          <textarea placeholder=""></textarea>
+        </div>
+        <div>
+          <div class="field-group" style="margin-bottom:10px;">
+            <label>Complications from Prior Anaesthesia</label>
+            <div class="option-row" style="margin-top:6px;">
+              <label class="option-pill"><input type="checkbox"> None</label>
+              <label class="option-pill"><input type="checkbox"> Difficult Intubation</label>
+              <label class="option-pill"><input type="checkbox"> PONV</label>
+              <label class="option-pill"><input type="checkbox"> Delayed Recovery</label>
+              <label class="option-pill"><input type="checkbox"> Awareness</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Details</label>
+            <textarea placeholder=""></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row cols-1" style="margin-top:10px;">
+        <div class="field-group">
+          <label>Family History of Anaesthetic Problems (Malignant Hyperthermia, Pseudocholinesterase Deficiency, Others)</label>
+          <textarea placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D — Medications -->
+    <div class="subsection">
+      <div class="subsection-label">3D · Current Medications</div>
+      <div class="medication-grid">
+        <label class="med-item"><input type="checkbox"><span>Antihypertensives (ACEi / ARB / BB / CCB / diuretics)</span></label>
+        <label class="med-item"><input type="checkbox"><span>Antidiabetics (OHA / Insulin — last dose: <input type="text" style="width:80px;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;" placeholder="________">)</span></label>
+        <label class="med-item"><input type="checkbox"><span>Antiplatelet (aspirin / clopidogrel / ticagrelor)</span></label>
+        <label class="med-item"><input type="checkbox"><span>Anticoagulant (warfarin / LMWH / DOAC)</span></label>
+        <label class="med-item"><input type="checkbox"><span>Steroids (chronic — stress dosing required)</span></label>
+        <label class="med-item"><input type="checkbox"><span>Antiepileptics</span></label>
+        <label class="med-item"><input type="checkbox"><span>Antithyroid / Thyroid replacement</span></label>
+        <label class="med-item"><input type="checkbox"><span>Statins</span></label>
+        <label class="med-item"><input type="checkbox"><span>Bronchodilators / Inhalers</span></label>
+        <label class="med-item"><input type="checkbox"><span>Psychiatric meds (MAOI / SSRI / lithium)</span></label>
+        <label class="med-item"><input type="checkbox"><span>Herbal / OTC / Supplements</span></label>
+        <label class="med-item"><input type="checkbox"><span>Other: <input type="text" style="width:120px;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;" placeholder="specify"></span></label>
+      </div>
+      <div class="field-group" style="margin-top:10px;">
+        <label>Drug List (Name · Dose · Frequency · Last Taken)</label>
+        <textarea style="min-height:80px;" placeholder=""></textarea>
+      </div>
+    </div>
+
+    <!-- 3E — Allergies -->
+    <div class="subsection">
+      <div class="subsection-label">3E · Allergy History</div>
+      <div class="allergy-block">
+        <div class="allergy-header">⚠ Allergies — Document Carefully</div>
+        <div class="field-row cols-3">
+          <div class="field-group" style="background:transparent;border-color:rgba(224,92,92,0.3);">
+            <label>Drug Allergies</label>
+            <textarea placeholder=""></textarea>
+          </div>
+          <div class="field-group" style="background:transparent;border-color:rgba(224,92,92,0.3);">
+            <label>Latex / Environmental</label>
+            <textarea placeholder=""></textarea>
+          </div>
+          <div class="field-group" style="background:transparent;border-color:rgba(224,92,92,0.3);">
+            <label>Food Allergies</label>
+            <textarea placeholder=""></textarea>
+          </div>
+        </div>
+        <div class="field-group" style="margin-top:10px;background:transparent;border-color:rgba(224,92,92,0.3);">
+          <label>Nature of Reaction (Rash / Anaphylaxis / Intolerance / GI)</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 3F — Social History -->
+    <div class="subsection">
+      <div class="subsection-label">3F · Personal &amp; Social History</div>
+      <div class="field-row cols-4">
+        <div class="field-group">
+          <label>Smoking</label>
+          <div class="option-row">
+            <label class="option-pill"><input type="radio" name="smoking"> Never</label>
+            <label class="option-pill"><input type="radio" name="smoking"> Ex-Smoker</label>
+            <label class="option-pill"><input type="radio" name="smoking"> Current</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Pack-Years / Quit Date</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Alcohol</label>
+          <div class="option-row">
+            <label class="option-pill"><input type="radio" name="alcohol"> None</label>
+            <label class="option-pill"><input type="radio" name="alcohol"> Occasional</label>
+            <label class="option-pill"><input type="radio" name="alcohol"> Regular</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Units / Week</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+      <div class="field-row cols-2" style="margin-top:10px;">
+        <div class="field-group">
+          <label>Substance Use</label>
+          <div class="option-row">
+            <label class="option-pill"><input type="checkbox"> None</label>
+            <label class="option-pill"><input type="checkbox"> Cannabis</label>
+            <label class="option-pill"><input type="checkbox"> Other: <input type="text" style="width:70px;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;margin-left:4px;" placeholder=""></label>
+          </div>
+        </div>
+        <!-- Occupation — DROPDOWN (Sedentary / Moderate / Strenuous) -->
+        <div class="field-group">
+          <label>Occupation / Activity Level</label>
+          <select>
+            <option value="">— Select —</option>
+            <option value="sedentary">Sedentary (desk work, minimal exertion)</option>
+            <option value="moderate">Moderate (light physical activity, ≥4 METs)</option>
+            <option value="strenuous">Strenuous (heavy labour, vigorous sports, &gt;10 METs)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3G — Obstetric -->
+    <div class="subsection">
+      <div class="subsection-label">3G · Obstetric / Gynaecological History (if applicable)</div>
+      <div class="field-row cols-4">
+        <div class="field-group">
+          <label>G / P / L / A</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>LMP</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Pregnancy Status</label>
+          <div class="option-row">
+            <label class="option-pill"><input type="radio" name="preg"> N/A</label>
+            <label class="option-pill"><input type="radio" name="preg"> Pregnant (wks: <input type="text" style="width:40px;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;" placeholder="">)</label>
+            <label class="option-pill"><input type="radio" name="preg"> Post-partum</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Relevant Gynaec History</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §4 — PHYSICAL EXAMINATION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section page-break">
+    <div class="section-header">
+      <span class="section-num">§ 4</span>
+      <h2 class="section-title">Physical <em>Examination</em></h2>
+    </div>
+
+    <!-- 4A — Vitals -->
+    <div class="subsection">
+      <div class="subsection-label">4A · Vitals at PAC</div>
+      <div class="vitals-row">
+        <div class="vital-box">
+          <div class="vital-label">PR</div>
+          <input class="vital-input" type="text" placeholder="—">
+          <div class="vital-unit">bpm</div>
+        </div>
+        <div class="vital-box">
+          <div class="vital-label">BP</div>
+          <input class="vital-input" type="text" placeholder="—/—">
+          <div class="vital-unit">mmHg</div>
+        </div>
+        <div class="vital-box">
+          <div class="vital-label">SpO₂ (RA)</div>
+          <input class="vital-input" type="text" placeholder="—">
+          <div class="vital-unit">%</div>
+        </div>
+        <div class="vital-box">
+          <div class="vital-label">RR</div>
+          <input class="vital-input" type="text" placeholder="—">
+          <div class="vital-unit">/min</div>
+        </div>
+        <div class="vital-box">
+          <div class="vital-label">Temp</div>
+          <input class="vital-input" type="text" placeholder="—">
+          <div class="vital-unit">°C</div>
+        </div>
+        <div class="vital-box">
+          <div class="vital-label">GCS</div>
+          <input class="vital-input" type="text" placeholder="—">
+          <div class="vital-unit">/15</div>
+        </div>
+      </div>
+
+      <div class="field-row cols-4" style="margin-top:12px;">
+        <div class="field-group">
+          <label>General Appearance</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Built / Nourishment</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Pallor</label>
+          <div class="option-row">
+            <label class="option-pill"><input type="radio" name="pallor"> Absent</label>
+            <label class="option-pill"><input type="radio" name="pallor"> Mild</label>
+            <label class="option-pill"><input type="radio" name="pallor"> Moderate</label>
+            <label class="option-pill"><input type="radio" name="pallor"> Severe</label>
+          </div>
+        </div>
+        <div class="field-group">
+          <label>Icterus</label>
+          <div class="option-row">
+            <label class="option-pill"><input type="radio" name="icterus"> Absent</label>
+            <label class="option-pill"><input type="radio" name="icterus"> Present</label>
+          </div>
+        </div>
+      </div>
+      <div class="field-row cols-4" style="margin-top:8px;">
+        <div class="field-group">
+          <label>Cyanosis / Clubbing / Oedema</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Lymphadenopathy</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>JVP</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Capillary Refill Time / IV Access</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <!-- 4B — Airway Assessment (LEMON + El-Ganzouri + Wilson) -->
+    <div class="subsection">
+      <div class="subsection-label">4B · Airway Assessment (LEMON + Scoring)</div>
+
+      <div class="field-row cols-2" style="margin-bottom:14px;">
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;">Mallampati Class</p>
+          <div class="mallampati-row">
+            <label class="mp-box">
+              <input type="radio" name="mallampati" value="I">
+              <div class="mp-class">I</div>
+              <div class="mp-desc">Soft palate, fauces, uvula, tonsillar pillars visible</div>
+            </label>
+            <label class="mp-box">
+              <input type="radio" name="mallampati" value="II">
+              <div class="mp-class">II</div>
+              <div class="mp-desc">Soft palate, fauces, uvula (partially) visible</div>
+            </label>
+            <label class="mp-box">
+              <input type="radio" name="mallampati" value="III">
+              <div class="mp-class">III</div>
+              <div class="mp-desc">Soft palate &amp; base of uvula only</div>
+            </label>
+            <label class="mp-box">
+              <input type="radio" name="mallampati" value="IV">
+              <div class="mp-class">IV</div>
+              <div class="mp-desc">Hard palate only — no soft palate</div>
+            </label>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;">Anticipated Cormack-Lehane Grade</p>
+          <div class="cl-row">
+            <label class="cl-item"><input type="radio" name="cl" value="I"><div class="cl-grade">I</div><div style="font-size:10px;color:var(--text-dim);margin-top:3px;">Full cords</div></label>
+            <label class="cl-item"><input type="radio" name="cl" value="IIa"><div class="cl-grade">IIa</div><div style="font-size:10px;color:var(--text-dim);margin-top:3px;">Partial cords</div></label>
+            <label class="cl-item"><input type="radio" name="cl" value="IIb"><div class="cl-grade">IIb</div><div style="font-size:10px;color:var(--text-dim);margin-top:3px;">Arytenoids only</div></label>
+            <label class="cl-item"><input type="radio" name="cl" value="III"><div class="cl-grade">III</div><div style="font-size:10px;color:var(--text-dim);margin-top:3px;">Epiglottis only</div></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row cols-2" style="margin-bottom:14px;">
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;">Upper Lip Bite Test</p>
+          <div class="ulbt-grid">
+            <label class="ulbt-item">
+              <input type="radio" name="ulbt" value="I">
+              <div class="ulbt-class">I</div>
+              <div class="ulbt-desc">Lower incisors bite above upper lip mucosa</div>
+            </label>
+            <label class="ulbt-item">
+              <input type="radio" name="ulbt" value="II">
+              <div class="ulbt-class">II</div>
+              <div class="ulbt-desc">Lower incisors bite upper lip — skin visible</div>
+            </label>
+            <label class="ulbt-item">
+              <input type="radio" name="ulbt" value="III">
+              <div class="ulbt-class">III</div>
+              <div class="ulbt-desc">Cannot bite upper lip at all</div>
+            </label>
+          </div>
+        </div>
+        <div>
+          <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;">Predicted Airway Difficulty</p>
+          <div class="airway-diff-grid">
+            <label class="airway-diff-item"><input type="radio" name="airway_diff"> Easy</label>
+            <label class="airway-diff-item"><input type="radio" name="airway_diff"> Possibly Difficult</label>
+            <label class="airway-diff-item"><input type="radio" name="airway_diff"> Difficult Airway</label>
+          </div>
+          <div class="field-row cols-2" style="margin-top:10px;">
+            <div class="field-group">
+              <label>Interincisor Gap (cm)</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group">
+              <label>Neck Circumference (cm)</label>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEMON Checklist -->
+      <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:10px;">LEMON Checklist</p>
+      <div class="lemon-grid">
+        <label class="lemon-item"><input type="checkbox"><span>Mouth opening &lt;3 cm (2-finger test)</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Thyromental distance &lt;6 cm (3 fingers)</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Hyomental distance &lt;4 cm — 3-3-2 rule</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Short / thick neck</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Limited neck extension (&lt;35°)</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Prognathism / retrognathia</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Large tongue / macroglossia</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Beard / facial hair</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Obesity (BMI &gt;35)</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Prior documented difficult intubation</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Obstruction / mass / foreign body</span></label>
+        <label class="lemon-item"><input type="checkbox"><span>Trismus / limited TMJ movement</span></label>
+      </div>
+
+      <div class="field-row cols-2" style="margin-top:12px;">
+        <div class="field-group">
+          <label>Dentition (Loose / Caps / Prosthesis)</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="field-group">
+          <label>Previous Intubation Grade (if known)</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+
+      <!-- ── EL-GANZOURI SCORE — Dropdown with detailed criteria ── -->
+      <div class="airway-score-block" style="margin-top:20px;">
+        <div class="airway-score-header">
+          <span class="airway-score-title">El-Ganzouri Airway Risk Index (EARI)</span>
+          <span class="airway-score-sub">Multivariate Difficult Airway Predictor</span>
+        </div>
+        <div class="airway-score-body">
+          <div class="airway-score-item">
+            <label>Mouth Opening
+              <span class="tooltip-wrap">
+                <span class="tooltip-icon">?</span>
+                <span class="tooltip-box">Measure interincisor gap (IIG) with mouth fully open. &lt;4cm predicts difficulty.</span>
+              </span>
+            </label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">≥4 cm → Score 0</option>
+              <option value="1">&lt;4 cm → Score 1</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Thyromental Distance (TMD)</label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">≥6.5 cm → Score 0</option>
+              <option value="1">6.0–6.4 cm → Score 1</option>
+              <option value="2">&lt;6.0 cm → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Mallampati Class (oropharyngeal view)</label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">Class I or II → Score 0</option>
+              <option value="1">Class III → Score 1</option>
+              <option value="2">Class IV → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Neck Mobility</label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">Full (&gt;90° extension) → Score 0</option>
+              <option value="1">Limited (80–90°) → Score 1</option>
+              <option value="2">Very limited (&lt;80°) → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Ability to Prognath (advance mandible)</label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">Yes (lower incisors advance beyond upper) → Score 0</option>
+              <option value="1">No → Score 1</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Body Weight (BMI correlation)</label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">≤90 kg → Score 0</option>
+              <option value="1">91–110 kg → Score 1</option>
+              <option value="2">&gt;110 kg → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>History of Difficult Intubation</label>
+            <select onchange="calcElGanzouri()">
+              <option value="0">None → Score 0</option>
+              <option value="1">Questionnaire positive → Score 1</option>
+              <option value="2">Documented difficult → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-total-row">
+            <span class="airway-total-label">El-Ganzouri Total Score</span>
+            <span class="airway-total-score" id="elganzouri-total">0</span>
+          </div>
+          <div class="airway-interp" id="elganzouri-interp">
+            0–3 → Standard airway management &nbsp;·&nbsp; 4–6 → Prepare difficult airway cart &nbsp;·&nbsp; ≥7 → Awake intubation / surgical airway backup
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WILSON SCORE — Dropdown with detailed criteria ── -->
+      <div class="airway-score-block" style="margin-top:14px;">
+        <div class="airway-score-header">
+          <span class="airway-score-title">Wilson Risk Sum Score</span>
+          <span class="airway-score-sub">Intubation Difficulty Predictor · 5 Parameters</span>
+        </div>
+        <div class="airway-score-body">
+          <div class="airway-score-item">
+            <label>Weight
+              <span class="tooltip-wrap">
+                <span class="tooltip-icon">?</span>
+                <span class="tooltip-box">Higher weight correlates with difficult laryngoscopy due to limited mobility and increased tongue size.</span>
+              </span>
+            </label>
+            <select onchange="calcWilson()">
+              <option value="0">≤90 kg → Score 0</option>
+              <option value="1">91–110 kg → Score 1</option>
+              <option value="2">&gt;110 kg → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Head and Neck Movement</label>
+            <select onchange="calcWilson()">
+              <option value="0">Full (≥90° atlanto-occipital extension) → Score 0</option>
+              <option value="1">Limited (80–90°) → Score 1</option>
+              <option value="2">Very limited (&lt;80°) → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Jaw Movement / Mandibular Protrusion</label>
+            <select onchange="calcWilson()">
+              <option value="0">IIG ≥5 cm OR prognathism possible → Score 0</option>
+              <option value="1">IIG &lt;5 cm OR prognathism just possible → Score 1</option>
+              <option value="2">IIG &lt;5 cm AND prognathism not possible → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Receding Mandible</label>
+            <select onchange="calcWilson()">
+              <option value="0">Normal → Score 0</option>
+              <option value="1">Moderate recession → Score 1</option>
+              <option value="2">Severe recession (retrognathia) → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-score-item">
+            <label>Buck Teeth (Prominent Upper Incisors)</label>
+            <select onchange="calcWilson()">
+              <option value="0">Normal → Score 0</option>
+              <option value="1">Moderate protrusion → Score 1</option>
+              <option value="2">Severe protrusion → Score 2</option>
+            </select>
+          </div>
+          <div class="airway-total-row">
+            <span class="airway-total-label">Wilson Total Score</span>
+            <span class="airway-total-score" id="wilson-total">0</span>
+          </div>
+          <div class="airway-interp" id="wilson-interp">
+            ≤2 → Low risk &nbsp;·&nbsp; 3–4 → Moderate risk (prepare) &nbsp;·&nbsp; ≥5 → High risk — anticipate difficult intubation
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4C — Systemic Examination -->
+    <div class="subsection">
+      <div class="subsection-label">4C · Systemic Examination</div>
+      <div class="field-row cols-2">
+        <div>
+          <div class="imaging-block" style="margin-bottom:10px;">
+            <div class="imaging-block-title">Cardiovascular System</div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Heart Sounds / Murmurs</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Added Sounds (S3 / S4 / Rub)</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Peripheral Pulses / Perfusion</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;">
+              <label>Features of CCF / HF</label>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="imaging-block">
+            <div class="imaging-block-title">Respiratory System</div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Breath Sounds (Bilateral)</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Wheeze / Crepitations / Rhonchi</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Chest Expansion / Tracheal Position</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;">
+              <label>Respiratory Pattern</label>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="imaging-block" style="margin-bottom:10px;">
+            <div class="imaging-block-title">Abdomen</div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Tenderness / Organomegaly</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Distension / Ascites</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Bowel Sounds</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;">
+              <label>Surgical Scar / Stoma</label>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="imaging-block" style="margin-bottom:10px;">
+            <div class="imaging-block-title">Neurological</div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Conscious Level / Orientation</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Focal Neurological Deficits</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Pre-existing Neuropathy</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;">
+              <label>Pupillary Response</label>
+              <input type="text" placeholder="">
+            </div>
+          </div>
+          <div class="imaging-block">
+            <div class="imaging-block-title">Spine / Regional Anatomy</div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Lumbar / Thoracic Spine</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Deformity / Scoliosis / Fusion</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+              <label>Skin over Proposed Site</label>
+              <input type="text" placeholder="">
+            </div>
+            <div class="field-group" style="background:transparent;border:none;padding:0;">
+              <label>Intervertebral Space Palpable</label>
+              <div class="option-row">
+                <label class="option-pill"><input type="radio" name="ivs"> Yes</label>
+                <label class="option-pill"><input type="radio" name="ivs"> No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row cols-2" style="margin-top:10px;">
+        <div class="field-group">
+          <label>Musculoskeletal — Joint Mobility / Neck Mobility</label>
+          <textarea placeholder=""></textarea>
+        </div>
+        <div class="field-group">
+          <label>Other Significant Findings</label>
+          <textarea placeholder=""></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §5 — INVESTIGATIONS
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section page-break">
+    <div class="section-header">
+      <span class="section-num">§ 5</span>
+      <h2 class="section-title"><em>Investigations</em></h2>
+    </div>
+
+    <!-- Haematology & Biochemistry -->
+    <div class="subsection-label">Laboratory Results</div>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Parameter</th><th>Value</th>
+          <th>Parameter</th><th>Value</th>
+          <th>Parameter</th><th>Value</th>
+          <th>Parameter</th><th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="test-name">Hb (g/dL)</td><td><input type="text"></td>
+          <td class="test-name">PCV / Hct (%)</td><td><input type="text"></td>
+          <td class="test-name">WBC (×10³/µL)</td><td><input type="text"></td>
+          <td class="test-name">Platelets (×10³/µL)</td><td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="test-name">Na⁺ (mEq/L)</td><td><input type="text"></td>
+          <td class="test-name">K⁺ (mEq/L)</td><td><input type="text"></td>
+          <td class="test-name">Cl⁻ / HCO₃⁻</td><td><input type="text"></td>
+          <td class="test-name">Urea / BUN</td><td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="test-name">Creatinine (mg/dL)</td><td><input type="text"></td>
+          <td class="test-name">eGFR (mL/min)</td><td><input type="text"></td>
+          <td class="test-name">Blood Sugar (Random)</td><td><input type="text"></td>
+          <td class="test-name">HbA1c (%)</td><td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="test-name">Bilirubin (T/D)</td><td><input type="text"></td>
+          <td class="test-name">ALT / AST / ALP</td><td><input type="text"></td>
+          <td class="test-name">Total Protein / Albumin</td><td><input type="text"></td>
+          <td class="test-name">PT / INR</td><td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="test-name">APTT</td><td><input type="text"></td>
+          <td class="test-name">Type &amp; Screen / Crossmatch</td><td><input type="text"></td>
+          <td class="test-name">Urine R/E</td><td><input type="text"></td>
+          <td class="test-name">TSH / Thyroid Profile</td><td><input type="text"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ── VIRAL MARKERS SECTION (HBsAg, HIV, HCV) ── -->
+    <div class="viral-markers-section">
+      <div class="viral-markers-title">Viral Markers</div>
+      <div class="viral-grid">
+
+        <!-- HBsAg -->
+        <div class="viral-item">
+          <label>HBsAg (Hepatitis B Surface Antigen)</label>
+          <div class="viral-item-row">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:1px;">Result</span>
+            <select class="viral-result-select">
+              <option value="">— Select —</option>
+              <option value="NR" style="color:#7ecba1;">Non-Reactive (NR)</option>
+              <option value="R" style="color:#e05c5c;">Reactive (R)</option>
+              <option value="NI">Not Investigated</option>
+            </select>
+          </div>
+          <div class="field-group" style="background:transparent;border:none;padding:0;margin-top:6px;">
+            <label>Date / Remarks</label>
+            <input type="text" placeholder="">
+          </div>
+        </div>
+
+        <!-- HIV -->
+        <div class="viral-item">
+          <label>HIV I &amp; II (Anti-HIV)</label>
+          <div class="viral-item-row">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:1px;">Result</span>
+            <select class="viral-result-select">
+              <option value="">— Select —</option>
+              <option value="NR" style="color:#7ecba1;">Non-Reactive (NR)</option>
+              <option value="R" style="color:#e05c5c;">Reactive (R)</option>
+              <option value="NI">Not Investigated</option>
+            </select>
+          </div>
+          <div class="field-group" style="background:transparent;border:none;padding:0;margin-top:6px;">
+            <label>Date / Remarks</label>
+            <input type="text" placeholder="">
+          </div>
+        </div>
+
+        <!-- HCV -->
+        <div class="viral-item">
+          <label>HCV (Anti-HCV / Hepatitis C)</label>
+          <div class="viral-item-row">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:1px;">Result</span>
+            <select class="viral-result-select">
+              <option value="">— Select —</option>
+              <option value="NR" style="color:#7ecba1;">Non-Reactive (NR)</option>
+              <option value="R" style="color:#e05c5c;">Reactive (R)</option>
+              <option value="NI">Not Investigated</option>
+            </select>
+          </div>
+          <div class="field-group" style="background:transparent;border:none;padding:0;margin-top:6px;">
+            <label>Date / Remarks</label>
+            <input type="text" placeholder="">
+          </div>
+        </div>
+
+      </div>
+      <div class="field-group" style="margin-top:10px;background:rgba(224,92,92,0.04);border-color:rgba(224,92,92,0.2);">
+        <label>Viral Marker Precautions / Universal Precautions Applied</label>
+        <textarea placeholder="Document any infection control measures, isolation protocols, or surgical team notifications required."></textarea>
+      </div>
+    </div>
+
+    <!-- ECG / CXR / Echo -->
+    <div class="field-row cols-3" style="margin-top:14px;">
+      <div class="imaging-block">
+        <div class="imaging-block-title">ECG</div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Rate / Rhythm</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Axis / PR / QRS / QTc</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Ischaemic Changes / LBBB / Other</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;">
+          <label>Interpretation / Action</label>
+          <textarea style="min-height:48px;" placeholder=""></textarea>
+        </div>
+      </div>
+      <div class="imaging-block">
+        <div class="imaging-block-title">Chest X-Ray</div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Cardiothoracic Ratio</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Lung Fields</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Mediastinum / Trachea</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;">
+          <label>Interpretation / Action</label>
+          <textarea style="min-height:48px;" placeholder=""></textarea>
+        </div>
+      </div>
+      <div class="imaging-block">
+        <div class="imaging-block-title">Echocardiography (if done)</div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>LVEF (%)</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>LV Function / Regional WMA</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Valvular Lesions</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;margin-bottom:8px;">
+          <label>Diastolic Dysfunction Grade</label><input type="text" placeholder="">
+        </div>
+        <div class="field-group" style="background:transparent;border:none;padding:0;">
+          <label>PASP / RV Function</label><input type="text" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <div class="field-row cols-2" style="margin-top:12px;">
+      <div class="field-group">
+        <label>PFT / Spirometry (FEV1, FVC, FEV1/FVC, DLCO)</label>
+        <textarea placeholder=""></textarea>
+      </div>
+      <div class="field-group">
+        <label>Other Investigations (ABG / Special Tests / Imaging)</label>
+        <textarea placeholder=""></textarea>
+      </div>
+    </div>
+
+    <div class="field-row cols-1" style="margin-top:10px;">
+      <div class="field-group">
+        <label>Specialist Opinions / Clearance Letters Received</label>
+        <textarea placeholder=""></textarea>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §6 — RISK STRATIFICATION SCORES
+       Each score: collapsed by default → name + indication + score input
+       Expand for full criteria
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section page-break">
+    <div class="section-header">
+      <span class="section-num">§ 6</span>
+      <h2 class="section-title">Risk <em>Stratification Scores</em></h2>
+    </div>
+
+    <!-- ─── RCRI ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('rcri-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">RCRI — Revised Cardiac Risk Index</span>
+          <span class="score-summary-indication">Cardiac MACE risk in non-cardiac surgery · Use for all patients undergoing intermediate/high-risk surgery</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()" id="rcri-summary-score">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="rcri-panel">
+        <div class="risk-item"><input type="checkbox" onchange="sumRCRI()"><span>High-risk surgery (intrathoracic / intraperitoneal / suprainguinal vascular)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumRCRI()"><span>History of ischaemic heart disease</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumRCRI()"><span>History of congestive heart failure</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumRCRI()"><span>History of cerebrovascular disease (TIA / stroke)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumRCRI()"><span>Diabetes mellitus on insulin</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox" onchange="sumRCRI()"><span>Pre-op serum creatinine &gt;2.0 mg/dL</span><span class="risk-pts">+1</span></div>
+        <div class="risk-interp">Score 0 → &lt;1% MACE &nbsp;·&nbsp; 1–2 → 1–7% &nbsp;·&nbsp; ≥3 → &gt;11%<br>≥3: Consider cardiology referral before elective surgery per ACC/AHA 2014 guidelines</div>
+      </div>
+    </div>
+
+    <!-- ─── FUNCTIONAL CAPACITY (METs) ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('mets-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">Functional Capacity (METs)</span>
+          <span class="score-summary-indication">Exercise tolerance assessment · Use alongside RCRI; &lt;4 METs + RCRI ≥1 triggers further workup</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="—" onclick="event.stopPropagation()">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="mets-panel">
+        <div class="mets-grid">
+          <label class="mets-item"><input type="radio" name="mets"><span>Self-care only (eat, dress, toilet)</span><span class="mets-pts">1 MET</span></label>
+          <label class="mets-item"><input type="radio" name="mets"><span>Walk indoors / light housework</span><span class="mets-pts">2–3 METs</span></label>
+          <label class="mets-item"><input type="radio" name="mets"><span>Walk on level ground ~4 km/h</span><span class="mets-pts">~3–4 METs</span></label>
+          <label class="mets-item"><input type="radio" name="mets"><span>Climb a flight of stairs / walk uphill</span><span class="mets-pts">≥4 METs</span></label>
+          <label class="mets-item"><input type="radio" name="mets"><span>Run short distance / heavy housework</span><span class="mets-pts">~5–8 METs</span></label>
+          <label class="mets-item"><input type="radio" name="mets"><span>Strenuous sports (swimming / singles tennis)</span><span class="mets-pts">&gt;10 METs</span></label>
+        </div>
+        <div class="risk-interp">&lt;4 METs → Poor functional capacity &nbsp;·&nbsp; ≥4 METs → Adequate<br>&lt;4 METs + RCRI ≥1: further workup per ACC/AHA algorithm. Offer cardiopulmonary exercise testing if available.</div>
+      </div>
+    </div>
+
+    <!-- ─── ASA PHYSICAL STATUS ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('asa-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">ASA Physical Status Classification</span>
+          <span class="score-summary-indication">Overall systemic disease severity · Mandatory for all patients undergoing anaesthesia</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="—" onclick="event.stopPropagation()" id="asa-display">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="asa-panel">
+        <div class="asa-grid">
+          <label class="asa-item"><input type="radio" name="asa" value="I" onchange="document.getElementById('asa-display').value='ASA I'"><div class="asa-class">I</div><div class="asa-desc">Normal healthy patient</div></label>
+          <label class="asa-item"><input type="radio" name="asa" value="II" onchange="document.getElementById('asa-display').value='ASA II'"><div class="asa-class">II</div><div class="asa-desc">Mild systemic disease</div></label>
+          <label class="asa-item"><input type="radio" name="asa" value="III" onchange="document.getElementById('asa-display').value='ASA III'"><div class="asa-class">III</div><div class="asa-desc">Severe systemic disease — not incapacitating</div></label>
+          <label class="asa-item"><input type="radio" name="asa" value="IV" onchange="document.getElementById('asa-display').value='ASA IV'"><div class="asa-class">IV</div><div class="asa-desc">Severe systemic disease — constant threat to life</div></label>
+          <label class="asa-item"><input type="radio" name="asa" value="V" onchange="document.getElementById('asa-display').value='ASA V'"><div class="asa-class">V</div><div class="asa-desc">Moribund — not expected to survive without surgery</div></label>
+          <label class="asa-item"><input type="radio" name="asa" value="VI" onchange="document.getElementById('asa-display').value='ASA VI'"><div class="asa-class">VI</div><div class="asa-desc">Brain-dead — organ donor</div></label>
+        </div>
+        <div class="risk-interp" style="margin-top:12px;">Add "E" suffix for emergency surgery (e.g., ASA III E)<br>ASA III–IV: increased peri-operative morbidity; informed consent must document risk stratification</div>
+      </div>
+    </div>
+
+    <!-- ─── STOP-BANG ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('stopbang-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">STOP-BANG Questionnaire</span>
+          <span class="score-summary-indication">Obstructive Sleep Apnoea (OSA) screening · Use for all obese, snoring, or hypertensive patients</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()" id="stopbang-score">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="stopbang-panel">
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>S</strong>noring — loud enough to be heard through closed doors</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>T</strong>ired — often fatigued / sleepy during daytime</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>O</strong>bserved — apnoeas witnessed by partner</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>P</strong>ressure — hypertension (treated or untreated)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>B</strong>MI &gt;35 kg/m²</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>A</strong>ge &gt;50 years</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>N</strong>eck circumference &gt;40 cm (both sexes)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox" onchange="sumSTOPBANG()"><span><strong>G</strong>ender — Male</span><span class="risk-pts">+1</span></div>
+        <div class="risk-interp">0–2 → Low OSA risk &nbsp;·&nbsp; 3–4 → Moderate &nbsp;·&nbsp; ≥5 → High<br>High: post-op continuous monitoring; anticipate difficult mask ventilation; CPAP counselling</div>
+      </div>
+    </div>
+
+    <!-- ─── APFEL SCORE ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('apfel-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">Apfel Score</span>
+          <span class="score-summary-indication">PONV (Post-Operative Nausea & Vomiting) risk · Use for all patients receiving GA</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()" id="apfel-score">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="apfel-panel">
+        <div class="risk-item"><input type="checkbox" onchange="sumApfel()"><span>Female sex</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumApfel()"><span>Non-smoker</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumApfel()"><span>History of PONV or motion sickness</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox" onchange="sumApfel()"><span>Postoperative opioid use expected</span><span class="risk-pts">+1</span></div>
+        <div class="risk-interp">0–1 → 10–20% risk &nbsp;·&nbsp; 2 → ~40% &nbsp;·&nbsp; 3–4 → 60–80%<br>≥2: dual prophylaxis (ondansetron + dexamethasone ± scopolamine patch)</div>
+      </div>
+    </div>
+
+    <!-- ─── ARISCAT ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('ariscat-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">ARISCAT Score</span>
+          <span class="score-summary-indication">Post-operative Pulmonary Complication (PPC) risk · Use for thoracic, upper abdominal, prolonged surgeries</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()" id="ariscat-score">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="ariscat-panel">
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>Age 51–80 years</span><span class="risk-pts">+3</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>Age &gt;80 years</span><span class="risk-pts">+16</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>SpO₂ 91–95% on room air</span><span class="risk-pts">+8</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>SpO₂ ≤90% on room air</span><span class="risk-pts">+24</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>Respiratory infection in past month</span><span class="risk-pts">+17</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>Pre-op anaemia (Hb ≤10 g/dL)</span><span class="risk-pts">+11</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>Upper abdominal / intrathoracic surgery</span><span class="risk-pts">+15</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumARISCAT()"><span>Duration of surgery &gt;2 hours</span><span class="risk-pts">+16</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox" onchange="sumARISCAT()"><span>Emergency procedure</span><span class="risk-pts">+8</span></div>
+        <div class="risk-interp">&lt;26 → Low (1.6%) &nbsp;·&nbsp; 26–44 → Moderate (13%) &nbsp;·&nbsp; ≥45 → High (42%)<br>High: lung-protective ventilation, chest physio, early mobilisation</div>
+      </div>
+    </div>
+
+    <!-- ─── CAPRINI ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('caprini-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">Caprini Score</span>
+          <span class="score-summary-indication">VTE / DVT thromboprophylaxis risk stratification · Use for all surgical patients</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="caprini-panel">
+        <div class="risk-item"><input type="checkbox"><span style="font-size:11.5px;"><strong>1 pt each:</strong> Age 41–60 · Minor surgery · BMI &gt;25 · Swollen legs · Varicose veins · Pregnancy/postpartum · OCP/HRT · Sepsis &lt;1 month · Lung disease · Bed rest · IBD</span><span class="risk-pts">1×</span></div>
+        <div class="risk-item"><input type="checkbox"><span style="font-size:11.5px;"><strong>2 pts each:</strong> Age 61–74 · Major surgery · Malignancy · Laparoscopy &gt;45min · Central venous access · Immobilising cast · Bed rest &gt;72h</span><span class="risk-pts">2×</span></div>
+        <div class="risk-item"><input type="checkbox"><span style="font-size:11.5px;"><strong>3 pts each:</strong> Age ≥75 · Prior DVT/PE · Family h/o thrombosis · Thrombophilia · Lupus anticoag / anticardiolipin Ab</span><span class="risk-pts">3×</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox"><span style="font-size:11.5px;"><strong>5 pts each:</strong> Stroke &lt;1m · Elective arthroplasty · Hip/pelvis/leg fracture · Spinal cord injury &lt;1m · Multiple trauma &lt;1m</span><span class="risk-pts">5×</span></div>
+        <div class="risk-interp">0–1 → Very Low &nbsp;·&nbsp; 2 → Low (TEDS) &nbsp;·&nbsp; 3–4 → Moderate (LMWH or IPC) &nbsp;·&nbsp; ≥5 → High (LMWH + IPC)<br>≥5: mechanical + pharmacological prophylaxis required</div>
+      </div>
+    </div>
+
+    <!-- ─── CHA2DS2-VASc ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('chads-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">CHA₂DS₂-VASc</span>
+          <span class="score-summary-indication">Stroke risk in patients with AF · Guides peri-operative anticoagulation decisions</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()" id="chads-score">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="chads-panel">
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Congestive heart failure / LV dysfunction</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Hypertension (treated or untreated)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Age ≥75 years</span><span class="risk-pts">+2</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Diabetes mellitus</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Stroke / TIA / thromboembolism (prior)</span><span class="risk-pts">+2</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Vascular disease (prior MI / PAD / aortic plaque)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumCHADS()"><span>Age 65–74 years</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox" onchange="sumCHADS()"><span>Sex category — Female</span><span class="risk-pts">+1</span></div>
+        <div class="risk-interp">0(M) / 1(F) → Low risk (no anticoag) &nbsp;·&nbsp; 1(M) → Moderate &nbsp;·&nbsp; ≥2 → Anticoagulate<br>High score: bridging anticoagulation decision critical peri-operatively</div>
+      </div>
+    </div>
+
+    <!-- ─── HAS-BLED ─── -->
+    <div class="score-summary-card">
+      <div class="score-summary-header" onclick="togglePanel('hasbled-panel', this)">
+        <div class="score-summary-left">
+          <span class="score-summary-name">HAS-BLED Score</span>
+          <span class="score-summary-indication">Bleeding risk on anticoagulation · Use in patients on warfarin / DOAC peri-operatively</span>
+        </div>
+        <div class="score-summary-right">
+          <input class="score-summary-input" type="text" placeholder="0" onclick="event.stopPropagation()" id="hasbled-score">
+          <button class="expand-btn" type="button">▼ Details</button>
+        </div>
+      </div>
+      <div class="score-panel" id="hasbled-panel">
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Hypertension — SBP &gt;160 mmHg uncontrolled</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Abnormal renal function (dialysis / creatinine &gt;2.26 / transplant)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Abnormal liver function (cirrhosis / bilirubin &gt;2×ULN / ALT/ALP &gt;3×ULN)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Stroke history</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Bleeding history or predisposition (anaemia, thrombocytopenia)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Labile INR (TTR &lt;60%)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Elderly — age &gt;65 years</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item"><input type="checkbox" onchange="sumHASBLED()"><span>Drugs (antiplatelets / NSAIDs)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-item" style="border-bottom:none;"><input type="checkbox" onchange="sumHASBLED()"><span>Alcohol use (≥8 drinks/week)</span><span class="risk-pts">+1</span></div>
+        <div class="risk-interp">0–1 → Low bleeding risk &nbsp;·&nbsp; 2 → Moderate &nbsp;·&nbsp; ≥3 → High<br>High HAS-BLED ≠ withhold anticoag; address modifiable factors (BP control, stop NSAIDs, correct anaemia)</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §7 — ASSESSMENT SUMMARY
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section">
+    <div class="section-header">
+      <span class="section-num">§ 7</span>
+      <h2 class="section-title">Assessment <em>Summary</em></h2>
+    </div>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Score</th>
+          <th>Value</th>
+          <th>Risk Category / Interpretation</th>
+          <th>Score</th>
+          <th>Value</th>
+          <th>Risk Category / Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="score-name">RCRI</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td class="score-name">Apfel</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="score-name">METs</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td class="score-name">STOP-BANG</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="score-name">ASA PS</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td class="score-name">Caprini</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="score-name">ARISCAT</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td class="score-name">CHA₂DS₂-VASc</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="score-name">El-Ganzouri</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td class="score-name">HAS-BLED</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td class="score-name">Wilson Score</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td class="score-name">IBW (kg)</td>
+          <td><input type="text" id="ibw-summary"></td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim);">Devine Formula · Male: 50+2.3×(in−60) / Female: 45.5+2.3×(in−60)</td>
+        </tr>
+        <tr>
+          <td class="score-name">Mallampati</td>
+          <td><input type="text"></td>
+          <td><input type="text"></td>
+          <td colspan="3">
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);">Overall Surgical Risk</span>
+              <select id="overall-risk-summary" style="background:transparent;border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 8px;outline:none;cursor:pointer;">
+                <option value="">— Select —</option>
+                <option value="low" style="color:#7ecba1;">🟢 Low Risk</option>
+                <option value="intermediate" style="color:#f0c060;">🟡 Intermediate Risk</option>
+                <option value="high" style="color:#e05c5c;">🔴 High Risk</option>
+              </select>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       §8 — ANAESTHESIA PLAN & DISPOSITION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="form-section page-break">
+    <div class="section-header">
+      <span class="section-num">§ 8</span>
+      <h2 class="section-title">Anaesthesia Plan &amp; <em>Disposition</em></h2>
+    </div>
+
+    <div class="field-row cols-2">
+      <div class="field-group">
+        <label>Additional Investigations Required</label>
+        <textarea placeholder=""></textarea>
+      </div>
+      <div class="field-group">
+        <label>Specialist Referrals Initiated</label>
+        <textarea placeholder=""></textarea>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Proposed Anaesthesia Technique</div>
+      <div class="technique-grid">
+        <label class="technique-item"><input type="checkbox"> General Anaesthesia</label>
+        <label class="technique-item"><input type="checkbox"> Spinal</label>
+        <label class="technique-item"><input type="checkbox"> Epidural</label>
+        <label class="technique-item"><input type="checkbox"> CSE</label>
+        <label class="technique-item"><input type="checkbox"> Regional Block</label>
+        <label class="technique-item"><input type="checkbox"> MAC / Sedation</label>
+        <label class="technique-item"><input type="checkbox"> Combined GA + Regional</label>
+        <label class="technique-item"><input type="checkbox"> Other: <input type="text" style="background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;width:80%;" placeholder=""></label>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Airway Management Plan</div>
+      <div class="airway-plan-grid">
+        <label class="airway-plan-item"><input type="radio" name="airway_plan"> Direct Laryngoscopy</label>
+        <label class="airway-plan-item"><input type="radio" name="airway_plan"> Video Laryngoscopy</label>
+        <label class="airway-plan-item"><input type="radio" name="airway_plan"> Awake Fibreoptic Intubation</label>
+        <label class="airway-plan-item"><input type="radio" name="airway_plan"> LMA / Supraglottic</label>
+        <label class="airway-plan-item"><input type="radio" name="airway_plan"> RSI</label>
+        <label class="airway-plan-item"><input type="radio" name="airway_plan"> Surgical Airway Backup</label>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Medications — Continue / Stop / Bridge</div>
+      <div class="field-group">
+        <label>Instructions</label>
+        <textarea placeholder=""></textarea>
+      </div>
+    </div>
+
+    <div class="field-row cols-2" style="margin-top:12px;">
+      <div class="field-group">
+        <label>Fasting Instructions (Solid / Clear Fluids)</label>
+        <textarea placeholder=""></textarea>
+      </div>
+      <div class="field-group">
+        <label>Pre-Medication Plan</label>
+        <textarea placeholder=""></textarea>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Monitoring Plan</div>
+      <div class="monitor-grid">
+        <label class="monitor-item"><input type="checkbox"> Standard ASA</label>
+        <label class="monitor-item"><input type="checkbox"> Invasive Arterial Line</label>
+        <label class="monitor-item"><input type="checkbox"> Central Venous Access</label>
+        <label class="monitor-item"><input type="checkbox"> TOF / NMB Monitoring</label>
+        <label class="monitor-item"><input type="checkbox"> Temperature Monitoring</label>
+        <label class="monitor-item"><input type="checkbox"> BIS / Depth of Anaesthesia</label>
+        <label class="monitor-item"><input type="checkbox"> PA Catheter / TOE</label>
+        <label class="monitor-item"><input type="checkbox"> Neuromonitoring</label>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-label">Post-Operative Destination</div>
+      <div class="destination-grid">
+        <label class="dest-item">
+          <input type="radio" name="postop">
+          <span class="dest-name">Ward</span>
+          <span class="dest-sub">General ward</span>
+        </label>
+        <label class="dest-item">
+          <input type="radio" name="postop">
+          <span class="dest-name">HDU</span>
+          <span class="dest-sub">High dependency</span>
+        </label>
+        <label class="dest-item">
+          <input type="radio" name="postop">
+          <span class="dest-name">ICU</span>
+          <span class="dest-sub">Intensive care</span>
+        </label>
+        <label class="dest-item">
+          <input type="radio" name="postop">
+          <span class="dest-name">PACU</span>
+          <span class="dest-sub">Monitored recovery</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field-group" style="margin-top:14px;">
+      <label>Special Instructions / Concerns / Risk Communication to Patient &amp; Surgeon</label>
+      <textarea style="min-height:80px;" placeholder=""></textarea>
+    </div>
+
+    <div class="divider"><div class="divider-line"></div><div class="divider-icon">✦</div><div class="divider-line"></div></div>
+
+    <!-- FITNESS ASSESSMENT -->
+    <div class="subsection-label" style="margin-bottom:16px;">Anaesthetic Fitness Assessment</div>
+    <div class="fitness-grid">
+      <label class="fitness-option">
+        <input type="radio" name="fitness" value="fit">
+        <div>
+          <div class="fitness-label">Fit for Anaesthesia &amp; Surgery</div>
+          <div class="fitness-desc">No significant concerns identified</div>
+        </div>
+      </label>
+      <label class="fitness-option">
+        <input type="radio" name="fitness" value="fit_precaution">
+        <div>
+          <div class="fitness-label">Fit — with precautions noted above</div>
+          <div class="fitness-desc">Proceed with documented precautions</div>
+        </div>
+      </label>
+      <label class="fitness-option">
+        <input type="radio" name="fitness" value="conditional">
+        <div>
+          <div class="fitness-label">Conditionally Fit</div>
+          <div class="fitness-desc">Pending: <input type="text" style="background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text);outline:none;width:180px;" placeholder="specify conditions"></div>
+        </div>
+      </label>
+      <label class="fitness-option not-fit">
+        <input type="radio" name="fitness" value="not_fit">
+        <div>
+          <div class="fitness-label" style="color:var(--red);">NOT Fit</div>
+          <div class="fitness-desc">Reason: <input type="text" style="background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--red);outline:none;width:160px;" placeholder="specify reason"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- SIGNATURES -->
+    <div class="signature-grid" style="margin-top:24px;">
+      <div class="sig-block">
+        <label>Resident Anaesthesiologist — Name &amp; Designation</label>
+        <input type="text" placeholder="">
+        <div class="sig-line"></div>
+      </div>
+      <div class="sig-block">
+        <label>Consultant Reviewed — Name &amp; Designation</label>
+        <input type="text" placeholder="">
+        <div class="sig-line"></div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="form-footer">
+  <div>
+    <div class="footer-brand">drmscorpus.in</div>
+    <p class="disclaimer">Complete PAC Assessment Form v3.0 · For clinical use only · Not a substitute for clinical judgement</p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--text-dim);margin-top:6px;font-style:italic;">पुनरावृत्ती , न त्यागः</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT — Theme Toggle, Print-to-PDF, IBW, Scores
+════════════════════════════════════════════════════════════ -->
+<script>
+
+/* ══════════════════════════════════════════
+   THEME TOGGLE — Dark / Light
+══════════════════════════════════════════ */
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+
+  // Update button label & icon
+  const icon = document.getElementById('theme-icon');
+  const label = document.getElementById('theme-label');
+  if (next === 'light') {
+    icon.textContent = '☀️';
+    label.textContent = 'Light';
+  } else {
+    icon.textContent = '🌙';
+    label.textContent = 'Dark';
+  }
+
+  // Persist preference in sessionStorage (not localStorage — no cross-session tracking)
+  try { sessionStorage.setItem('pac-theme', next); } catch(e) {}
+}
+
+// Restore theme preference on load
+(function() {
+  try {
+    const saved = sessionStorage.getItem('pac-theme');
+    if (saved && saved !== 'dark') {
+      document.documentElement.setAttribute('data-theme', saved);
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      if (icon) icon.textContent = '☀️';
+      if (label) label.textContent = 'Light';
+    }
+  } catch(e) {}
+})();
+
+/* ══════════════════════════════════════════
+   PRINT TO PDF — No file download
+   Opens browser print dialog directed to PDF
+   Watermark is baked into @media print CSS
+══════════════════════════════════════════ */
+function printToPDF() {
+  // Brief visual cue
+  const btn = document.querySelector('.btn-print');
+  if (btn) {
+    const orig = btn.textContent;
+    btn.textContent = '⏳ Preparing...';
+    btn.style.opacity = '0.7';
+    setTimeout(() => {
+      window.print();
+      btn.textContent = orig;
+      btn.style.opacity = '';
+    }, 300);
+  } else {
+    window.print();
+  }
+}
+
+/* ══════════════════════════════════════════
+   DISABLE RIGHT-CLICK CONTEXT MENU (light deterrent)
+   Note: This is NOT a true security measure —
+   it only discourages casual users.
+══════════════════════════════════════════ */
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+  return false;
+});
+
+/* Disable Ctrl+S / Cmd+S save shortcut */
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    // Show friendly message instead
+    showSaveHint();
+  }
+  // Also block Ctrl+U (view source) — mild deterrent
+  if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+    e.preventDefault();
+  }
+});
+
+function showSaveHint() {
+  let hint = document.getElementById('save-hint');
+  if (!hint) {
+    hint = document.createElement('div');
+    hint.id = 'save-hint';
+    hint.style.cssText = `
+      position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
+      background:var(--card); border:1px solid var(--accent);
+      color:var(--text); font-family:'JetBrains Mono',monospace;
+      font-size:11px; letter-spacing:1px; padding:12px 20px;
+      border-radius:6px; z-index:9999; box-shadow:0 4px 20px rgba(0,0,0,0.4);
+      opacity:0; transition:opacity 0.2s; pointer-events:none;
+    `;
+    hint.textContent = '💡 Use "Save as PDF" button to save your record — drmscorpus.in';
+    document.body.appendChild(hint);
+  }
+  hint.style.opacity = '1';
+  clearTimeout(hint._timer);
+  hint._timer = setTimeout(() => { hint.style.opacity = '0'; }, 3000);
+}
+
+/* ══════════════════════════════════════════
+   IBW + BMI CALCULATION (Devine Formula)
+══════════════════════════════════════════ */
+function calcBMI_IBW() { calcIBW(); }
+
+function calcIBW() {
+  const wt  = parseFloat(document.getElementById('pt-weight')?.value);
+  const ht  = parseFloat(document.getElementById('pt-height')?.value);
+  const sex = document.getElementById('pt-sex')?.value;
+  const ibwEl    = document.getElementById('ibw-display');
+  const noteEl   = document.getElementById('ibw-formula-note');
+  const bmiEl    = document.getElementById('bmi-display');
+  const ibwSumEl = document.getElementById('ibw-summary');
+
+  // BMI
+  if (wt && ht && ht > 0) {
+    const bmi = wt / Math.pow(ht / 100, 2);
+    bmiEl.value = bmi.toFixed(1);
+  } else {
+    bmiEl.value = '';
+  }
+
+  // IBW via Devine formula
+  if (!ht || ht < 120) {
+    if (ibwEl) ibwEl.textContent = '—';
+    if (noteEl) noteEl.textContent = 'Enter height & sex to calculate';
+    if (ibwSumEl) ibwSumEl.value = '';
+    return;
+  }
+
+  const heightInches = ht / 2.54;
+  let ibw = null;
+
+  if (heightInches <= 60) {
+    ibw = wt || null;
+    if (noteEl) noteEl.textContent = 'Height ≤ 60 in → IBW ≈ Actual Body Weight';
+  } else {
+    if (sex === 'M') {
+      ibw = 50 + 2.3 * (heightInches - 60);
+      if (noteEl) noteEl.textContent = 'Devine (Male): 50 + 2.3 × (inches − 60)';
+    } else if (sex === 'F') {
+      ibw = 45.5 + 2.3 * (heightInches - 60);
+      if (noteEl) noteEl.textContent = 'Devine (Female): 45.5 + 2.3 × (inches − 60)';
+    } else {
+      if (ibwEl) ibwEl.textContent = '—';
+      if (noteEl) noteEl.textContent = 'Select sex to calculate IBW';
+      if (ibwSumEl) ibwSumEl.value = '';
+      return;
+    }
+  }
+
+  if (ibw !== null) {
+    const r = ibw.toFixed(1);
+    if (ibwEl) ibwEl.textContent = r + ' kg';
+    if (ibwSumEl) ibwSumEl.value = r;
+  }
+}
+
+/* ══════════════════════════════════════════
+   SURGICAL RISK DROPDOWN
+══════════════════════════════════════════ */
+const surgriskExamples = {
+  low: `Low Risk Examples (&lt;1% MACE): Superficial procedures · Endoscopy · Cataract surgery · Breast surgery · Ambulatory surgery · Day-case procedures`,
+  intermediate: `Intermediate Risk (1–5% MACE): Intrathoracic (non-cardiac) · Orthopaedic (hip/spine) · Prostate · Intraperitoneal · Head &amp; neck surgery`,
+  high: `High Risk (&gt;5% MACE): Aortic / major vascular surgery · Peripheral vascular disease surgery · Emergency surgery · Prolonged operations with large fluid shifts`
+};
+
+function updateSurgRisk(sel) {
+  const exEl = document.getElementById('surgrisk-examples');
+  const val = sel.value;
+  if (val && surgriskExamples[val]) {
+    exEl.innerHTML = surgriskExamples[val];
+    exEl.style.display = 'block';
+  } else {
+    exEl.style.display = 'none';
+  }
+}
+
+/* ══════════════════════════════════════════
+   EXPANDABLE RISK SCORE PANELS
+══════════════════════════════════════════ */
+function togglePanel(panelId, headerEl) {
+  const panel = document.getElementById(panelId);
+  const btn = headerEl.querySelector('.expand-btn');
+  if (!panel) return;
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open', !isOpen);
+  if (btn) {
+    btn.textContent = isOpen ? '▼ Details' : '▲ Collapse';
+    btn.classList.toggle('open', !isOpen);
+  }
+}
+
+/* ══════════════════════════════════════════
+   EL-GANZOURI SCORE
+══════════════════════════════════════════ */
+function calcElGanzouri() {
+  const allAirwayBlocks = document.querySelectorAll('.airway-score-block');
+  const egBlock = allAirwayBlocks[0];
+  if (!egBlock) return;
+  let total = 0;
+  egBlock.querySelectorAll('select').forEach(s => { total += parseInt(s.value) || 0; });
+  const totalEl = document.getElementById('elganzouri-total');
+  const interpEl = document.getElementById('elganzouri-interp');
+  if (totalEl) totalEl.textContent = total;
+  if (interpEl) {
+    if (total <= 3) interpEl.innerHTML = `<span style="color:var(--accent3);">Score ${total} → Standard airway management</span> · Routine protocol`;
+    else if (total <= 6) interpEl.innerHTML = `<span style="color:var(--gold);">Score ${total} → Moderate risk</span> · Prepare difficult airway cart · Senior assistance`;
+    else interpEl.innerHTML = `<span style="color:var(--red);">Score ${total} → HIGH RISK</span> · Awake intubation / surgical airway backup`;
+  }
+}
+
+/* ══════════════════════════════════════════
+   WILSON SCORE
+══════════════════════════════════════════ */
+function calcWilson() {
+  const allAirwayBlocks = document.querySelectorAll('.airway-score-block');
+  const wilsonBlock = allAirwayBlocks[1];
+  if (!wilsonBlock) return;
+  let total = 0;
+  wilsonBlock.querySelectorAll('select').forEach(s => { total += parseInt(s.value) || 0; });
+  const totalEl = document.getElementById('wilson-total');
+  const interpEl = document.getElementById('wilson-interp');
+  if (totalEl) totalEl.textContent = total;
+  if (interpEl) {
+    if (total <= 2) interpEl.innerHTML = `<span style="color:var(--accent3);">Score ${total} → Low risk</span> · Routine intubation expected`;
+    else if (total <= 4) interpEl.innerHTML = `<span style="color:var(--gold);">Score ${total} → Moderate risk</span> · Difficult airway equipment available`;
+    else interpEl.innerHTML = `<span style="color:var(--red);">Score ${total} → High risk</span> · Awake fibreoptic recommended`;
+  }
+}
+
+/* ══════════════════════════════════════════
+   SCORE SUMMATION HELPERS
+══════════════════════════════════════════ */
+function countChecked(panelId) {
+  const panel = document.getElementById(panelId);
+  if (!panel) return 0;
+  return [...panel.querySelectorAll('input[type="checkbox"]')].filter(c => c.checked).length;
+}
+
+function sumRCRI() {
+  const el = document.getElementById('rcri-summary-score');
+  if (el) el.value = countChecked('rcri-panel');
+}
+
+function sumSTOPBANG() {
+  const el = document.getElementById('stopbang-score');
+  if (el) el.value = countChecked('stopbang-panel');
+}
+
+function sumApfel() {
+  const el = document.getElementById('apfel-score');
+  if (el) el.value = countChecked('apfel-panel');
+}
+
+function sumARISCAT() {
+  const panel = document.getElementById('ariscat-panel');
+  if (!panel) return;
+  const pts = [3, 16, 8, 24, 17, 11, 15, 16, 8];
+  let total = 0;
+  [...panel.querySelectorAll('input[type="checkbox"]')].forEach((c, i) => {
+    if (c.checked && pts[i] !== undefined) total += pts[i];
+  });
+  const el = document.getElementById('ariscat-score');
+  if (el) el.value = total;
+}
+
+function sumCHADS() {
+  const panel = document.getElementById('chads-panel');
+  if (!panel) return;
+  const pts = [1, 1, 2, 1, 2, 1, 1, 1];
+  let total = 0;
+  [...panel.querySelectorAll('input[type="checkbox"]')].forEach((c, i) => {
+    if (c.checked && pts[i] !== undefined) total += pts[i];
+  });
+  const el = document.getElementById('chads-score');
+  if (el) el.value = total;
+}
+
+function sumHASBLED() {
+  const el = document.getElementById('hasbled-score');
+  if (el) el.value = countChecked('hasbled-panel');
+}
+
+/* ══════════════════════════════════════════
+   INTERACTIVE CHECKBOX HIGHLIGHTS
+══════════════════════════════════════════ */
+document.querySelectorAll('.comorbidity-item input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.comorbidity-item').classList.toggle('checked', this.checked);
+  });
+});
+
+document.querySelectorAll('.lemon-item input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.lemon-item').classList.toggle('checked', this.checked);
+  });
+});
+
+/* ══════════════════════════════════════════
+   ATTACH AIRWAY SCORE LISTENERS ON LOAD
+══════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  const allAirwayBlocks = document.querySelectorAll('.airway-score-block');
+  if (allAirwayBlocks[0]) {
+    allAirwayBlocks[0].querySelectorAll('select').forEach(s => s.addEventListener('change', calcElGanzouri));
+  }
+  if (allAirwayBlocks[1]) {
+    allAirwayBlocks[1].querySelectorAll('select').forEach(s => s.addEventListener('change', calcWilson));
+  }
+});
+
+</script>
+
+</body>
+</html>
