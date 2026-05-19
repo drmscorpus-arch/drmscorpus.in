@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pulse Oximeter — Why Does That Little Clip Go On First?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #111820;
+    --bg3: #161e28;
+    --card: #1a2332;
+    --border: #2a3a50;
+    --accent: #e8a045;
+    --accent2: #5ba8d4;
+    --accent3: #7ecba1;
+    --text: #d4dde8;
+    --text-muted: #7a8fa8;
+    --text-dim: #4a6070;
+    --red: #e05c5c;
+    --gold: #f0c060;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 30% 40%, #0e2a3a 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, #1a2a0a 0%, transparent 50%),
+                var(--bg);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(91,168,212,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 20%, rgba(126,203,161,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(91,168,212,0.15) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border: 1px solid rgba(91,168,212,0.3);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease both;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6.5vw, 76px);
+    font-weight: 900;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.15s ease both;
+    position: relative;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.8s 0.3s ease both;
+    position: relative;
+  }
+
+  .hero-opening {
+    max-width: 720px;
+    background: rgba(91,168,212,0.06);
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 8px 8px 0;
+    padding: 32px 40px;
+    text-align: left;
+    font-size: 19px;
+    line-height: 1.9;
+    color: var(--text);
+    animation: fadeUp 0.8s 0.45s ease both;
+    position: relative;
+  }
+
+  .hero-opening .hook {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent2), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  /* Main content */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+
+  /* Divider */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0 48px;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+  .divider-icon {
+    color: var(--accent2);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Section headings */
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  h2.section-title .accent { color: var(--accent2); }
+
+  h3.sub-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    margin-top: -4px;
+  }
+
+  /* Body text */
+  p {
+    margin-bottom: 24px;
+    color: var(--text);
+    font-weight: 300;
+  }
+  p strong { color: var(--gold); font-weight: 600; }
+  p em { color: var(--accent); font-style: italic; }
+
+  /* Pull quote */
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.55;
+    color: #fff;
+    border-left: 4px solid var(--accent2);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: rgba(91,168,212,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* Questions block */
+  .five-questions {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(126,203,161,0.05));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .five-questions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .questions-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .question-pill {
+    background: rgba(91,168,212,0.15);
+    border: 1px solid rgba(91,168,212,0.3);
+    color: var(--accent2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+  }
+
+  /* Equation box */
+  .eq-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 40px 0;
+    text-align: center;
+  }
+  .eq-box .eq-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .eq-box .eq-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .eq-box .eq-note {
+    font-style: italic;
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .eq-box .eq-components {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .eq-component {
+    background: rgba(240,192,96,0.08);
+    border: 1px solid rgba(240,192,96,0.2);
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--gold);
+    text-align: center;
+  }
+  .eq-component .eq-var { font-size: 16px; margin-bottom: 4px; display: block; }
+  .eq-component .eq-def { font-size: 10px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* Haemoglobin types */
+  .hb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin: 32px 0;
+  }
+  .hb-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .hb-card.normal { border-left: 3px solid var(--accent3); }
+  .hb-card.dysfunctional { border-left: 3px solid var(--red); }
+  .hb-card .hb-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .hb-card .hb-full {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #fff;
+    font-style: italic;
+  }
+
+  /* Concept row */
+  .concept-box {
+    background: var(--bg3);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin: 40px 0;
+    border: 1px solid var(--border);
+  }
+  .concept-box .concept-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+  .concept-flow { display: flex; flex-direction: column; gap: 0; }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 16px;
+    color: var(--text);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+  }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-arrow {
+    color: var(--accent2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .flow-label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  /* ODC table */
+  .odc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 15px;
+  }
+  .odc-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .odc-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(42,58,80,0.3);
+    vertical-align: top;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .odc-table tr:last-child td { border-bottom: none; }
+  .odc-table .zone-safe td:first-child { color: var(--accent3); font-weight: 600; }
+  .odc-table .zone-warn td:first-child { color: var(--gold); font-weight: 600; }
+  .odc-table .zone-danger td:first-child { color: var(--red); font-weight: 600; }
+  .odc-table .zone-danger { background: rgba(224,92,92,0.04); }
+
+  /* Shift box */
+  .shift-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .shift-card {
+    border-radius: 10px;
+    padding: 24px 28px;
+  }
+  .shift-card.right {
+    background: rgba(224,92,92,0.07);
+    border: 1px solid rgba(224,92,92,0.2);
+  }
+  .shift-card.left {
+    background: rgba(91,168,212,0.07);
+    border: 1px solid rgba(91,168,212,0.2);
+  }
+  .shift-card .shift-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .shift-card.right .shift-header { color: var(--red); }
+  .shift-card.left .shift-header { color: var(--accent2); }
+  .shift-card .shift-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .shift-card .shift-causes {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Analogy box */
+  .analogy-box {
+    text-align: center;
+    padding: 48px 32px;
+    margin: 48px 0;
+    background: radial-gradient(ellipse at center, rgba(91,168,212,0.08), transparent 70%);
+    border-radius: 16px;
+    position: relative;
+  }
+  .analogy-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    border: 1px solid rgba(91,168,212,0.15);
+  }
+  .analogy-line {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+  }
+  .analogy-line span { color: var(--accent2); }
+  .analogy-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    position: relative;
+  }
+
+  /* Law section (Beer-Lambert) */
+  .law-section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 48px 0;
+  }
+  .law-header {
+    background: linear-gradient(135deg, #1e2e42, #253446);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .law-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+  }
+  .law-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .law-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .law-body {
+    padding: 32px;
+  }
+  .law-body p { margin-bottom: 20px; }
+  .law-body p:last-child { margin-bottom: 0; }
+
+  /* AC/DC signal */
+  .signal-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 36px 0;
+  }
+  .signal-card {
+    border-radius: 12px;
+    padding: 28px 30px;
+  }
+  .signal-card.ac {
+    background: linear-gradient(135deg, rgba(126,203,161,0.08), rgba(91,168,212,0.05));
+    border: 1px solid rgba(126,203,161,0.25);
+  }
+  .signal-card.dc {
+    background: linear-gradient(135deg, rgba(232,160,69,0.08), rgba(240,192,96,0.04));
+    border: 1px solid rgba(232,160,69,0.2);
+  }
+  .signal-card .sig-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .signal-card.ac .sig-tag { color: var(--accent3); }
+  .signal-card.dc .sig-tag { color: var(--accent); }
+  .signal-card .sig-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .signal-card .sig-body {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* R-value highlight */
+  .rvalue-box {
+    background: linear-gradient(135deg, rgba(240,192,96,0.1), rgba(232,160,69,0.06));
+    border: 1px solid rgba(240,192,96,0.3);
+    border-radius: 10px;
+    padding: 28px 36px;
+    margin: 36px 0;
+    text-align: center;
+  }
+  .rvalue-box .rv-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .rvalue-box .rv-formula {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .rvalue-box .rv-note {
+    font-style: italic;
+    font-size: 15px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* Probe types */
+  .probe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .probe-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+  }
+  .probe-card.transmit { border-top: 3px solid var(--accent2); }
+  .probe-card.reflect { border-top: 3px solid var(--accent3); }
+  .probe-card .probe-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .probe-card.transmit .probe-tag { color: var(--accent2); }
+  .probe-card.reflect .probe-tag { color: var(--accent3); }
+  .probe-card .probe-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .probe-card p { font-size: 15px; color: var(--text-muted); margin: 0; }
+
+  /* Cycle steps */
+  .cycle-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 40px 0;
+  }
+  .cycle-header {
+    background: linear-gradient(135deg, rgba(91,168,212,0.15), rgba(26,35,50,0.8));
+    padding: 16px 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    border-bottom: 1px solid var(--border);
+  }
+  .cycle-steps { padding: 24px 32px; }
+  .cycle-step {
+    display: flex;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+    align-items: flex-start;
+  }
+  .cycle-step:last-child { border-bottom: none; }
+  .cycle-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 2px;
+    min-width: 28px;
+    margin-top: 3px;
+  }
+  .cycle-text { font-size: 16px; color: var(--text); line-height: 1.7; }
+  .cycle-text strong { color: var(--gold); font-weight: 600; }
+
+  /* Limitations list */
+  .limitation-box {
+    background: rgba(224,92,92,0.05);
+    border: 1px solid rgba(224,92,92,0.15);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 40px 0;
+  }
+  .limitation-box .lim-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 20px;
+  }
+  .lim-item {
+    display: flex;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.3);
+    font-size: 16px;
+    color: var(--text);
+  }
+  .lim-item:last-child { border-bottom: none; }
+  .lim-dot {
+    color: var(--red);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    margin-top: 4px;
+    flex-shrink: 0;
+  }
+
+  /* Clinical action */
+  .clinical-action {
+    background: linear-gradient(135deg, rgba(126,203,161,0.08), rgba(91,168,212,0.05));
+    border: 1px solid rgba(126,203,161,0.25);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 40px 0;
+  }
+  .clinical-action .ca-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 16px;
+  }
+  .clinical-action p {
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 0;
+    line-height: 1.8;
+  }
+  .clinical-action p strong { color: var(--accent3); }
+
+  /* False readings table */
+  .false-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 14px;
+  }
+  .false-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .false-table td {
+    padding: 13px 14px;
+    border-bottom: 1px solid rgba(42,58,80,0.3);
+    vertical-align: top;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .false-table tr:last-child td { border-bottom: none; }
+  .false-table .cause { font-weight: 600; color: var(--gold); }
+  .false-table .high { color: var(--accent3); font-weight: 600; }
+  .false-table .low { color: var(--red); font-weight: 600; }
+  .false-table .eighty-five { color: var(--gold); font-weight: 600; }
+  .false-table .unpredictable { color: var(--text-muted); font-weight: 600; }
+
+  /* History timeline */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+    margin: 40px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent2), transparent);
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent2);
+    border: 2px solid var(--bg);
+  }
+  .timeline-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--accent2);
+    margin-bottom: 4px;
+  }
+  .timeline-text {
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.75;
+    margin: 0;
+  }
+  .timeline-text strong { color: #fff; font-weight: 600; }
+
+  /* Modern applications */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 32px 0;
+  }
+  .app-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    transition: border-color 0.2s;
+  }
+  .app-card:hover { border-color: var(--accent2); }
+  .app-card .app-icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .app-card .app-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Closing challenge */
+  .challenge-box {
+    position: relative;
+    background: linear-gradient(135deg, rgba(232,160,69,0.08), rgba(240,192,96,0.04));
+    border: 1px solid rgba(232,160,69,0.25);
+    border-radius: 16px;
+    padding: 48px 48px;
+    margin: 48px 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  .challenge-box::before {
+    content: '?';
+    position: absolute;
+    top: -30px;
+    right: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(232,160,69,0.04);
+    line-height: 1;
+    pointer-events: none;
+    font-weight: 900;
+  }
+  .challenge-box .ch-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .challenge-box .ch-scenario {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .challenge-box .ch-body {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-style: italic;
+    position: relative;
+    margin: 0;
+  }
+
+  /* Gita closing */
+  .gita-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px 48px;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .gita-box .gita-sanskrit {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+  .gita-box .gita-translation {
+    font-family: 'Source Serif 4', serif;
+    font-size: 19px;
+    color: #fff;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .gita-box .gita-source {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .hero { padding: 60px 24px; }
+    .hero-opening { padding: 24px 24px; }
+    .content { padding: 60px 24px 80px; }
+    .shift-box, .signal-box, .probe-grid { grid-template-columns: 1fr; }
+    .challenge-box { padding: 36px 28px; }
+    .gita-box { padding: 32px 24px; }
+    .false-table { font-size: 13px; }
+    .false-table th, .false-table td { padding: 10px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">drmscorpus · monitoring series</div>
+  <h1>The Little Clip<br>On The <em>Finger.</em></h1>
+  <p class="hero-sub">Before the IV line. Before the BP cuff. Before anything else.</p>
+
+  <div class="hero-opening">
+    <div class="hook">Every single patient. Every single time.</div>
+    Before the IV line is secured, before the surgeon scrubs in, before the monitors are even fully connected — that little clip goes on the finger. And it is the last thing removed when the patient leaves.
+    <br><br>
+    You have seen it a thousand times. But have you ever stopped and asked… <em>why?</em> What is it actually doing? And does it always tell the truth?
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- The Story -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 01</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">A Question at <span class="accent">4:30 AM</span></h2>
+  <h3 class="sub-title">Where it all began</h3>
+
+  <p>It was my nth day in residency. A patient was brought in for an emergency lower limb debridement with external fixation of a tibial fracture — a history of road traffic accident — posted under combined spinal epidural anaesthesia. By the time I scrubbed and returned, the pulse oximeter was already reading values on the monitor. The BP cuff was still being fixed, lines yet to be taken, fluids yet to be connected.</p>
+
+  <p>That was the moment the question came to my mind — <em>why?</em> Even at 4:30 in the morning, the order is still the same. The pulse oximeter goes on first. <strong>Always.</strong></p>
+
+  <div class="five-questions">
+    <h3>And once that question surfaced, the rest followed naturally.</h3>
+    <div class="questions-row">
+      <span class="question-pill">What does it measure?</span>
+      <span class="question-pill">Why first?</span>
+      <span class="question-pill">How does it work?</span>
+      <span class="question-pill">When is it reliable?</span>
+      <span class="question-pill">Where can it be used?</span>
+    </div>
+  </div>
+
+  <p>These are the questions I sat with that morning. Let us answer them together.</p>
+
+  <!-- Oxygen Physiology -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 02</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">The Physics of <span class="accent">Every Breath</span></h2>
+  <h3 class="sub-title">Oxygen delivery — the complete picture</h3>
+
+  <p>What is the point of every breath we take? Oxygen enters the lungs, diffuses across the alveolar membrane into the bloodstream, binds to haemoglobin, and is carried to the tissues. We all know this. But let us add some physics and mathematics — and complete the picture.</p>
+
+  <p><strong>Oxygen delivery to the tissues — DO₂ —</strong> depends on two things: how much blood the heart is pumping (cardiac output) and how much oxygen that blood is actually carrying (arterial oxygen content, CaO₂).</p>
+
+  <div class="eq-box">
+    <div class="eq-label">The Oxygen Content Equation</div>
+    <div class="eq-formula">CaO₂ = (Hb × SaO₂ × 1.34) + (PaO₂ × 0.0225)</div>
+    <p class="eq-note">Hüfner's constant 1.34 — every gram of fully saturated haemoglobin carries 1.34 ml of oxygen.<br>You may see 1.36 or 1.39 in different textbooks; 1.34 is the most widely accepted clinical value.</p>
+    <div class="eq-components">
+      <div class="eq-component">
+        <span class="eq-var">Hb</span>
+        <span class="eq-def">Haemoglobin available</span>
+      </div>
+      <div class="eq-component">
+        <span class="eq-var">SaO₂</span>
+        <span class="eq-def">Arterial saturation</span>
+      </div>
+      <div class="eq-component">
+        <span class="eq-var">1.34</span>
+        <span class="eq-def">Hüfner's constant</span>
+      </div>
+      <div class="eq-component">
+        <span class="eq-var">PaO₂</span>
+        <span class="eq-def">Dissolved O₂ in plasma</span>
+      </div>
+    </div>
+  </div>
+
+  <p>The second term — oxygen dissolved freely in plasma — is small but never ignored, especially in hyperbaric oxygen therapy where it becomes surprisingly relevant.</p>
+
+  <!-- Haemoglobin Types -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 03</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">Not All <span class="accent">Haemoglobin</span> Is Equal</h2>
+  <h3 class="sub-title">Functional vs fractional saturation</h3>
+
+  <p>Not all haemoglobin in our blood is the same. Several types exist — and their differences matter enormously at the bedside.</p>
+
+  <div class="hb-grid">
+    <div class="hb-card normal">
+      <div class="hb-name">HbO₂</div>
+      <div class="hb-full">Oxyhaemoglobin — carrying oxygen</div>
+    </div>
+    <div class="hb-card normal">
+      <div class="hb-name">Hb</div>
+      <div class="hb-full">Deoxyhaemoglobin — having released it</div>
+    </div>
+    <div class="hb-card dysfunctional">
+      <div class="hb-name">COHb</div>
+      <div class="hb-full">Carboxyhaemoglobin — bound to carbon monoxide</div>
+    </div>
+    <div class="hb-card dysfunctional">
+      <div class="hb-name">MetHb</div>
+      <div class="hb-full">Methaemoglobin — oxidised, unable to carry oxygen</div>
+    </div>
+    <div class="hb-card dysfunctional">
+      <div class="hb-name">SulfHb</div>
+      <div class="hb-full">Sulphaemoglobin — rare, but irreversible</div>
+    </div>
+  </div>
+
+  <p>Of these, COHb, MetHb, and SulfHb together constitute only about 1–3% in a normal healthy individual. But their presence even in small amounts becomes clinically significant — as we will discover.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">Two important concepts emerge</div>
+    <div class="concept-flow">
+      <div class="flow-step">
+        <span class="flow-arrow">→</span>
+        <div><span class="flow-label">Functional SaO₂</span> — considers only oxyhaemoglobin and deoxyhaemoglobin in its denominator. What your pulse oximeter displays.</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-arrow">→</span>
+        <div><span class="flow-label">Fractional SaO₂</span> — takes ALL forms of haemoglobin into account, functional and dysfunctional alike. What co-oximetry measures.</div>
+      </div>
+    </div>
+  </div>
+
+  <p>That distinction — <em>functional vs fractional</em> — is one of the most important limitations of the pulse oximeter, and one we will return to.</p>
+
+  <!-- ODC -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 04</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">The Oxygen <span class="accent">Dissociation Curve</span></h2>
+  <h3 class="sub-title">One of the most elegant graphs in physiology</h3>
+
+  <p>SaO₂ is a function of PaO₂. But what is the nature of that relationship? Is it linear? Does a falling PaO₂ always mean a proportionally falling SaO₂? This is where the ODC tells its story.</p>
+
+  <div class="pull-quote">
+    The curve is S-shaped — sigmoid — and that shape is not an accident. It is a consequence of cooperative binding. As each oxygen molecule binds to haemoglobin, it changes the shape of the molecule — making it easier for the next oxygen to bind. This is haemoglobin being <em>efficient by design.</em>
+  </div>
+
+  <table class="odc-table">
+    <thead>
+      <tr>
+        <th>Zone</th>
+        <th>PaO₂ Range</th>
+        <th>Clinical Significance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="zone-safe">
+        <td>Flat upper portion</td>
+        <td>70–100 mmHg</td>
+        <td>Small drop in PaO₂, minimal drop in SaO₂ — nature's safety margin</td>
+      </tr>
+      <tr class="zone-warn">
+        <td>The shoulder</td>
+        <td>~60 mmHg</td>
+        <td>SpO₂ ~90% — the critical inflection point. The line in the sand.</td>
+      </tr>
+      <tr class="zone-danger">
+        <td>Steep lower portion</td>
+        <td>Below 60 mmHg</td>
+        <td>Small drop in PaO₂ causes a massive drop in SaO₂ — the danger zone</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="shift-box">
+    <div class="shift-card right">
+      <div class="shift-header">→ Right Shift</div>
+      <div class="shift-title">Offloads O₂ to Tissues</div>
+      <p class="shift-causes">↑ Temperature · ↑ CO₂ · ↑ 2,3-DPG · Acidosis</p>
+    </div>
+    <div class="shift-card left">
+      <div class="shift-header">← Left Shift</div>
+      <div class="shift-title">Holds O₂ Tighter</div>
+      <p class="shift-causes">↓ Temperature · ↓ CO₂ · Alkalosis · Fetal Hb · COHb</p>
+    </div>
+  </div>
+
+  <!-- SpO2 vs SaO2 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 05</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">SpO₂ Is Not <span class="accent">SaO₂</span></h2>
+  <h3 class="sub-title">The most commonly misunderstood concept</h3>
+
+  <p>The ABG gives us PaO₂, pH, PaCO₂, bicarbonate — the complete picture. But it is invasive. It is a point-in-time measurement. It hurts. You cannot do it continuously. You cannot do it on every patient, every minute, through an entire surgery or a night in the ICU.</p>
+
+  <p><em>And this is precisely where the pulse oximeter stepped in and changed medicine forever.</em></p>
+
+  <div class="analogy-box">
+    <div class="analogy-line">The ODC is the <span>map.</span></div>
+    <div class="analogy-line">SpO₂ is your <span>GPS location</span> on that map.</div>
+    <div class="analogy-line">PaO₂ is the <span>actual ground</span> beneath your feet.</div>
+    <div class="analogy-sub" style="margin-top: 20px;">The GPS is useful, reliable, and continuous — but it is not the ground itself.</div>
+  </div>
+
+  <p>The pulse oximeter does <strong>not</strong> measure PaO₂. It measures <strong>SpO₂ — the peripheral oxygen saturation.</strong> From SpO₂, using the ODC, you can <em>estimate</em> where the patient's PaO₂ approximately lies. But it is an estimation — not a measurement. And that estimation is only reliable when the patient has normal haemoglobin, the ODC has not shifted, and the oximeter is reading accurately.</p>
+
+  <!-- How it Works — Beer-Lambert -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 06</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">Light Through a <span class="accent">Finger</span></h2>
+  <h3 class="sub-title">The physics behind the number</h3>
+
+  <p>Imagine you have two glasses of liquid in front of you — one red coloured and one blue coloured. Shining a beam of light through each, the red glass absorbs certain wavelengths and allows others to pass. The blue glass does the same — but differently. Each colour absorbs light in its own unique, predictable way.</p>
+
+  <p><strong>Haemoglobin behaves exactly the same way.</strong> Oxyhaemoglobin and deoxyhaemoglobin look different, behave differently — and most importantly, absorb light differently.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">The two wavelengths</div>
+    <div class="concept-flow">
+      <div class="flow-step">
+        <span class="flow-arrow">→</span>
+        <div><span class="flow-label" style="color: var(--red);">660 nm (Red)</span> — Absorbed more by <strong>deoxyhaemoglobin.</strong> Infrared passes through freely.</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-arrow">→</span>
+        <div><span class="flow-label" style="color: var(--accent2);">940 nm (Infrared)</span> — Absorbed more by <strong>oxyhaemoglobin.</strong> Red light passes through freely.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="law-section">
+    <div class="law-header">
+      <div>
+        <div class="law-number">The Governing Principle</div>
+        <div class="law-name">Beer-Lambert Law</div>
+        <div class="law-subtitle">Absorption ∝ Concentration × Path Length</div>
+      </div>
+    </div>
+    <div class="law-body">
+      <p>The absorption of light by a substance is directly proportional to its concentration and the path length through which the light travels.</p>
+      <div style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 20px; color: var(--gold); padding: 16px 0; margin: 8px 0; background: rgba(240,192,96,0.05); border-radius: 8px;">A = ε × c × l</div>
+      <p>The more oxyhaemoglobin present, the more infrared light is absorbed and the more red light passes through. The oximeter reads this ratio continuously — thousands of times per second — and converts it into the SpO₂ value on your monitor.</p>
+    </div>
+  </div>
+
+  <!-- AC/DC Signal -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 07</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">The Clever <span class="accent">Trick</span></h2>
+  <h3 class="sub-title">How the pulse is isolated from the noise</h3>
+
+  <p>Your finger is not just haemoglobin. It has skin, bone, tissue, venous blood, arterial blood — all of which absorb light to some degree. How does the oximeter know it is reading arterial blood specifically? That is where the <em>pulse</em> comes in.</p>
+
+  <div class="signal-box">
+    <div class="signal-card ac">
+      <div class="sig-tag">AC Component</div>
+      <div class="sig-name">The Pulsatile Signal</div>
+      <p class="sig-body">With every heartbeat, arterial blood surges through vessels, changing light absorption rhythmically. This pulsatile variation is purely arterial in origin — it represents SaO₂.</p>
+    </div>
+    <div class="signal-card dc">
+      <div class="sig-tag">DC Component</div>
+      <div class="sig-name">The Background</div>
+      <p class="sig-body">The constant, non-pulsatile component. Light absorbed by venous blood, capillaries, muscle, skin, bone. Background noise — filtered out.</p>
+    </div>
+  </div>
+
+  <div class="rvalue-box">
+    <div class="rv-label">The R Value</div>
+    <div class="rv-formula">R = (AC₆₆₀ / DC₆₆₀) ÷ (AC₉₄₀ / DC₉₄₀)</div>
+    <p class="rv-note">R = 1 corresponds to approximately SpO₂ of 85%.<br>Lower R values indicate higher saturations.</p>
+  </div>
+
+  <!-- Design Types -->
+  <div class="probe-grid">
+    <div class="probe-card transmit">
+      <div class="probe-tag">Design Type 1</div>
+      <div class="probe-name">Transmittance</div>
+      <p>Emitter and detector sit on opposite sides of the tissue. Light passes entirely through. Most common in clinical practice — the finger, toe, earlobe.</p>
+    </div>
+    <div class="probe-card reflect">
+      <div class="probe-tag">Design Type 2</div>
+      <div class="probe-name">Reflectance</div>
+      <p>Emitter and detector sit side by side. Light reflects back from underlying structures. Allows placement on flat surfaces — forehead, oesophagus, chest wall.</p>
+    </div>
+  </div>
+
+  <!-- Functional Cycle -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 08</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">The Functional <span class="accent">Cycle</span></h2>
+  <h3 class="sub-title">What happens inside that probe every second</h3>
+
+  <div class="cycle-box">
+    <div class="cycle-header">Three-Step Repeating Cycle — Hundreds of Times Per Second</div>
+    <div class="cycle-steps">
+      <div class="cycle-step">
+        <div class="cycle-num">01</div>
+        <div class="cycle-text"><strong>Red LED (660 nm) turns on</strong> — the photodetector measures the light transmitted through the tissue.</div>
+      </div>
+      <div class="cycle-step">
+        <div class="cycle-num">02</div>
+        <div class="cycle-text"><strong>Red turns off, Infrared LED (940 nm) turns on</strong> — the photodetector measures again.</div>
+      </div>
+      <div class="cycle-step">
+        <div class="cycle-num">03</div>
+        <div class="cycle-text"><strong>Both LEDs turn off</strong> — the photodetector measures <em>ambient light.</em> This is subtracted from both readings, removing interference from theatre lights, monitors, and room lighting. The clever part.</div>
+      </div>
+    </div>
+  </div>
+
+  <p>This three-step cycle repeats hundreds of times per second — faster than any physiological change can occur — giving you a continuous, real-time reading.</p>
+
+  <p>Every manufacturer has their own calibration algorithm — derived from studies on healthy volunteers — which is why SpO₂ readings can vary slightly between different monitors and brands. The final number on your monitor is not a direct measurement. It is the output of this entire cycle: emission, ambient subtraction, ratio calculation, and calibration curve matching. All of this happening silently, every fraction of a second.</p>
+
+  <p>And that is exactly why it earns its place as the <strong>first monitor on and the last monitor off.</strong></p>
+
+  <!-- Limitations -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 09</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">When It <span class="accent">Lies</span></h2>
+  <h3 class="sub-title">Understanding the limits — not the failures</h3>
+
+  <p>Anything that carries this many advantages, this much elegance, this much engineering packed into a small clip on a finger — must surely come without flaws. At least, that is what crossed my mind.</p>
+
+  <p>But as we know in medicine — every strength has a corresponding weakness. Let us look at the pulse oximeter honestly. Not to diminish it, but to understand it <em>completely.</em></p>
+
+  <div class="limitation-box">
+    <div class="lim-label">What the pulse oximeter does not tell you</div>
+    <div class="lim-item">
+      <div class="lim-dot">✕</div>
+      <div><strong>Tissue oxygenation</strong> — whether oxygen is actually being utilised at the cellular level</div>
+    </div>
+    <div class="lim-item">
+      <div class="lim-dot">✕</div>
+      <div><strong>Ventilation status</strong> — nothing about CO₂ retention or hypoventilation</div>
+    </div>
+    <div class="lim-item">
+      <div class="lim-dot">✕</div>
+      <div><strong>Acid-base balance</strong> — no pH, no bicarbonate</div>
+    </div>
+    <div class="lim-item">
+      <div class="lim-dot">✕</div>
+      <div><strong>PaCO₂</strong> — a patient can be silently hypercapnic with a perfectly normal SpO₂</div>
+    </div>
+    <div class="lim-item">
+      <div class="lim-dot">✕</div>
+      <div><strong>Hyperoxia</strong> — once SpO₂ is 100%, the oximeter is blind. A PaO₂ of 100 and 500 mmHg both read 100%. Critical in neonates where hyperoxia risks retinopathy.</div>
+    </div>
+  </div>
+
+  <p>The pulse oximeter is most accurate in the mid-range of saturations — roughly 70% to 100%. Below 70%, the calibration curve becomes unreliable. This is the range where volunteer studies simply could not go ethically. Below this threshold, the reading is an extrapolation, not a measurement.</p>
+
+  <div class="clinical-action">
+    <div class="ca-label">Low Perfusion States — What to Do</div>
+    <p>In hypoperfusion, hypotension, or hypothermia, the body redirects blood away from peripheries. Catecholamine release causes vasoconstriction — the finger becomes cold, poorly perfused, and the pulsatile signal weakens or disappears. <strong>Move the probe.</strong> The ear and forehead are supplied by vessels less affected by catecholamine-induced vasoconstriction, giving you a more reliable signal when the finger fails.</p>
+  </div>
+
+  <!-- False Readings Table -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 10</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">The <span class="accent">False Readings</span> Table</h2>
+  <h3 class="sub-title">When it lies, and in which direction</h3>
+
+  <table class="false-table">
+    <thead>
+      <tr>
+        <th>Cause</th>
+        <th>Type of Error</th>
+        <th>Mechanism</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="cause">Carboxyhaemoglobin (COHb)</td>
+        <td class="high">Falsely HIGH</td>
+        <td>COHb absorbs red light similarly to OxyHb — oximeter cannot distinguish them</td>
+      </tr>
+      <tr>
+        <td class="cause">Methaemoglobin (MetHb)</td>
+        <td class="eighty-five">Pulls toward 85%</td>
+        <td>MetHb absorbs both wavelengths equally — R value approaches 1, SpO₂ reads ~85% regardless of true saturation</td>
+      </tr>
+      <tr>
+        <td class="cause">Sulphaemoglobin (SulfHb)</td>
+        <td class="low">Falsely LOW</td>
+        <td>Absorbs light differently, underestimates true saturation</td>
+      </tr>
+      <tr>
+        <td class="cause">Severe anaemia</td>
+        <td class="high">Falsely HIGH</td>
+        <td>Low Hb but what remains may be well saturated — does not reflect oxygen delivery</td>
+      </tr>
+      <tr>
+        <td class="cause">Darker skin tone</td>
+        <td class="high">Falsely HIGH</td>
+        <td>Melanin absorbs red light, interfering with the ratio calculation — oximeter overestimates SpO₂</td>
+      </tr>
+      <tr>
+        <td class="cause">Nail polish / acrylic nails</td>
+        <td class="low">Falsely LOW</td>
+        <td>Absorbs red light, artificially increases AC₆₆₀ signal</td>
+      </tr>
+      <tr>
+        <td class="cause">Motion artefact</td>
+        <td class="unpredictable">Unpredictable</td>
+        <td>Creates false pulsatile signal — can read high or low</td>
+      </tr>
+      <tr>
+        <td class="cause">Ambient light</td>
+        <td class="low">Falsely LOW</td>
+        <td>Overwhelms photodetector despite ambient subtraction cycle</td>
+      </tr>
+      <tr>
+        <td class="cause">Hypoperfusion</td>
+        <td class="unpredictable">Absent / Inaccurate</td>
+        <td>Loss of pulsatile AC signal</td>
+      </tr>
+      <tr>
+        <td class="cause">Venous pulsation</td>
+        <td class="low">Falsely LOW</td>
+        <td>Venous congestion creates pulsatile venous signal mistaken for arterial</td>
+      </tr>
+      <tr>
+        <td class="cause">IV dyes (methylene blue, ICG)</td>
+        <td class="low">Falsely LOW</td>
+        <td>Absorb red light, transiently drop SpO₂ reading</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- History -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 11</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">A Century-Long <span class="accent">Relay Race</span></h2>
+  <h3 class="sub-title">The history of pulse oximetry</h3>
+
+  <p>The story of the pulse oximeter is not one of a single eureka moment. It is a relay race — passed between brilliant minds across continents.</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-year">1864</div>
+      <p class="timeline-text"><strong>Georg Gabriel Stokes</strong> discovered that haemoglobin is the oxygen carrier in blood. A biological truth so fundamental that everything that followed was built upon it.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1935</div>
+      <p class="timeline-text">German physician <strong>Karl Matthes</strong> built a device that could detect oxygenated and deoxygenated haemoglobin using light — earning him the title of the Father of Oximetry.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1940s</div>
+      <p class="timeline-text">American physiologist <strong>Glenn Millikan</strong> developed the first portable earpiece oximeter — lightweight, wearable, ahead of its time. The word <em>"oximeter"</em> is his contribution to medicine.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1974</div>
+      <p class="timeline-text">Japanese bioengineer <strong>Takuo Aoyagi</strong> — almost by accident, while working on dye dilution cardiac output studies — noticed that pulsatile changes in light absorption could calculate oxygen saturation non-invasively. That accidental observation became the foundation of modern pulse oximetry.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1977</div>
+      <p class="timeline-text">Minolta launched the <strong>first fingertip pulse oximeter.</strong></p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1987</div>
+      <p class="timeline-text">Pulse oximetry became <strong>standard of care for general anaesthesia</strong> in the United States.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">1995</div>
+      <p class="timeline-text">It reached the fingertips of <strong>everyday consumers.</strong> What once filled an entire room now clips onto a finger in seconds.</p>
+    </div>
+  </div>
+
+  <!-- Modern Advances -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 12</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">The Relay Didn't <span class="accent">Stop</span></h2>
+  <h3 class="sub-title">From two wavelengths to a billion wrists</h3>
+
+  <p><strong>Masimo's Signal Extraction Technology (SET)</strong> solved one of the oldest problems in pulse oximetry: motion artefact. By separating true arterial signal from noise with far greater precision, it made reliable monitoring possible even in restless, shivering, or moving patients.</p>
+
+  <p><strong>Rainbow Technology</strong> — perhaps the most significant leap since Aoyagi's discovery — moved beyond two wavelengths. Modern pulse oximeters now use multiple wavelengths to non-invasively measure carboxyhaemoglobin, methaemoglobin, and total haemoglobin — the very dysfunctional species that once made the oximeter blind.</p>
+
+  <p><strong>Near Infrared Spectroscopy (NIRS)</strong> took it a step further, allowing us to peer into cerebral oxygenation during cardiac surgery, carotid endarterectomy, and neonatal intensive care.</p>
+
+  <p>And then the pulse oximeter did something no one in Aoyagi's laboratory could have imagined — it <em>left the hospital entirely.</em> During the COVID-19 pandemic, the humble fingertip pulse oximeter became a frontline tool in the hands of patients themselves — flagging silent hypoxia before symptoms even appeared.</p>
+
+  <!-- Applications -->
+  <div class="app-grid">
+    <div class="app-card">
+      <div class="app-icon">🏥</div>
+      <div class="app-name">Operating Theatre</div>
+      <p class="app-desc">First monitor on. Last monitor off. Every time.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">💊</div>
+      <div class="app-name">ICU</div>
+      <p class="app-desc">Continuous overnight monitoring, ventilator titration.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">🚨</div>
+      <div class="app-name">Emergency Department</div>
+      <p class="app-desc">Rapid triage, resuscitation guidance.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">👶</div>
+      <div class="app-name">Neonatal Unit</div>
+      <p class="app-desc">Where hyperoxia is as dangerous as hypoxia.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">😴</div>
+      <div class="app-name">Sleep Studies</div>
+      <p class="app-desc">Detecting desaturation events in obstructive sleep apnoea.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">✈️</div>
+      <div class="app-name">Aviation &amp; Altitude</div>
+      <p class="app-desc">Monitoring pilots and mountaineers in hypoxic environments.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">🏠</div>
+      <div class="app-name">Home Monitoring</div>
+      <p class="app-desc">Chronic respiratory disease, post-COVID follow-up.</p>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">⌚</div>
+      <div class="app-name">Your Wrist</div>
+      <p class="app-desc">Quietly counting your saturations between heartbeats.</p>
+    </div>
+  </div>
+
+  <p><em>From the operating room to the living room. From Karl Matthes shining light through an ear in 1935 to a smartwatch on a billion wrists in 2025 — the pulse oximeter has travelled further than perhaps any other monitoring device in the history of medicine.</em></p>
+
+  <!-- Closing Challenge -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 13</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <h2 class="section-title">Full <span class="accent">Circle</span></h2>
+  <h3 class="sub-title">Back to that emergency theatre at 4:30 in the morning</h3>
+
+  <p>And so we come full circle — back to that emergency theatre at 4:30 in the morning. Back to that little clip going on the finger before anything else. Now you know why.</p>
+
+  <p>But let us end not with an answer — but with a question. Because that is how the best learning happens.</p>
+
+  <div class="challenge-box">
+    <div class="ch-label">Clinical Scenario</div>
+    <div class="ch-scenario">A patient is on the table. Haemodynamically stable. Heart rate normal. Blood pressure holding. But you notice something — SpO₂ 98%… 96%… 94%… 92% — a slow, quiet, relentless descent.</div>
+    <p class="ch-body">What do you do? What is your thought process? Where do you start?<br><br>Drop your approach in the comments below. Let us think through this together — because this is not just a question about pulse oximetry. It is a question about how you think at the bedside.</p>
+  </div>
+
+  <!-- Gita Closing -->
+  <div class="gita-box">
+    <div class="gita-sanskrit">यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः।<br>स यत्प्रमाणं कुरुते लोकस्तदनुवर्तते॥ ३.२१॥</div>
+    <div class="gita-translation">"Whatever action a great person performs, common people follow.<br>Whatever standards they set, the world pursues."</div>
+    <div class="gita-source">— Bhagavad Gita 3.21</div>
+  </div>
+
+  <p>Think about what this means for you — standing at the bedside at 4:30 in the morning.</p>
+
+  <p>The way you monitor, the way you think, the way you question what others take for granted — that becomes the standard. Your juniors will watch how you place that probe, how you interpret that waveform, how you respond when the number starts to fall. They will follow not what you teach them in a classroom, but <em>what you do when no one is watching.</em></p>
+
+  <p>Karl Matthes set a standard in 1935. Takuo Aoyagi set one in 1974. They asked questions that others had not thought to ask — and the world followed.</p>
+
+  <div class="pull-quote" style="font-size: 28px; text-align: center; border-left: none; border-top: 4px solid var(--accent2); border-radius: 8px 8px 0 0; padding-top: 32px;">
+    Now it is your turn.
+  </div>
+
+</main>
+
+</body>
+</html>
