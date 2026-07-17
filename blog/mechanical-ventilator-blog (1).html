@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is a Mechanical Ventilator, Really?</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #111820;
+    --bg3: #161e28;
+    --card: #1a2332;
+    --border: #2a3a50;
+    --accent: #5ba8d4;
+    --accent2: #e8a045;
+    --accent3: #7ecba1;
+    --text: #d4dde8;
+    --text-muted: #7a8fa8;
+    --text-dim: #4a6070;
+    --blue: #5ba8d4;
+    --gold: #f0c060;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 40px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 30% 40%, #0e1e2a 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 70%, #1a140a 0%, transparent 50%),
+                var(--bg);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(91,168,212,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 20%, rgba(232,160,69,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 80%, rgba(91,168,212,0.15) 0%, transparent 100%);
+    pointer-events: none;
+  }
+  .hero-icon { width: 84px; height: 84px; margin-bottom: 28px; animation: fadeUp 0.8s ease both; position: relative; }
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--blue);
+    border: 1px solid rgba(91,168,212,0.3);
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.8s ease both;
+    position: relative;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 24px;
+    animation: fadeUp 0.8s 0.15s ease both;
+    position: relative;
+  }
+  .hero h1 em { font-style: italic; color: var(--blue); }
+  .hero-sub {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.8s 0.3s ease both;
+    position: relative;
+  }
+  .hero-opening {
+    max-width: 720px;
+    background: rgba(91,168,212,0.06);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 8px 8px 0;
+    padding: 32px 40px;
+    text-align: left;
+    font-size: 19px;
+    line-height: 1.9;
+    color: var(--text);
+    animation: fadeUp 0.8s 0.45s ease both;
+    position: relative;
+  }
+  .hero-opening .hook {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.8s ease both;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--blue), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 80px 40px 120px;
+  }
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 64px 0 48px;
+  }
+  .divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+  .divider-icon {
+    color: var(--blue);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  h2.section-title .accent { color: var(--blue); }
+  h2.section-title .accent2 { color: var(--accent2); }
+  h3.sub-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 24px;
+    margin-top: -4px;
+  }
+  p { margin-bottom: 24px; color: var(--text); font-weight: 300; }
+  p strong { color: var(--gold); font-weight: 600; }
+  p em { color: var(--blue); font-style: italic; }
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.55;
+    color: #fff;
+    border-left: 4px solid var(--blue);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: rgba(91,168,212,0.04);
+    border-radius: 0 8px 8px 0;
+  }
+  .icon-row {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 12px 0 40px;
+  }
+  .icon-row svg { width: 46px; height: 46px; }
+  .spectrum-bar {
+    position: relative;
+    height: 14px;
+    border-radius: 100px;
+    background: linear-gradient(to right, rgba(126,203,161,0.7), rgba(240,192,96,0.7), rgba(91,168,212,0.9));
+    margin: 40px 0 12px;
+  }
+  .spectrum-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 44px;
+  }
+  .state-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 32px 0;
+  }
+  .state-card {
+    border-radius: 10px;
+    padding: 26px 20px;
+    text-align: center;
+  }
+  .state-card.spont { background: rgba(126,203,161,0.07); border: 1px solid rgba(126,203,161,0.25); }
+  .state-card.assist { background: rgba(240,192,96,0.07); border: 1px solid rgba(240,192,96,0.25); }
+  .state-card.ctrl { background: rgba(91,168,212,0.07); border: 1px solid rgba(91,168,212,0.25); }
+  .state-card svg { width: 40px; height: 40px; margin-bottom: 14px; }
+  .state-card .c-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .state-card.spont .c-label { color: var(--accent3); }
+  .state-card.assist .c-label { color: var(--gold); }
+  .state-card.ctrl .c-label { color: var(--blue); }
+  .state-card .c-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .state-card .c-note { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 0; }
+  .work-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+    font-size: 15px;
+  }
+  .work-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .work-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(42,58,80,0.3);
+    vertical-align: top;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .work-table tr:last-child td { border-bottom: none; }
+  .concept-box {
+    background: var(--bg3);
+    border-radius: 12px;
+    padding: 36px 40px;
+    margin: 40px 0;
+    border: 1px solid var(--border);
+  }
+  .concept-box .concept-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+  .concept-flow { display: flex; flex-direction: column; gap: 0; }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 16px;
+    color: var(--text);
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(42,58,80,0.4);
+  }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-arrow { color: var(--blue); font-family: 'JetBrains Mono', monospace; font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+  .flow-label { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--gold); min-width: 150px; flex-shrink: 0; }
+  .pearl-box {
+    background: linear-gradient(135deg, rgba(240,192,96,0.1), rgba(232,160,69,0.06));
+    border: 1px solid rgba(240,192,96,0.3);
+    border-radius: 10px;
+    padding: 28px 36px;
+    margin: 36px 0;
+    text-align: center;
+  }
+  .pearl-box .pearl-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .pearl-box .pearl-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .teaser-box {
+    background: linear-gradient(135deg, rgba(91,168,212,0.08), rgba(240,192,96,0.05));
+    border: 1px solid rgba(91,168,212,0.2);
+    border-radius: 12px;
+    padding: 32px 40px;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .teaser-box .t-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 16px;
+  }
+  .teaser-box .t-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    color: #fff;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .closing-box {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px;
+    margin: 48px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing-box::before {
+    content: '⟳';
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    color: rgba(91,168,212,0.04);
+    line-height: 1;
+    pointer-events: none;
+    font-weight: 900;
+  }
+  .closing-box .closing-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #fff;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .closing-box .closing-attr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blue);
+    position: relative;
+  }
+  .section-icon {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 28px;
+  }
+  .section-icon svg { width: 56px; height: 56px; }
+  .prana-box {
+    text-align: center;
+    margin: 40px 0 0;
+    padding: 24px 20px 0;
+    border-top: 1px solid var(--border);
+  }
+  .prana-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .prana-word {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--gold);
+  }
+  .prana-dev {
+    font-family: 'Source Serif 4', serif;
+    font-size: 17px;
+    color: var(--text-muted);
+  }
+  .prana-def {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scrollPulse { 0%, 100% { opacity: 0.4; transform: scaleY(1); } 50% { opacity: 1; transform: scaleY(1.1); } }
+  @media (max-width: 640px) {
+    .hero { padding: 60px 24px; }
+    .hero-opening { padding: 24px 24px; }
+    .content { padding: 60px 24px 80px; }
+    .state-grid { grid-template-columns: 1fr; }
+    .closing-box { padding: 36px 24px; }
+    .teaser-box { padding: 24px 20px; }
+    .icon-row { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="18" y="30" width="26" height="40" rx="4" stroke="#5ba8d4" stroke-width="2.5"/>
+    <circle cx="31" cy="42" r="4" fill="#5ba8d4"/>
+    <line x1="24" y1="54" x2="38" y2="54" stroke="#5ba8d4" stroke-width="2"/>
+    <line x1="24" y1="60" x2="38" y2="60" stroke="#5ba8d4" stroke-width="2"/>
+    <path d="M44 46 Q56 46 56 34 Q56 22 68 22" stroke="#e8a045" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M44 54 Q56 54 56 66 Q56 78 68 78" stroke="#e8a045" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <ellipse cx="74" cy="22" rx="8" ry="11" stroke="#e8a045" stroke-width="2.5" fill="none"/>
+    <ellipse cx="74" cy="78" rx="8" ry="11" stroke="#e8a045" stroke-width="2.5" fill="none"/>
+  </svg>
+  <div class="hero-tag">ICU Chronicles · Ventilator Series</div>
+  <h1>What Is a Mechanical<br>Ventilator, <em>Really?</em></h1>
+  <p class="hero-sub">Before drive mechanisms and control circuits, there is one question worth sitting with — what is this machine actually doing?</p>
+  <div class="hero-opening">
+    <div class="hook">Remember the day you first walked into an ICU as a medical student?</div>
+    The patient was paralysed — completely still, not a single muscle doing any work — and yet the ventilator kept delivering breath after breath, on its own, without fail.
+    <br><br>
+    How does a machine do the work of a human being?
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- CONTENT -->
+<main class="content">
+
+  <!-- § 01 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 01</div>
+    <div class="divider-line"></div>
+  </div>
+  <h2 class="section-title">The Definition That <span class="accent">Actually Matters</span></h2>
+  <h3 class="sub-title">Where every ventilator concept begins</h3>
+
+  <p>My day, I was stuck in awe. How does something built from metal, plastic, and circuitry take over an act as fundamentally human as breathing?</p>
+
+  <p>I'd guess every one of us has had that exact moment — standing at the bedside, watching a chest rise and fall that isn't rising and falling on its own.</p>
+
+  <p>In this series, we're going to deconstruct the mechanism behind this quiet, everyday miracle — piece by piece, until "how does this even work" turns into "of course, that's how it works."</p>
+
+  <p>Before we get anywhere near drive mechanisms, control circuits, or taxonomy, we need to answer the most basic question you could ever be asked on this topic: <strong>what exactly is a mechanical ventilator?</strong></p>
+
+  <div class="pull-quote">
+    A mechanical ventilator is a machine or device that can fully, or partially, substitute for the ventilatory work normally accomplished by the patient's own respiratory muscles.
+  </div>
+
+  <p>Notice that word — <em>partially</em>. This isn't an on-off switch. It's a spectrum.</p>
+
+  <p>That single word is the answer to the awe from day one. The machine isn't always doing 100% of the work. Sometimes it's doing all of it. Sometimes it's doing none of it. Most of the time, it's doing some of it — quietly filling in exactly the gap the patient's own muscles can't close.</p>
+
+  <!-- § 02 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 02</div>
+    <div class="divider-line"></div>
+  </div>
+  <h2 class="section-title">A <span class="accent2">Spectrum</span>, Not a Switch</h2>
+  <h3 class="sub-title">Where the patient ends and the machine begins</h3>
+
+  <div class="spectrum-bar"></div>
+  <div class="spectrum-labels">
+    <span>← FULL PATIENT WORK</span>
+    <span>FULL VENTILATOR WORK →</span>
+  </div>
+
+  <div class="icon-row">
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 12c-8 0-12 8-12 18s4 18 12 18 12-8 12-18-4-18-12-18z" stroke="#7ecba1" stroke-width="2.5"/>
+      <path d="M30 12v36M18 22c4-3 8-3 12 0M18 38c4 3 8 3 12 0" stroke="#7ecba1" stroke-width="2"/>
+    </svg>
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 15c-6 0-9 7-9 15s3 15 9 15" stroke="#f0c060" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="40" cy="30" r="9" stroke="#f0c060" stroke-width="2.5"/>
+      <path d="M40 21v3M40 36v3M31 30h3M46 30h3" stroke="#f0c060" stroke-width="2"/>
+    </svg>
+    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="14" y="16" width="32" height="28" rx="4" stroke="#5ba8d4" stroke-width="2.5"/>
+      <path d="M20 24h6l3-6 4 12 3-8 2 4h5" stroke="#5ba8d4" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="22" cy="38" r="2" fill="#5ba8d4"/>
+      <circle cx="30" cy="38" r="2" fill="#5ba8d4"/>
+      <circle cx="38" cy="38" r="2" fill="#5ba8d4"/>
+    </svg>
+  </div>
+
+  <p>On one end: the patient is well able to sustain the body's own respiratory requirement. Ventilator work is nil. This is just <strong>spontaneous respiration</strong> — no support at all.</p>
+
+  <p>On the other end: there's no work of breathing whatsoever. The patient is fully paralysed, and the ventilator delivers the entire ventilatory workload. This is <strong>controlled ventilation</strong> — the exact scenario from that first day in the ICU.</p>
+
+  <p>Everywhere in between: the ventilator compensates for whatever the patient can't do alone. This is <strong>assisted, or partial support ventilation</strong>.</p>
+
+  <table class="work-table">
+    <tr><th>Patient Work</th><th>Ventilator Work</th><th>State</th></tr>
+    <tr><td>Full</td><td>Nil</td><td>Spontaneous respiration, no support</td></tr>
+    <tr><td>Partial</td><td>Partial</td><td>Assisted breathing</td></tr>
+    <tr><td>Nil</td><td>Full</td><td>Controlled ventilation</td></tr>
+  </table>
+
+  <div class="state-grid">
+    <div class="state-card spont">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 12c-8 0-12 8-12 18s4 18 12 18 12-8 12-18-4-18-12-18z" stroke="#7ecba1" stroke-width="2.5"/>
+        <path d="M30 12v36M18 22c4-3 8-3 12 0M18 38c4 3 8 3 12 0" stroke="#7ecba1" stroke-width="2"/>
+      </svg>
+      <div class="c-label">No support</div>
+      <div class="c-title">Spontaneous</div>
+      <p class="c-note">Patient does 100% of the ventilatory work.</p>
+    </div>
+    <div class="state-card assist">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 15c-6 0-9 7-9 15s3 15 9 15" stroke="#f0c060" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <circle cx="40" cy="30" r="9" stroke="#f0c060" stroke-width="2.5"/>
+        <path d="M40 21v3M40 36v3M31 30h3M46 30h3" stroke="#f0c060" stroke-width="2"/>
+      </svg>
+      <div class="c-label">Shared work</div>
+      <div class="c-title">Assisted</div>
+      <p class="c-note">Machine fills the exact gap the patient can't close.</p>
+    </div>
+    <div class="state-card ctrl">
+      <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="16" width="32" height="28" rx="4" stroke="#5ba8d4" stroke-width="2.5"/>
+        <path d="M20 24h6l3-6 4 12 3-8 2 4h5" stroke="#5ba8d4" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="22" cy="38" r="2" fill="#5ba8d4"/>
+        <circle cx="30" cy="38" r="2" fill="#5ba8d4"/>
+        <circle cx="38" cy="38" r="2" fill="#5ba8d4"/>
+      </svg>
+      <div class="c-label">Full support</div>
+      <div class="c-title">Controlled</div>
+      <p class="c-note">Machine does 100% of the ventilatory work.</p>
+    </div>
+  </div>
+
+  <p>Every mode you'll ever set on a ventilator — SIMV, pressure support, CPAP, full control — is just a different point on this single spectrum. The differences between them come down to how much work the machine takes over, and when.</p>
+
+  <!-- § 03 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 03</div>
+    <div class="divider-line"></div>
+  </div>
+  <h2 class="section-title">Why This Framework <span class="accent">Matters More Than It Looks</span></h2>
+  <h3 class="sub-title">Locating a mode on a map you already understand</h3>
+
+  <p>Once you hold onto this idea, the rest of ventilator classification stops feeling like memorising acronyms and starts feeling like locating a mode on a map you already understand.</p>
+
+  <div class="concept-box">
+    <div class="concept-title">Two "mystery terms" — decoded through the spectrum</div>
+    <div class="concept-flow">
+      <div class="flow-step">
+        <div class="flow-arrow">→</div>
+        <div class="flow-label">SIMV</div>
+        <div>Sits somewhere in the middle of the spectrum, letting the patient contribute some breaths while the machine guarantees others.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-arrow">→</div>
+        <div class="flow-label">Pressure Support</div>
+        <div>The machine assisting a patient who's already initiating their own breaths, rather than driving the whole thing itself.</div>
+      </div>
+    </div>
+  </div>
+
+  <p>This is also why the paralysed patient from your first ICU day is such a useful mental anchor. That patient sat at the absolute far end of the spectrum — zero patient work, full ventilator work. Everything else you'll learn in this series is simply: <em>where else on that spectrum can a patient be, and what does the ventilator do differently at each point?</em></p>
+
+  <!-- § 04 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 04</div>
+    <div class="divider-line"></div>
+  </div>
+  <h2 class="section-title">Bedside <span class="accent2">Takeaway</span></h2>
+  <h3 class="sub-title">One question before you name the mode</h3>
+
+  <p>Before you look at a ventilator screen and try to name the mode, ask one simpler question first.</p>
+
+  <div class="pearl-box">
+    <div class="pearl-label">The one question that matters</div>
+    <p class="pearl-text">How much of this breath is the patient doing, and how much is the machine doing?<br>Every mode name is just a label for a specific answer to that question.</p>
+  </div>
+
+  <!-- § 05 -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">§ 05</div>
+    <div class="divider-line"></div>
+  </div>
+  <h2 class="section-title">What's <span class="accent">Next</span></h2>
+  <h3 class="sub-title">The question worth sitting with</h3>
+
+  <p>We now know what a ventilator is — a substitute for ventilatory work, sliding along a spectrum from none to all. But here's a question worth sitting with before we go any further:</p>
+
+  <div class="teaser-box">
+    <div class="t-label">Coming Up Next</div>
+    <p class="t-text">If every ventilator on the market is fundamentally doing the same job — why do we bother classifying them at all?</p>
+  </div>
+
+  <p>That's exactly where we're headed next. We're still deconstructing that first-day awe — one mechanism at a time.</p>
+
+  <!-- CLOSING -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-icon">✦</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="closing-box">
+    <p class="closing-text">
+      A chest that rises and falls without a single muscle doing the work.<br><br>
+      That is where this series begins — not with acronyms, but with one word: <em>partially</em>.<br>Everything else is just where you sit on the spectrum.
+    </p>
+    <div class="closing-attr">Drmscorpus.in · ICU Chronicles</div>
+  </div>
+
+  <div class="prana-box">
+    <div class="prana-row">
+      <span class="prana-word">Prāṇa</span>
+      <span class="prana-dev">(प्राण)</span>
+      <span class="prana-def">— Breath, life-force — the very thing a ventilator stands in for.</span>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
