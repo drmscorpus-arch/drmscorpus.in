@@ -1124,5 +1124,162 @@
   </footer>
 
 </div>
+
+  </footer>
+
+</div>
+
+<!-- ===== Dr MS Corpus: 1 Year popup. Paste this whole block just before </body> ===== -->
+<style>
+/* ---- Colours from drmscorpus.in (teal + amber), on a bright background ---- */
+#oy-dialog{--bg:#fffcf3;--navy:#0b1524;--text:#2f4660;
+  --teal:#2ec4b6;--teal-dark:#12857a;--amber:#f4a832;--fest:#ff7a59;
+  border:0;padding:0;border-radius:16px;width:min(36rem,92vw);max-height:90vh;overflow:hidden;
+  color:var(--text);text-align:left;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;
+  background:
+    radial-gradient(circle at 100% 20%,rgba(244,168,50,.30),transparent 45%),
+    radial-gradient(circle at 0 100%,rgba(46,196,182,.28),transparent 50%),
+    radial-gradient(circle at 90% 95%,rgba(255,122,89,.18),transparent 35%),
+    var(--bg);
+  box-shadow:0 24px 70px rgba(11,21,36,.45)}
+#oy-dialog:focus{outline:none}
+#oy-dialog::backdrop{background:rgba(11,21,36,.6)}
+#oy-dialog[open]{display:flex;flex-direction:column;animation:oy-in .35s ease-out}
+@keyframes oy-in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#oy-dialog[open]{animation:none}}
+
+/* marigold and mango-leaf garland (toran) */
+.oy-garland{flex:none;height:72px;margin-bottom:-18px;position:relative;z-index:1;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='72' viewBox='0 0 120 72'%3E%3Cpath d='M0 6 Q60 22 120 6' fill='none' stroke='%23d4a017' stroke-width='2'/%3E%3Cline x1='20' y1='10' x2='20' y2='24' stroke='%23b8860b' stroke-width='1.2'/%3E%3Cpath d='M20 24 C10 34 12 50 20 60 C28 50 30 34 20 24 Z' fill='%232fb67a'/%3E%3Cpath d='M20 26 L20 58' stroke='%231b8a57' stroke-width='1' fill='none'/%3E%3Cline x1='100' y1='10' x2='100' y2='24' stroke='%23b8860b' stroke-width='1.2'/%3E%3Cpath d='M100 24 C90 34 92 50 100 60 C108 50 110 34 100 24 Z' fill='%232fb67a'/%3E%3Cpath d='M100 26 L100 58' stroke='%231b8a57' stroke-width='1' fill='none'/%3E%3Cline x1='60' y1='14' x2='60' y2='36' stroke='%23b8860b' stroke-width='1.2'/%3E%3Ccircle cx='67.5' cy='46.0' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='65.3' cy='51.3' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='60.0' cy='53.5' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='54.7' cy='51.3' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='52.5' cy='46.0' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='54.7' cy='40.7' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='60.0' cy='38.5' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='65.3' cy='40.7' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='60' cy='46' r='5.8' fill='%23ffa000'/%3E%3Ccircle cx='60' cy='46' r='2.8' fill='%23e65100'/%3E%3Ccircle cx='40' cy='13' r='2.8' fill='%232ec4b6'/%3E%3Ccircle cx='80' cy='13' r='2.8' fill='%23ff7a59'/%3E%3C/svg%3E") repeat-x 0 0/120px 72px}
+.oy-x{position:absolute;top:10px;right:10px;z-index:2;width:40px;height:40px;border:0;border-radius:50%;
+  background:#fff;color:var(--navy);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(11,21,36,.2)}
+.oy-x:hover{background:var(--amber)}
+#oy-dialog button:focus-visible,#oy-dialog a:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+
+.oy-body{padding:1.5rem 1.5rem 1.75rem;overflow:auto;position:relative}
+.oy-small{margin:0 0 .5rem;color:#c25e00;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+#oy-dialog h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.2rem,8vw,3.1rem);line-height:1.02;letter-spacing:-.5px;margin:0 0 .75rem;color:var(--navy)}
+#oy-title em{font-style:italic;color:var(--teal-dark)}
+#oy-dialog h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.5rem;margin:1.5rem 0 .3rem;color:var(--teal-dark)}
+#oy-dialog p{margin:.5rem 0}
+#oy-dialog strong{color:var(--navy);font-weight:600}
+.oy-stats{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0}
+.oy-stats div{flex:1 1 6rem;background:#fff;border:2px solid var(--teal);border-radius:10px;padding:.6rem .75rem;text-align:center}
+.oy-stats div:nth-child(2){border-color:var(--amber)}
+.oy-stats div:nth-child(3){border-color:var(--fest)}
+.oy-stats b{display:block;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:2rem;color:var(--navy);line-height:1.1}
+.oy-stats span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
+.oy-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+.oy-btn{border-radius:6px;padding:.8rem 1.4rem;font:inherit;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:filter .2s,background .2s,color .2s}
+.oy-primary{background:linear-gradient(90deg,var(--teal),var(--amber));border:0;color:var(--navy)}
+.oy-primary:hover{filter:brightness(1.08) saturate(1.1)}
+.oy-ghost{background:#fff;border:2px solid var(--teal);color:var(--teal-dark)}
+.oy-ghost:hover{background:var(--teal);color:var(--navy)}
+#oy-story blockquote{margin:1rem 0;padding-left:1rem;border-left:4px solid var(--amber);font-family:"Libre Baskerville",Georgia,serif;font-style:italic;color:var(--navy);font-size:.95rem}
+#oy-story ul{margin:.25rem 0;padding-left:1.2rem}
+#oy-story a{color:var(--teal-dark);font-weight:600}
+</style>
+
+<dialog id="oy-dialog" aria-labelledby="oy-title" tabindex="-1" autofocus>
+  <div class="oy-garland" aria-hidden="true"></div>
+  <button class="oy-x" id="oy-close" aria-label="Close and view the website">&times;</button>
+  <div class="oy-body">
+
+    <!-- Step 1: short teaser -->
+    <div id="oy-teaser">
+      <p class="oy-small">We turned one</p>
+      <h2 id="oy-title">1 Year of <em>Dr MS Corpus</em></h2>
+      <p>Medicine as a living journey, and a year of learning it together. Thank you for reading, watching and following along. A small corner of the internet became a community because of you.</p>
+      <div class="oy-stats">
+        <div><b>13</b><span>Articles</span></div>
+        <div><b>50</b><span>YouTube subscribers</span></div>
+        <div><b>28</b><span>Instagram followers</span></div>
+      </div>
+      <div class="oy-actions">
+        <button class="oy-btn oy-primary" id="oy-read">Read our story</button>
+        <button class="oy-btn oy-ghost" id="oy-skip">Continue to website</button>
+      </div>
+    </div>
+
+    <!-- Step 2: full story, shown after "Read our story" -->
+    <div id="oy-story" hidden>
+      <h2>Our first year</h2>
+
+      <h3>Where we began</h3>
+      <p>Dr MS Corpus began with a simple belief: medical education doesn’t have to be this hard. Not because medicine is easy, because it never will be, but because the right strategies, support and mindset let you thrive instead of just survive.</p>
+      <p>It started as one doctor’s personal journey of late nights, imposter syndrome, and the search for a better way to understand. Then it became a family mission. My parents, my brother and I decided to build it together, as equal partners. So when you read “I” anywhere on this platform, it truly means “we.”</p>
+      <p>We never wanted to be another source of dry lectures and impossible jargon. We wanted to write the way a good senior explains things: clinically, clearly, and with the story behind the facts.</p>
+      <blockquote>“Medicine isn’t a destination. It’s an evolving journey, and we’re all students for life.”</blockquote>
+
+      <h3>Our year in numbers</h3>
+      <p>13 articles, 1 printable PAC checklist, 50 YouTube subscribers, 28 Instagram followers, 4 founders and one family. These are not big numbers, and we’re proud of them anyway. Every subscriber and follower is a real person who chose to learn alongside us when we had almost nothing to show.</p>
+      <p>We’ll be plain about the rest, too: in this first year we made just one handout, and our inbox stayed quiet. That’s our starting line, and year two is about making more handouts and starting more conversations with you.</p>
+
+      <h3>What we built</h3>
+      <p><strong>Anaesthesiology:</strong> PAC: The Anaesthesiologist’s OPD, PONV Prophylaxis, Volatile Anaesthetics, The Three Minutes That Matter, Pulse Oximetry, Hyperkalemia: The Silent ECG Killer, What Is a Mechanical Ventilator, Really?, Scalp Block: My First Time, Spinal Anaesthesia.</p>
+      <p><strong>Pharmacology:</strong> Propofol: The Milk of Amnesia, Etomidate: Guardian of Hemodynamic Stability, Thiopentone, Ondansetron: The Anti-Emetic Explained.</p>
+      <p><strong>Handout:</strong> PAC Checklist: The Resident’s Proforma, a printable pre-anaesthetic evaluation checklist for residents and students.</p>
+
+      <h3>An honest note</h3>
+      <p>We went quiet. After a promising start, the posts slowed and then stopped. If you checked in and found nothing new, you deserved an explanation, and we owe you at least an apology.</p>
+      <p>Building something alongside studies, work and family life is harder than it looks from the outside. What changed: we stopped aiming for perfect and started aiming for consistent. Smaller pieces, a realistic rhythm, and a plan we can actually keep. We’re back, starting on our first anniversary.</p>
+
+      <h3>What’s next</h3>
+      <ul>
+        <li><strong>Handouts:</strong> printable checklists and one-page summaries for the OT, the ward and the exam hall.</li>
+        <li><strong>Blogs:</strong> clinical stories and concept deep-dives in anaesthesiology and pharmacology.</li>
+        <li><strong>Videos and shorts:</strong> pearls, walkthroughs and how-we-use-it demos on YouTube and Instagram.</li>
+        <li><strong>Your topics:</strong> you decide what we cover next.</li>
+      </ul>
+      <p>Tell us what to make next: reply on Instagram, comment on YouTube, or write to <a href="mailto:drmscorpus@gmail.com">drmscorpus@gmail.com</a>. Every message is read by our family team.</p>
+
+      <h3>Thank you</h3>
+      <p>To my parents and my little brother, my co-founders and my foundation. To my teachers, seniors and guides. To you, our readers and viewers, who give purpose to everything we publish. And to Lord Sri Venkateshwara and Sri Krishna, whose teachings remind us to focus on the action, not the result.</p>
+      <p><strong>Welcome to year two. Let’s keep learning together.</strong></p>
+      <p>With immense respect, solidarity, and belief in your potential,<br>Dr MS Corpus, on behalf of our founding family of four</p>
+
+      <div class="oy-actions">
+        <button class="oy-btn oy-primary" id="oy-done">Continue to website</button>
+        <button class="oy-btn oy-ghost" id="oy-back">Back</button>
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var d = document.getElementById('oy-dialog');
+  if (!d || typeof d.showModal !== 'function') return;
+  var KEY = 'drmscorpus-1yr-seen';
+  var teaser = document.getElementById('oy-teaser');
+  var story = document.getElementById('oy-story');
+  var body = d.querySelector('.oy-body');
+
+  function show(which) {
+    teaser.hidden = which !== 'teaser';
+    story.hidden = which !== 'story';
+    body.scrollTop = 0;
+  }
+  function seen() { try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+
+  // Shows once per visitor. Add ?preview to any page URL to see it again while testing.
+  var preview = location.search.indexOf('preview') !== -1;
+  if (!seen() || preview) setTimeout(function () { d.showModal(); d.focus(); }, 700);
+
+  d.addEventListener('close', function () {
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    show('teaser');
+  });
+  d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); // click outside to close
+  document.getElementById('oy-close').onclick = function () { d.close(); };
+  document.getElementById('oy-skip').onclick = function () { d.close(); };
+  document.getElementById('oy-done').onclick = function () { d.close(); };
+  document.getElementById('oy-read').onclick = function () { show('story'); };
+  document.getElementById('oy-back').onclick = function () { show('teaser'); };
+})();
+</script>
+<!-- ===== end of popup ===== -->
+
 </body>
 </html>
