@@ -1126,68 +1126,108 @@
 </div>
 
   </footer>
+</footer>
 
 </div>
 
 <!-- ===== Dr MS Corpus: 1 Year popup. Paste this whole block just before </body> ===== -->
 <style>
-/* ---- Colours from drmscorpus.in (teal + amber), on a bright background ---- */
+/* ---- Colours from drmscorpus.in (teal + amber), bright + festive ---- */
 #oy-dialog{--bg:#fffcf3;--navy:#0b1524;--text:#2f4660;
   --teal:#2ec4b6;--teal-dark:#12857a;--amber:#f4a832;--fest:#ff7a59;
-  border:0;padding:0;border-radius:16px;width:min(36rem,92vw);max-height:90vh;overflow:hidden;
+  margin:auto;                /* keeps it centred even with a site-wide "* {margin:0}" reset */
+  height:fit-content;border:2px solid #fff;padding:0;border-radius:18px;width:min(36rem,92vw);max-height:90vh;overflow:hidden;
   color:var(--text);text-align:left;font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;
   background:
-    radial-gradient(circle at 100% 20%,rgba(244,168,50,.30),transparent 45%),
-    radial-gradient(circle at 0 100%,rgba(46,196,182,.28),transparent 50%),
-    radial-gradient(circle at 90% 95%,rgba(255,122,89,.18),transparent 35%),
+    radial-gradient(circle at 100% 20%,rgba(244,168,50,.32),transparent 45%),
+    radial-gradient(circle at 0 100%,rgba(46,196,182,.30),transparent 50%),
+    radial-gradient(circle at 90% 95%,rgba(255,122,89,.20),transparent 35%),
     var(--bg);
-  box-shadow:0 24px 70px rgba(11,21,36,.45)}
+  box-shadow:0 0 36px 6px rgba(244,168,50,.45),0 0 90px 14px rgba(46,196,182,.30),0 24px 70px rgba(11,21,36,.45)}
 #oy-dialog:focus{outline:none}
-#oy-dialog::backdrop{background:rgba(11,21,36,.6)}
-#oy-dialog[open]{display:flex;flex-direction:column;animation:oy-in .35s ease-out}
-@keyframes oy-in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){#oy-dialog[open]{animation:none}}
+#oy-dialog::backdrop{background:radial-gradient(circle at 50% 40%,rgba(30,60,90,.55),rgba(5,10,20,.82))}
+#oy-dialog[open]{display:flex;flex-direction:column;animation:oy-pop .7s cubic-bezier(.2,1.3,.4,1),oy-glow 3s ease-in-out .7s infinite alternate}
+@keyframes oy-pop{0%{opacity:0;transform:translateY(40px) scale(.82)}60%{opacity:1;transform:translateY(-8px) scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes oy-glow{from{box-shadow:0 0 36px 6px rgba(244,168,50,.45),0 0 90px 14px rgba(46,196,182,.30),0 24px 70px rgba(11,21,36,.45)}
+  to{box-shadow:0 0 52px 12px rgba(255,122,89,.50),0 0 120px 24px rgba(244,168,50,.38),0 24px 70px rgba(11,21,36,.45)}}
 
-/* marigold and mango-leaf garland (toran) */
-.oy-garland{flex:none;height:72px;margin-bottom:-18px;position:relative;z-index:1;pointer-events:none;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='72' viewBox='0 0 120 72'%3E%3Cpath d='M0 6 Q60 22 120 6' fill='none' stroke='%23d4a017' stroke-width='2'/%3E%3Cline x1='20' y1='10' x2='20' y2='24' stroke='%23b8860b' stroke-width='1.2'/%3E%3Cpath d='M20 24 C10 34 12 50 20 60 C28 50 30 34 20 24 Z' fill='%232fb67a'/%3E%3Cpath d='M20 26 L20 58' stroke='%231b8a57' stroke-width='1' fill='none'/%3E%3Cline x1='100' y1='10' x2='100' y2='24' stroke='%23b8860b' stroke-width='1.2'/%3E%3Cpath d='M100 24 C90 34 92 50 100 60 C108 50 110 34 100 24 Z' fill='%232fb67a'/%3E%3Cpath d='M100 26 L100 58' stroke='%231b8a57' stroke-width='1' fill='none'/%3E%3Cline x1='60' y1='14' x2='60' y2='36' stroke='%23b8860b' stroke-width='1.2'/%3E%3Ccircle cx='67.5' cy='46.0' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='65.3' cy='51.3' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='60.0' cy='53.5' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='54.7' cy='51.3' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='52.5' cy='46.0' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='54.7' cy='40.7' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='60.0' cy='38.5' r='4.3' fill='%23ffb300'/%3E%3Ccircle cx='65.3' cy='40.7' r='4.3' fill='%23ff8f00'/%3E%3Ccircle cx='60' cy='46' r='5.8' fill='%23ffa000'/%3E%3Ccircle cx='60' cy='46' r='2.8' fill='%23e65100'/%3E%3Ccircle cx='40' cy='13' r='2.8' fill='%232ec4b6'/%3E%3Ccircle cx='80' cy='13' r='2.8' fill='%23ff7a59'/%3E%3C/svg%3E") repeat-x 0 0/120px 72px}
-.oy-x{position:absolute;top:10px;right:10px;z-index:2;width:40px;height:40px;border:0;border-radius:50%;
-  background:#fff;color:var(--navy);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(11,21,36,.2)}
-.oy-x:hover{background:var(--amber)}
+/* layers: confetti (back) < content < garland < shine < close button */
+.oy-confetti{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.oy-confetti span{position:absolute;top:-24px;opacity:.6;animation:oy-fall linear infinite}
+@keyframes oy-fall{0%{transform:translate(0,-24px) rotate(0)}50%{transform:translate(14px,300px) rotate(260deg)}100%{transform:translate(-8px,640px) rotate(540deg)}}
+.oy-confetti i{position:absolute;font-style:normal;animation:oy-twinkle 1.8s ease-in-out infinite}
+@keyframes oy-twinkle{0%,100%{opacity:.15;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(45deg)}}
+.oy-shine{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:3;border-radius:inherit}
+.oy-shine::before{content:"";position:absolute;top:-20%;bottom:-20%;width:40%;left:0;
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);
+  transform:translateX(-160%) skewX(-12deg);animation:oy-sweep 5s ease-in-out 1s infinite}
+@keyframes oy-sweep{0%{transform:translateX(-160%) skewX(-12deg)}35%,100%{transform:translateX(380%) skewX(-12deg)}}
+
+/* garland with swaying marigolds, leaves and twinkling lights */
+.oy-garland{flex:none;height:72px;margin-bottom:-18px;position:relative;z-index:2;pointer-events:none;animation:oy-drop .8s .1s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes oy-drop{from{transform:translateY(-60px);opacity:0}to{transform:none;opacity:1}}
+.oy-garland svg{display:block;width:100%;height:72px;overflow:visible}
+.oy-sway{animation:oy-sway 3s ease-in-out infinite}
+@keyframes oy-sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+.oy-bulb{fill:currentColor;transform-box:fill-box;transform-origin:center;filter:drop-shadow(0 0 4px currentColor) drop-shadow(0 0 9px currentColor);animation:oy-bulb 1.4s ease-in-out infinite}
+@keyframes oy-bulb{0%,100%{opacity:.4;transform:scale(.8)}50%{opacity:1;transform:scale(1.3)}}
+
+.oy-x{position:absolute;top:10px;right:10px;z-index:4;width:40px;height:40px;border:0;border-radius:50%;
+  background:#fff;color:var(--navy);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(11,21,36,.25);transition:transform .2s,background .2s}
+.oy-x:hover{background:var(--amber);transform:rotate(90deg)}
 #oy-dialog button:focus-visible,#oy-dialog a:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
 
-.oy-body{padding:1.5rem 1.5rem 1.75rem;overflow:auto;position:relative}
+.oy-body{padding:1.5rem 1.5rem 1.75rem;overflow:auto;position:relative;z-index:1;flex:1 1 auto;min-height:0}
 .oy-small{margin:0 0 .5rem;color:#c25e00;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+.oy-party{display:inline-block;animation:oy-wiggle 1.2s ease-in-out infinite}
+@keyframes oy-wiggle{0%,100%{transform:rotate(-14deg) scale(1)}50%{transform:rotate(14deg) scale(1.25)}}
 #oy-dialog h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(2.2rem,8vw,3.1rem);line-height:1.02;letter-spacing:-.5px;margin:0 0 .75rem;color:var(--navy)}
 #oy-title em{font-style:italic;color:var(--teal-dark)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  #oy-title em{background:linear-gradient(90deg,#12857a,#e08a00,#ff5a3c,#12857a);background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:oy-grad 5s linear infinite}}
+@keyframes oy-grad{to{background-position:-300% 0}}
 #oy-dialog h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:1.5rem;margin:1.5rem 0 .3rem;color:var(--teal-dark)}
 #oy-dialog p{margin:.5rem 0}
 #oy-dialog strong{color:var(--navy);font-weight:600}
 .oy-stats{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.1rem 0}
-.oy-stats div{flex:1 1 6rem;background:#fff;border:2px solid var(--teal);border-radius:10px;padding:.6rem .75rem;text-align:center}
-.oy-stats div:nth-child(2){border-color:var(--amber)}
-.oy-stats div:nth-child(3){border-color:var(--fest)}
+.oy-stats div{flex:1 1 6rem;background:#fff;border:2px solid var(--teal);border-radius:12px;padding:.6rem .75rem;text-align:center;animation:oy-rise .6s cubic-bezier(.2,1.3,.4,1) both;box-shadow:0 4px 14px rgba(46,196,182,.25)}
+.oy-stats div:nth-child(1){animation-delay:.5s}
+.oy-stats div:nth-child(2){animation-delay:.65s;border-color:var(--amber);box-shadow:0 4px 14px rgba(244,168,50,.3)}
+.oy-stats div:nth-child(3){animation-delay:.8s;border-color:var(--fest);box-shadow:0 4px 14px rgba(255,122,89,.28)}
+@keyframes oy-rise{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:none}}
 .oy-stats b{display:block;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:2rem;color:var(--navy);line-height:1.1}
 .oy-stats span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
 .oy-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
-.oy-btn{border-radius:6px;padding:.8rem 1.4rem;font:inherit;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:filter .2s,background .2s,color .2s}
-.oy-primary{background:linear-gradient(90deg,var(--teal),var(--amber));border:0;color:var(--navy)}
-.oy-primary:hover{filter:brightness(1.08) saturate(1.1)}
+.oy-btn{position:relative;overflow:hidden;border-radius:8px;padding:.8rem 1.4rem;font:inherit;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .2s,filter .2s,background .2s,color .2s}
+.oy-btn:hover{transform:translateY(-2px)}
+.oy-primary{background:linear-gradient(90deg,var(--teal),var(--amber),var(--fest));background-size:200% 100%;border:0;color:var(--navy);animation:oy-pulse 2s infinite,oy-flow 4s linear infinite}
+.oy-primary::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:0;background:linear-gradient(105deg,transparent,rgba(255,255,255,.7),transparent);transform:translateX(-150%);animation:oy-btnshine 3s 1.5s infinite}
+@keyframes oy-btnshine{0%{transform:translateX(-150%)}40%,100%{transform:translateX(350%)}}
+@keyframes oy-flow{to{background-position:-200% 0}}
+@keyframes oy-pulse{0%{box-shadow:0 0 0 0 rgba(46,196,182,.6)}70%,100%{box-shadow:0 0 0 14px rgba(46,196,182,0)}}
 .oy-ghost{background:#fff;border:2px solid var(--teal);color:var(--teal-dark)}
 .oy-ghost:hover{background:var(--teal);color:var(--navy)}
 #oy-story blockquote{margin:1rem 0;padding-left:1rem;border-left:4px solid var(--amber);font-family:"Libre Baskerville",Georgia,serif;font-style:italic;color:var(--navy);font-size:.95rem}
 #oy-story ul{margin:.25rem 0;padding-left:1.2rem}
 #oy-story a{color:var(--teal-dark);font-weight:600}
+
+@media (prefers-reduced-motion:reduce){
+  #oy-dialog,#oy-dialog *,#oy-dialog *::before,#oy-dialog *::after{animation:none!important;transition:none!important}
+  .oy-confetti,.oy-shine{display:none}
+}
 </style>
 
 <dialog id="oy-dialog" aria-labelledby="oy-title" tabindex="-1" autofocus>
+  <div class="oy-confetti" aria-hidden="true"></div>
+  <div class="oy-shine" aria-hidden="true"></div>
   <div class="oy-garland" aria-hidden="true"></div>
   <button class="oy-x" id="oy-close" aria-label="Close and view the website">&times;</button>
   <div class="oy-body">
 
     <!-- Step 1: short teaser -->
     <div id="oy-teaser">
-      <p class="oy-small">We turned one</p>
+      <p class="oy-small"><span class="oy-party">🎉</span> We turned one <span class="oy-party" style="animation-delay:.4s">🎊</span></p>
       <h2 id="oy-title">1 Year of <em>Dr MS Corpus</em></h2>
       <p>Medicine as a living journey, and a year of learning it together. Thank you for reading, watching and following along. A small corner of the internet became a community because of you.</p>
       <div class="oy-stats">
@@ -1255,6 +1295,87 @@
   var teaser = document.getElementById('oy-teaser');
   var story = document.getElementById('oy-story');
   var body = d.querySelector('.oy-body');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- garland: marigolds + mango leaves that sway, with twinkling lights ---- */
+  function sy(x) { var t = (x % 120) / 120; return 6*(1-t)*(1-t) + 44*(1-t)*t + 6*t*t; }
+  function sway(x, y, dl, inner) {
+    return '<g class="oy-sway" style="transform-origin:' + x + 'px ' + y + 'px;animation-delay:' + dl + 's">' + inner + '</g>';
+  }
+  function leaf(x, dl) {
+    var y = sy(x);
+    return sway(x, y, dl,
+      '<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="'+(y+14)+'" stroke="#b8860b" stroke-width="1.2"/>' +
+      '<path d="M'+x+' '+(y+14)+' C'+(x-10)+' '+(y+24)+' '+(x-8)+' '+(y+40)+' '+x+' '+(y+50)+' C'+(x+8)+' '+(y+40)+' '+(x+10)+' '+(y+24)+' '+x+' '+(y+14)+'Z" fill="#2fb67a"/>' +
+      '<path d="M'+x+' '+(y+16)+'L'+x+' '+(y+48)+'" stroke="#1b8a57" stroke-width="1" fill="none"/>');
+  }
+  function flower(x, dl) {
+    var y = sy(x), cy = 47, p = '', i, a;
+    for (i = 0; i < 8; i++) {
+      a = i * Math.PI / 4;
+      p += '<circle cx="'+(x + 7.5*Math.cos(a)).toFixed(1)+'" cy="'+(cy + 7.5*Math.sin(a)).toFixed(1)+'" r="4.3" fill="'+(i%2 ? '#ff8f00' : '#ffb300')+'"/>';
+    }
+    return sway(x, y, dl,
+      '<line x1="'+x+'" y1="'+y+'" x2="'+x+'" y2="37" stroke="#b8860b" stroke-width="1.2"/>' + p +
+      '<circle cx="'+x+'" cy="'+cy+'" r="5.8" fill="#ffa000"/><circle cx="'+x+'" cy="'+cy+'" r="2.8" fill="#e65100"/>');
+  }
+  (function () {
+    var g = d.querySelector('.oy-garland'), h = '', i, x, n = 0;
+    var cols = ['#ffd166', '#2ec4b6', '#ff7a59', '#ff5fa2'];
+    for (i = 0; i < 5; i++) {
+      x = i * 120;
+      h += '<path d="M'+x+' 6 Q'+(x+60)+' 22 '+(x+120)+' 6" fill="none" stroke="#d4a017" stroke-width="2"/>';
+      h += leaf(x+20, i*0.4) + flower(x+60, i*0.3+0.2) + leaf(x+100, i*0.4+0.6);
+      [0, 40, 80].forEach(function (o) {
+        var bx = x + o;
+        h += '<circle class="oy-bulb" cx="'+bx+'" cy="'+sy(bx).toFixed(1)+'" r="3.4" style="color:'+cols[n%4]+';animation-delay:'+(n*0.23).toFixed(2)+'s"/>';
+        n++;
+      });
+    }
+    g.innerHTML = '<svg viewBox="0 0 600 72" preserveAspectRatio="xMidYMin slice" xmlns="http://www.w3.org/2000/svg">' + h + '</svg>';
+  })();
+
+  /* ---- falling confetti + twinkling sparkles ---- */
+  if (!reduce) {
+    var cf = d.querySelector('.oy-confetti'), cc = ['#f4a832','#2ec4b6','#ff7a59','#ff5fa2','#ffd166','#7b6cff'], i, el;
+    for (i = 0; i < 26; i++) {
+      el = document.createElement('span');
+      el.style.left = (Math.random() * 100) + '%';
+      el.style.background = cc[i % cc.length];
+      el.style.width = (6 + Math.random() * 6) + 'px';
+      el.style.height = (8 + Math.random() * 8) + 'px';
+      el.style.animationDuration = (5 + Math.random() * 5) + 's';
+      el.style.animationDelay = (-Math.random() * 8) + 's';
+      if (i % 3 === 0) el.style.borderRadius = '50%';
+      cf.appendChild(el);
+    }
+    for (i = 0; i < 9; i++) {
+      el = document.createElement('i');
+      el.textContent = '\u2726';
+      el.style.left = (4 + Math.random() * 90) + '%';
+      el.style.top = (14 + Math.random() * 78) + '%';
+      el.style.color = cc[i % cc.length];
+      el.style.fontSize = (12 + Math.random() * 14) + 'px';
+      el.style.animationDelay = (Math.random() * 2) + 's';
+      cf.appendChild(el);
+    }
+  }
+
+  /* ---- numbers count up when the popup opens ---- */
+  function countUp() {
+    if (reduce) return;
+    [].forEach.call(d.querySelectorAll('.oy-stats b'), function (b) {
+      var n = parseInt(b.getAttribute('data-n') || b.textContent, 10), t0 = null;
+      b.setAttribute('data-n', n);
+      function f(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 1100, 1);
+        b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(f);
+      }
+      requestAnimationFrame(f);
+    });
+  }
 
   function show(which) {
     teaser.hidden = which !== 'teaser';
@@ -1265,7 +1386,7 @@
 
   // Shows once per visitor. Add ?preview to any page URL to see it again while testing.
   var preview = location.search.indexOf('preview') !== -1;
-  if (!seen() || preview) setTimeout(function () { d.showModal(); d.focus(); }, 700);
+  if (!seen() || preview) setTimeout(function () { d.showModal(); d.focus(); countUp(); }, 700);
 
   d.addEventListener('close', function () {
     try { localStorage.setItem(KEY, '1'); } catch (e) {}
@@ -1277,9 +1398,13 @@
   document.getElementById('oy-done').onclick = function () { d.close(); };
   document.getElementById('oy-read').onclick = function () { show('story'); };
   document.getElementById('oy-back').onclick = function () { show('teaser'); };
+  window.oyShow = function () { d.showModal(); d.focus(); countUp(); };   // used by the preview button
 })();
 </script>
 <!-- ===== end of popup ===== -->
+
+</body>
+</html>
 
 </body>
 </html>
