@@ -831,30 +831,55 @@
 </div>
 
 <script>
-  function handleSubmit() {
+  // Paste your Web3Forms access key here (get it free at https://web3forms.com)
+  const ACCESS_KEY = '101ddd40-6a72-4364-a4bb-b59301f4e16c';
+
+  async function handleSubmit() {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
     const message = document.getElementById('message').value.trim();
+    const subject = document.getElementById('subject').value.trim() || 'Message from Dr MS Corpus website';
+    const role = document.getElementById('role').value || 'Not specified';
 
     if (!name || !email || !message) {
       alert('Please fill in your name, email, and message.');
       return;
     }
 
-    // Build mailto link with form data
-    const subject = document.getElementById('subject').value.trim() || 'Message from Dr MS Corpus website';
-    const role = document.getElementById('role').value;
-    const body = `Name: ${name}\nEmail: ${email}\nBackground: ${role}\n\n${message}`;
-    const mailtoLink = `mailto:drmscorpus@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const btn = document.querySelector('.btn-submit');
+    const label = btn.querySelector('span');
+    const originalLabel = label.textContent;
+    btn.disabled = true;
+    label.textContent = 'Sending...';
 
-    window.location.href = mailtoLink;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: subject,
+          from_name: 'Dr MS Corpus Website',
+          name: name,
+          email: email,
+          background: role,
+          message: message
+        })
+      });
+      const data = await res.json();
 
-    // Show success state
-    setTimeout(() => {
-      document.getElementById('contactForm').style.display = 'none';
-      const s = document.getElementById('successState');
-      s.style.display = 'flex';
-    }, 500);
+      if (data.success) {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('successState').style.display = 'flex';
+      } else {
+        alert('Sorry, your message could not be sent. Please email drmscorpus@gmail.com directly.');
+      }
+    } catch (err) {
+      alert('Network error. Please check your connection or email drmscorpus@gmail.com directly.');
+    } finally {
+      btn.disabled = false;
+      label.textContent = originalLabel;
+    }
   }
 
   function resetForm() {
