@@ -1128,8 +1128,6 @@
   </footer>
 </footer>
 
-</div>
-
 <!-- ===== Dr MS Corpus: 1 Year popup. Paste this whole block just before </body> ===== -->
 <style>
 /* ---- Colours from drmscorpus.in (teal + amber), bright + festive ---- */
@@ -1291,6 +1289,10 @@
 (function () {
   var d = document.getElementById('oy-dialog');
   if (!d || typeof d.showModal !== 'function') return;
+  /* HOW OFTEN TO SHOW:  'always' = every time the page opens or refreshes
+                         'session' = once each time a visitor opens the site (until the tab is closed)
+                         'once'   = only the first time ever, per browser */
+  var SHOW_MODE = 'always';
   var KEY = 'drmscorpus-1yr-seen';
   var teaser = document.getElementById('oy-teaser');
   var story = document.getElementById('oy-story');
@@ -1382,14 +1384,23 @@
     story.hidden = which !== 'story';
     body.scrollTop = 0;
   }
-  function seen() { try { return localStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+  function seen() {
+    try {
+      if (SHOW_MODE === 'session') return sessionStorage.getItem(KEY) === '1';
+      if (SHOW_MODE === 'once') return localStorage.getItem(KEY) === '1';
+    } catch (e) {}
+    return false;   // 'always'
+  }
 
-  // Shows once per visitor. Add ?preview to any page URL to see it again while testing.
+  // Add ?preview to any page URL to force it to show while testing.
   var preview = location.search.indexOf('preview') !== -1;
   if (!seen() || preview) setTimeout(function () { d.showModal(); d.focus(); countUp(); }, 700);
 
   d.addEventListener('close', function () {
-    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+    try {
+      if (SHOW_MODE === 'session') sessionStorage.setItem(KEY, '1');
+      else if (SHOW_MODE === 'once') localStorage.setItem(KEY, '1');
+    } catch (e) {}
     show('teaser');
   });
   d.addEventListener('click', function (e) { if (e.target === d) d.close(); }); // click outside to close
@@ -1402,9 +1413,6 @@
 })();
 </script>
 <!-- ===== end of popup ===== -->
-
-</body>
-</html>
 
 </body>
 </html>
